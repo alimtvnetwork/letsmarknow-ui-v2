@@ -132,6 +132,7 @@ const updates = C(14, "Updates & Release Channels");
 const settings = C(15, "Settings, Pricing & Plans");
 const importExport = C(16, "Import / Export");
 const pwa = C(17, "PWA & Mobile");
+const ds = C(18, "Design System Primer");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
