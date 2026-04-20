@@ -18,10 +18,10 @@ export default function PermissionsMatrix() {
     <SlideLayout chapter="Chapter 12 · Sharing & Collaboration" pageLabel="12.04">
       <div className="h-full flex flex-col pt-8">
         <h1 className="text-5xl font-bold tracking-tight mb-2">
-          Permissions · <span className="text-[hsl(var(--slide-accent))]">four roles</span>
+          Share roles · <span className="text-[hsl(var(--slide-accent))]">public-link permissions</span>
         </h1>
         <p className="text-lg text-[hsl(var(--slide-muted))] mb-6 max-w-5xl">
-          Roles are additive: each one is a strict superset of the previous. Easier to reason about than fine-grained ACLs.
+          For people <em>outside</em> your Org who land on a shared link. Different from internal Org roles (Ch 3). Additive: each role is a strict superset of the previous.
         </p>
 
         <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] overflow-hidden flex-1 min-h-0">

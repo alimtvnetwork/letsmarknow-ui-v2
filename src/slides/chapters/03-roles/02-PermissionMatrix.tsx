@@ -50,10 +50,10 @@ export default function PermissionMatrix() {
       <div className="h-full flex flex-col">
         <div className="mb-6">
           <h2 className="text-6xl font-bold leading-tight">
-            Permission matrix.
+            Org-level permission matrix.
           </h2>
           <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">
-            One source of truth across API, UI, and audit log.
+            Internal Org members only — Owner, Admin, Editor, Viewer, Billing, Guest. Public-share roles are different (see Ch 12).
           </p>
         </div>
 

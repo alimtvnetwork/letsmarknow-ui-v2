@@ -15,8 +15,8 @@ export default function ExtKeyboardShortcuts() {
   return (
     <SlideLayout chapter="Chapter 7 · Extension" pageLabel="07.08">
       <div className="h-full flex flex-col pt-8">
-        <h1 className="text-5xl font-bold tracking-tight mb-2">Four shortcuts · <span className="text-[hsl(var(--slide-accent))]">user-rebindable</span></h1>
-        <p className="text-lg text-[hsl(var(--slide-muted))] mb-6 max-w-5xl">Chrome's max with default keys. We chose <code className="font-mono">Alt</code> (Option on Mac) to avoid collisions.</p>
+        <h1 className="text-5xl font-bold tracking-tight mb-2">Extension shortcuts · <span className="text-[hsl(var(--slide-accent))]">4 system bindings</span></h1>
+        <p className="text-lg text-[hsl(var(--slide-muted))] mb-6 max-w-5xl">OS-level keys registered with Chrome — work even when the browser isn't focused. Web app keymap (Ch 8) is separate.</p>
         <div className="space-y-3 flex-1">
           {shortcuts.map((s) => (
             <div key={s.cmd} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] px-6 py-3.5 flex items-center gap-6">

@@ -28,10 +28,10 @@ export default function HierarchyCapabilitiesMatrix() {
     <SlideLayout chapter="Chapter 9 · Browsing Hierarchy" pageLabel="09.03">
       <div className="h-full flex flex-col pt-12">
         <h1 className="text-6xl font-bold tracking-tight mb-3">
-          Capabilities · <span className="text-[hsl(var(--slide-accent))]">what each level can do</span>
+          Entity capabilities · <span className="text-[hsl(var(--slide-accent))]">what lives at each level</span>
         </h1>
         <p className="text-xl text-[hsl(var(--slide-muted))] mb-6">
-          Twelve capabilities × five entity types. UI affordances disable cleanly when a row is false.
+          Not about people — about <em>things</em>. Twelve capabilities × five entity types (Org, Space, Collection, Group, Item).
         </p>
 
         <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] overflow-hidden flex-1">
