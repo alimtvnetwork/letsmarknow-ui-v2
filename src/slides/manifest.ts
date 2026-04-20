@@ -243,6 +243,12 @@ export const slides: SlideEntry[] = [
   settings("st-billing", "Billing portal", StBillingPortal),
   settings("st-seats", "Seat management", StSeatManagement),
   settings("st-downgrade", "Downgrade flow", StDowngradeFlow),
+
+  // Ch 16
+  importExport("ie-sources", "Four importers", IeImportSources),
+  importExport("ie-dedup", "Dedup pipeline", IeDedupAlgorithm),
+  importExport("ie-export", "Export · 4 formats", IeExportPipeline),
+  importExport("ie-gdpr", "Account export & deletion", IeGdprExport),
 ];
 
 export const chapters = Array.from(
