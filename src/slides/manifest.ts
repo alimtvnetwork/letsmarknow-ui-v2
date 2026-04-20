@@ -82,6 +82,11 @@ import UpUpdaterFlow from "./chapters/14-updates/01-UpdaterFlow";
 import UpReleaseChannels from "./chapters/14-updates/02-ReleaseChannels";
 import UpChangelog from "./chapters/14-updates/03-ChangelogSurface";
 import UpForcedUpdate from "./chapters/14-updates/04-ForcedUpdate";
+import StSettingsIA from "./chapters/15-settings/01-SettingsIA";
+import StPlanPicker from "./chapters/15-settings/02-PlanPicker";
+import StBillingPortal from "./chapters/15-settings/03-BillingPortal";
+import StSeatManagement from "./chapters/15-settings/04-SeatManagement";
+import StDowngradeFlow from "./chapters/15-settings/05-DowngradeFlow";
 
 export interface SlideEntry {
   id: string;
@@ -112,6 +117,7 @@ const featuresB = C(11, "Find & Visualize");
 const sharing = C(12, "Sharing & Collaboration");
 const history = C(13, "History, Activity & Conflicts");
 const updates = C(14, "Updates & Release Channels");
+const settings = C(15, "Settings, Pricing & Plans");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
@@ -225,6 +231,13 @@ export const slides: SlideEntry[] = [
   updates("up-channels", "Stable · Beta · Canary", UpReleaseChannels),
   updates("up-changelog", "Changelog surface", UpChangelog),
   updates("up-forced", "Forced updates", UpForcedUpdate),
+
+  // Ch 15
+  settings("st-ia", "Settings IA · 8 sections", StSettingsIA),
+  settings("st-plans", "Three plans", StPlanPicker),
+  settings("st-billing", "Billing portal", StBillingPortal),
+  settings("st-seats", "Seat management", StSeatManagement),
+  settings("st-downgrade", "Downgrade flow", StDowngradeFlow),
 ];
 
 export const chapters = Array.from(

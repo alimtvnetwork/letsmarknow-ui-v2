@@ -17,7 +17,6 @@ export default function UpdaterFlow() {
         <p className="text-2xl text-[hsl(var(--slide-muted))] mb-12 max-w-5xl">
           Updates never interrupt mid-task. Pre-fetched in the background; user picks the moment to reload.
         </p>
-
         <div className="grid grid-cols-3 gap-6 flex-1">
           {stages.map((s, i) => (
             <div key={s.title} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-8 relative">
@@ -30,7 +29,6 @@ export default function UpdaterFlow() {
             </div>
           ))}
         </div>
-
         <div className="mt-8 rounded-xl border border-[hsl(var(--slide-accent)_/_0.4)] bg-[hsl(var(--slide-accent)_/_0.08)] px-6 py-4 flex items-center gap-4">
           <RefreshCw className="w-5 h-5 text-[hsl(var(--slide-accent))]" />
           <span className="text-base">Update ready · v2.4.1 → v2.4.2</span>

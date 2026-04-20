@@ -2,23 +2,15 @@ import { SlideLayout } from "@/slides/_layout/SlideLayout";
 import { Sparkles, Wrench, Bug } from "lucide-react";
 
 const entries = [
-  {
-    v: "2.4.2",
-    date: "Apr 19",
-    items: [
-      { icon: Wrench, kind: "Fixed", text: "Hover-to-jump preview no longer flashes when scrolling fast" },
-      { icon: Bug, kind: "Fixed", text: "Tag merge incorrectly counted detached items in summary" },
-    ],
-  },
-  {
-    v: "2.4.0",
-    date: "Apr 12",
-    items: [
-      { icon: Sparkles, kind: "New", text: "Mind-map view for collections (Pro)" },
-      { icon: Sparkles, kind: "New", text: "Bulk operations toolbar with undo bundling" },
-      { icon: Wrench, kind: "Improved", text: "Quick find ranks recents 2× higher" },
-    ],
-  },
+  { v: "2.4.2", date: "Apr 19", items: [
+    { icon: Wrench, kind: "Fixed", text: "Hover-to-jump preview no longer flashes when scrolling fast" },
+    { icon: Bug, kind: "Fixed", text: "Tag merge incorrectly counted detached items in summary" },
+  ] },
+  { v: "2.4.0", date: "Apr 12", items: [
+    { icon: Sparkles, kind: "New", text: "Mind-map view for collections (Pro)" },
+    { icon: Sparkles, kind: "New", text: "Bulk operations toolbar with undo bundling" },
+    { icon: Wrench, kind: "Improved", text: "Quick find ranks recents 2× higher" },
+  ] },
 ];
 
 export default function ChangelogSurface() {
@@ -31,7 +23,6 @@ export default function ChangelogSurface() {
         <p className="text-2xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">
           Reachable from "What's new" in the user menu. Auto-opens once after every minor version (never after patch).
         </p>
-
         <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] flex-1 overflow-auto p-8">
           {entries.map((e) => (
             <div key={e.v} className="mb-10 last:mb-0">
@@ -55,7 +46,6 @@ export default function ChangelogSurface() {
             </div>
           ))}
         </div>
-
         <p className="text-sm text-[hsl(var(--slide-muted))] mt-6">
           SemVer locked: <code className="text-[hsl(var(--slide-fg))]">major.minor.patch</code> · patch = bugs only · minor = features · major = breaking (rare).
         </p>

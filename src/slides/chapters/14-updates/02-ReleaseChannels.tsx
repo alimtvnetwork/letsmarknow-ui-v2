@@ -16,7 +16,6 @@ export default function ReleaseChannels() {
         <p className="text-2xl text-[hsl(var(--slide-muted))] mb-12 max-w-5xl">
           Same web app, three deploy lanes. Beta is opt-in. Canary is internal. Stable is the default.
         </p>
-
         <div className="grid grid-cols-3 gap-6 flex-1">
           {channels.map((c) => (
             <div key={c.name} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-8 flex flex-col">
@@ -31,7 +30,6 @@ export default function ReleaseChannels() {
             </div>
           ))}
         </div>
-
         <p className="text-sm text-[hsl(var(--slide-muted))] mt-6">
           Channel routed by cookie + JWT claim. Server picks the right asset bundle at the edge — no client-side bundle swap.
         </p>
