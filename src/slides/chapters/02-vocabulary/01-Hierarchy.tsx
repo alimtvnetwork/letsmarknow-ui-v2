@@ -49,15 +49,12 @@ export default function Hierarchy() {
         </div>
 
         <div className="flex-1 flex items-center">
-          <div className="w-full grid grid-cols-9 items-stretch gap-3">
+          <div className="w-full flex items-stretch gap-2">
             {levels.map((l, i) => {
               const Icon = l.icon;
               return (
-                <>
-                  <div
-                    key={l.name}
-                    className="col-span-1 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex flex-col"
-                  >
+                <div key={l.name} className="flex items-stretch flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex flex-col">
                     <div className="w-12 h-12 rounded-xl bg-[hsl(var(--slide-accent)/0.15)] flex items-center justify-center mb-4">
                       <Icon className="w-6 h-6 text-[hsl(var(--slide-accent))]" />
                     </div>
@@ -73,11 +70,11 @@ export default function Hierarchy() {
                     </div>
                   </div>
                   {i < levels.length - 1 && (
-                    <div className="col-span-1 flex items-center justify-center">
-                      <ChevronRight className="w-10 h-10 text-[hsl(var(--slide-muted))]" />
+                    <div className="flex items-center justify-center px-1 shrink-0">
+                      <ChevronRight className="w-8 h-8 text-[hsl(var(--slide-muted))]" />
                     </div>
                   )}
-                </>
+                </div>
               );
             })}
           </div>
