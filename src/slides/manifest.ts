@@ -63,6 +63,14 @@ import FbListGridCompact from "./chapters/11-features-b/04-ListGridCompact";
 import FbMindmapView from "./chapters/11-features-b/05-MindmapView";
 import FbHoverToJump from "./chapters/11-features-b/06-HoverToJump";
 import FbEmbedsPreviews from "./chapters/11-features-b/07-EmbedsPreviews";
+import ShShareModel from "./chapters/12-sharing/01-ShareModel";
+import ShPublicShares from "./chapters/12-sharing/02-PublicShares";
+import ShPasswordInvite from "./chapters/12-sharing/03-PasswordInvite";
+import ShPermissionsMatrix from "./chapters/12-sharing/04-PermissionsMatrix";
+import ShRealtimePresence from "./chapters/12-sharing/05-RealtimePresence";
+import ShCommentsReactions from "./chapters/12-sharing/06-CommentsReactions";
+import ShNotifications from "./chapters/12-sharing/07-Notifications";
+import ShShareAnalyticsAudit from "./chapters/12-sharing/08-ShareAnalyticsAudit";
 
 export interface SlideEntry {
   id: string;
@@ -90,6 +98,7 @@ const webapp = C(8, "Web App Shell & Routes");
 const hierarchy = C(9, "Browsing Hierarchy");
 const featuresA = C(10, "Capture & Organize");
 const featuresB = C(11, "Find & Visualize");
+const sharing = C(12, "Sharing & Collaboration");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
@@ -178,6 +187,16 @@ export const slides: SlideEntry[] = [
   featuresB("fb-mindmap", "Mind-map view", FbMindmapView),
   featuresB("fb-hover-jump", "Hover to jump", FbHoverToJump),
   featuresB("fb-embeds", "Embeds & previews", FbEmbedsPreviews),
+
+  // Ch 12
+  sharing("sh-model", "Share model", ShShareModel),
+  sharing("sh-public", "Public shares /t/{slug}", ShPublicShares),
+  sharing("sh-gated", "Password & invite", ShPasswordInvite),
+  sharing("sh-permissions", "Permissions matrix", ShPermissionsMatrix),
+  sharing("sh-presence", "Real-time presence", ShRealtimePresence),
+  sharing("sh-comments", "Comments & reactions", ShCommentsReactions),
+  sharing("sh-notifications", "Notifications", ShNotifications),
+  sharing("sh-analytics-audit", "Analytics & audit", ShShareAnalyticsAudit),
 ];
 
 export const chapters = Array.from(
