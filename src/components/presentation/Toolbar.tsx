@@ -1,4 +1,4 @@
-import { Moon, Sun, Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { Moon, Sun, Play, ChevronLeft, ChevronRight, PanelLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface Props {
@@ -9,6 +9,8 @@ interface Props {
   onPresent: () => void;
   isDark: boolean;
   onToggleTheme: () => void;
+  sidebarOpen: boolean;
+  onToggleSidebar: () => void;
 }
 
 export function Toolbar({
@@ -19,10 +21,21 @@ export function Toolbar({
   onPresent,
   isDark,
   onToggleTheme,
+  sidebarOpen,
+  onToggleSidebar,
 }: Props) {
   return (
     <header className="h-14 shrink-0 flex items-center justify-between px-5 border-b border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))]">
       <div className="flex items-center gap-3">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onToggleSidebar}
+          aria-label={sidebarOpen ? "Hide slides panel" : "Show slides panel"}
+          aria-pressed={sidebarOpen}
+        >
+          <PanelLeft className="w-4 h-4" />
+        </Button>
         <div className="w-7 h-7 rounded-md bg-[hsl(var(--slide-accent))] flex items-center justify-center text-[hsl(var(--slide-bg))] font-bold text-sm">
           L
         </div>
