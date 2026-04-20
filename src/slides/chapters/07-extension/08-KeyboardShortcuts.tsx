@@ -14,12 +14,12 @@ const shortcuts = [
 export default function ExtKeyboardShortcuts() {
   return (
     <SlideLayout chapter="Chapter 7 · Extension" pageLabel="07.08">
-      <div className="h-full flex flex-col pt-12">
-        <h1 className="text-6xl font-bold tracking-tight mb-3">Four shortcuts · <span className="text-[hsl(var(--slide-accent))]">user-rebindable</span></h1>
-        <p className="text-xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">Chrome's max with default keys. We chose <code className="font-mono">Alt</code> (Option on Mac) to avoid collisions.</p>
+      <div className="h-full flex flex-col pt-8">
+        <h1 className="text-5xl font-bold tracking-tight mb-2">Four shortcuts · <span className="text-[hsl(var(--slide-accent))]">user-rebindable</span></h1>
+        <p className="text-lg text-[hsl(var(--slide-muted))] mb-6 max-w-5xl">Chrome's max with default keys. We chose <code className="font-mono">Alt</code> (Option on Mac) to avoid collisions.</p>
         <div className="space-y-3 flex-1">
           {shortcuts.map((s) => (
-            <div key={s.cmd} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] px-6 py-5 flex items-center gap-6">
+            <div key={s.cmd} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] px-6 py-3.5 flex items-center gap-6">
               <div className="flex items-center gap-1.5 w-72 shrink-0">
                 {s.keys.map((k, i) => (<span key={i} className="flex items-center gap-1.5">{i > 0 && <span className="text-[hsl(var(--slide-muted))]">+</span>}<Kbd>{k}</Kbd></span>))}
               </div>
@@ -28,7 +28,7 @@ export default function ExtKeyboardShortcuts() {
             </div>
           ))}
         </div>
-        <div className="mt-8 grid grid-cols-3 gap-4">
+        <div className="mt-5 grid grid-cols-3 gap-4">
           <div className="rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4">
             <div className="text-sm uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-2">Conflicts</div>
             <div className="text-base">On install we read <code className="font-mono text-sm">chrome.commands.getAll()</code> and banner any unset binding.</div>

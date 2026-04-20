@@ -15,13 +15,13 @@ const tabs = [
 export default function SaveSession() {
   return (
     <SlideLayout chapter="Chapter 10 · Capture & Organize" pageLabel="10.02">
-      <div className="h-full flex flex-col pt-12">
-        <h1 className="text-6xl font-bold tracking-tight mb-3">
+      <div className="h-full flex flex-col pt-8">
+        <h1 className="text-5xl font-bold tracking-tight mb-2">
           Save session · <span className="text-[hsl(var(--slide-accent))]">whole window, one Collection</span>
         </h1>
-        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8">Window scan → smart filter → preview → confirm. One undo erases the entire batch.</p>
+        <p className="text-lg text-[hsl(var(--slide-muted))] mb-6">Window scan → smart filter → preview → confirm. One undo erases the entire batch.</p>
 
-        <div className="grid grid-cols-5 gap-6 flex-1">
+        <div className="grid grid-cols-5 gap-5 flex-1 min-h-0">
           <div className="col-span-3 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex flex-col">
             <div className="flex items-center gap-2 mb-4">
               <Layers className="w-5 h-5 text-[hsl(var(--slide-accent))]" />

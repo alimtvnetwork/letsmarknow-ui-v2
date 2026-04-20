@@ -22,18 +22,18 @@ const plans = [
 export default function PlanPicker() {
   return (
     <SlideLayout chapter="Chapter 15 · Settings, Pricing & Plans" pageLabel="15.02">
-      <div className="h-full flex flex-col pt-12">
-        <h1 className="text-7xl font-bold tracking-tight mb-3">
+      <div className="h-full flex flex-col pt-10">
+        <h1 className="text-6xl font-bold tracking-tight mb-2">
           Three plans · <span className="text-[hsl(var(--slide-accent))]">free, pro, team</span>
         </h1>
-        <p className="text-2xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8 max-w-5xl">
           No usage caps to surprise you. The free tier is genuinely useful — Pro adds polish, Team adds governance.
         </p>
         <div className="grid grid-cols-3 gap-6 flex-1">
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`rounded-2xl p-8 flex flex-col ${
+              className={`rounded-2xl p-6 flex flex-col min-h-0 ${
                 p.accent
                   ? "border-2 border-[hsl(var(--slide-accent))] bg-[hsl(var(--slide-accent)_/_0.05)]"
                   : "border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))]"
@@ -42,12 +42,12 @@ export default function PlanPicker() {
               {p.accent && (
                 <div className="self-start px-2 py-0.5 rounded-full bg-[hsl(var(--slide-accent))] text-black text-xs font-bold mb-4">MOST POPULAR</div>
               )}
-              <h3 className="text-2xl font-bold mb-3">{p.name}</h3>
-              <div className="mb-6">
-                <span className="text-5xl font-bold">{p.price}</span>
-                <span className="text-base text-[hsl(var(--slide-muted))] ml-2">{p.per}</span>
+              <h3 className="text-2xl font-bold mb-2">{p.name}</h3>
+              <div className="mb-4">
+                <span className="text-4xl font-bold">{p.price}</span>
+                <span className="text-sm text-[hsl(var(--slide-muted))] ml-2">{p.per}</span>
               </div>
-              <ul className="space-y-2.5 mb-6 flex-1">
+              <ul className="space-y-2 mb-4 flex-1">
                 {p.feats.map((f) => (
                   <li key={f} className="flex gap-2 text-sm">
                     <Check className="w-4 h-4 text-[hsl(var(--slide-accent))] flex-shrink-0 mt-0.5" />

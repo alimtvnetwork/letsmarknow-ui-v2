@@ -14,15 +14,15 @@ const contents = [
 export default function GdprExport() {
   return (
     <SlideLayout chapter="Chapter 16 · Import / Export" pageLabel="16.04">
-      <div className="h-full flex flex-col pt-12">
-        <h1 className="text-7xl font-bold tracking-tight mb-3">
+      <div className="h-full flex flex-col pt-10">
+        <h1 className="text-6xl font-bold tracking-tight mb-2">
           Account export · <span className="text-[hsl(var(--slide-accent))]">your data, your right</span>
         </h1>
-        <p className="text-2xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8 max-w-5xl">
           GDPR Art. 20 · CCPA · everything we have on you, in one ZIP. Generated on request, available for 30 days.
         </p>
-        <div className="grid grid-cols-3 gap-8 flex-1">
-          <div className="col-span-2 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-8">
+        <div className="grid grid-cols-3 gap-6 flex-1 min-h-0">
+          <div className="col-span-2 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 min-h-0 overflow-hidden">
             <div className="flex items-center gap-3 mb-6">
               <Archive className="w-7 h-7 text-[hsl(var(--slide-accent))]" />
               <h3 className="text-2xl font-bold">What's in the ZIP</h3>
@@ -42,7 +42,7 @@ export default function GdprExport() {
               <div><span className="text-[hsl(var(--slide-fg))] font-mono">README.md</span> — schema docs</div>
             </div>
           </div>
-          <div className="rounded-2xl border border-[hsl(0_70%_60%_/_0.4)] bg-[hsl(var(--slide-surface))] p-6">
+          <div className="rounded-2xl border border-[hsl(0_70%_60%_/_0.4)] bg-[hsl(var(--slide-surface))] p-5 min-h-0 overflow-hidden">
             <Trash2 className="w-8 h-8 text-[hsl(0_70%_60%)] mb-4" />
             <h3 className="text-xl font-bold mb-3">Delete account</h3>
             <p className="text-sm text-[hsl(var(--slide-muted))] mb-5 leading-relaxed">

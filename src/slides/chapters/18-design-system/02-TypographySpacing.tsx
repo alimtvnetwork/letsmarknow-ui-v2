@@ -24,15 +24,15 @@ const radius = [
 export default function TypographySpacing() {
   return (
     <SlideLayout chapter="Chapter 18 · Design System Primer" pageLabel="18.02">
-      <div className="h-full flex flex-col pt-12">
-        <h1 className="text-7xl font-bold tracking-tight mb-3">
+      <div className="h-full flex flex-col pt-8">
+        <h1 className="text-6xl font-bold tracking-tight mb-2">
           Type, space & <span className="text-[hsl(var(--slide-accent))]">radius</span>
         </h1>
-        <p className="text-2xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">
+        <p className="text-lg text-[hsl(var(--slide-muted))] mb-6 max-w-5xl">
           One scale. Inter for UI · Geist Mono for code. 4-px spacing grid. Six radius tokens.
         </p>
-        <div className="grid grid-cols-3 gap-6 flex-1">
-          <div className="col-span-2 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6">
+        <div className="grid grid-cols-3 gap-5 flex-1 min-h-0">
+          <div className="col-span-2 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 min-h-0 overflow-hidden">
             <h3 className="text-xl font-bold mb-4">Type scale</h3>
             <div className="space-y-2">
               {scale.map((t) => (
@@ -45,20 +45,20 @@ export default function TypographySpacing() {
               ))}
             </div>
           </div>
-          <div className="space-y-6">
-            <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6">
-              <h3 className="text-lg font-bold mb-4">Spacing · 4px grid</h3>
-              <div className="space-y-1.5">
+          <div className="space-y-4 min-h-0">
+            <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5">
+              <h3 className="text-base font-bold mb-3">Spacing · 4px grid</h3>
+              <div className="space-y-1">
                 {space.map((s) => (
                   <div key={s} className="flex items-center gap-3">
                     <code className="font-mono text-xs text-[hsl(var(--slide-muted))] w-8">{s}</code>
-                    <div className="h-3 bg-[hsl(var(--slide-accent)_/_0.6)] rounded-sm" style={{ width: s }} />
+                    <div className="h-2.5 bg-[hsl(var(--slide-accent)_/_0.6)] rounded-sm" style={{ width: s }} />
                   </div>
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6">
-              <h3 className="text-lg font-bold mb-4">Radius</h3>
+            <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5">
+              <h3 className="text-base font-bold mb-3">Radius</h3>
               <div className="grid grid-cols-3 gap-3">
                 {radius.map((r) => (
                   <div key={r.name} className="text-center">
