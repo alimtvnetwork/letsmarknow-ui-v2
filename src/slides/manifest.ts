@@ -7,8 +7,6 @@ import Solution from "./chapters/01-vision/03-Solution";
 import Personas from "./chapters/01-vision/04-Personas";
 import AntiPersonas from "./chapters/01-vision/05-AntiPersonas";
 import Hierarchy from "./chapters/02-vocabulary/01-Hierarchy";
-import Glossary from "./chapters/02-vocabulary/02-Glossary";
-import Forbidden from "./chapters/02-vocabulary/03-Forbidden";
 import RolesOverview from "./chapters/03-roles/01-RolesOverview";
 import PermissionMatrix from "./chapters/03-roles/02-PermissionMatrix";
 import GuestSystem from "./chapters/03-roles/03-GuestSystem";
@@ -120,7 +118,7 @@ const C = (chapterNumber: number, chapter: string) =>
 
 const intro = C(0, "Intro");
 const vision = C(1, "Vision & Personas");
-const vocab = C(2, "Vocabulary");
+const vocab = C(2, "Hierarchy");
 const roles = C(3, "Roles & Permissions");
 const marketing = C(4, "Marketing & First Touch");
 const auth = C(5, "Auth & Account Lifecycle");
@@ -152,8 +150,6 @@ export const slides: SlideEntry[] = [
 
   // Ch 2
   vocab("vocab-hierarchy", "Hierarchy", Hierarchy),
-  vocab("vocab-glossary", "Glossary", Glossary),
-  vocab("vocab-forbidden", "Forbidden synonyms", Forbidden),
 
   // Ch 3
   roles("roles-overview", "Seven roles", RolesOverview),
