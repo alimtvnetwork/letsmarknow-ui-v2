@@ -28,27 +28,27 @@ interface Level {
 /* ---------- tiny UI mock helpers (all use slide tokens) ---------- */
 
 const Card = ({ children }: { children: React.ReactNode }) => (
-  <div className="rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-bg))] p-4 h-full flex flex-col gap-3">
+  <div className="rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-bg))] p-3 h-full flex flex-col gap-2 overflow-hidden">
     {children}
   </div>
 );
 
 const AccountUI = () => (
   <Card>
-    <div className="flex items-center gap-3">
-      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[hsl(var(--slide-accent))] to-violet-500 flex items-center justify-center text-base font-bold">
+    <div className="flex items-center gap-2.5">
+      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[hsl(var(--slide-accent))] to-violet-500 flex items-center justify-center text-sm font-bold shrink-0">
         AL
       </div>
       <div className="min-w-0">
-        <div className="font-semibold truncate">Alim Latif</div>
-        <div className="text-xs text-[hsl(var(--slide-muted))] truncate">alim@example.com</div>
+        <div className="text-sm font-semibold truncate">Alim Latif</div>
+        <div className="text-[10px] text-[hsl(var(--slide-muted))] truncate">alim@example.com</div>
       </div>
     </div>
-    <div className="space-y-1.5 text-xs">
-      {["Profile", "Security · MFA", "Devices · 3", "Connected accounts", "Delete account"].map((r) => (
-        <div key={r} className="flex items-center justify-between rounded-md px-2 py-1.5 bg-[hsl(var(--slide-surface))]">
-          <span>{r}</span>
-          <ChevronRight className="w-3 h-3 text-[hsl(var(--slide-muted))]" />
+    <div className="space-y-1 text-[11px]">
+      {["Profile", "Security · MFA", "Devices · 3"].map((r) => (
+        <div key={r} className="flex items-center justify-between rounded-md px-2 py-1 bg-[hsl(var(--slide-surface))]">
+          <span className="truncate">{r}</span>
+          <ChevronRight className="w-3 h-3 text-[hsl(var(--slide-muted))] shrink-0" />
         </div>
       ))}
     </div>
