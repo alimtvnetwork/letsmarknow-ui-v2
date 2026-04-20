@@ -253,6 +253,11 @@ export const slides: SlideEntry[] = [
   importExport("ie-dedup", "Dedup pipeline", IeDedupAlgorithm),
   importExport("ie-export", "Export · 4 formats", IeExportPipeline),
   importExport("ie-gdpr", "Account export & deletion", IeGdprExport),
+
+  // Ch 17
+  pwa("pwa-install", "Install prompt", PwaInstallPrompt),
+  pwa("pwa-offline", "Offline strategy", PwaOfflineStrategy),
+  pwa("pwa-mobile", "Mobile gestures", PwaMobileGestures),
 ];
 
 export const chapters = Array.from(
