@@ -1,0 +1,10 @@
+flowchart TD
+    U[User clicks Save tab<br/>web or extension] --> FE[Frontend]
+    FE --> API[POST /items endpoint]
+    API --> RLS{RLS check<br/>role allowed?}
+    RLS -->|no| ERR[4xx UPPER_SNAKE_CASE<br/>see 18-error-codes.md]
+    RLS -->|yes| DB[(Insert into items)]
+    DB --> LOG[(Append history_events)]
+    LOG --> RES[201 + item payload]
+    RES --> TOAST["Toast: Saved → item appears"]
+    ERR --> ETOAST[Error toast with code]

@@ -1,0 +1,16 @@
+flowchart TD
+    USR[User on Free plan] --> HIT{Hits a limit?}
+    HIT -->|yes| MODAL[Upgrade modal]
+    HIT -->|no| OK[Keep using]
+
+    USR --> BIL[/billing page/]
+    BIL --> PICK["Pick plan: Pro · Team · Lifetime"]
+    PICK --> CHK[Stripe / Paddle checkout]
+    CHK --> WH["Webhook → backend"]
+    WH --> LIC[(licenses table updated)]
+    LIC --> ENT[Entitlements engine recalculates]
+    ENT --> UI[Limits + features unlock instantly]
+
+    BIL --> INV[Invoices · payment method · tax]
+    BIL --> CAN["Cancel → grace → downgrade"]
+    CAN --> DUN[Dunning emails on failed payment]

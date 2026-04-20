@@ -1,0 +1,14 @@
+flowchart TD
+    REL[Team ships a release] --> CHAN{Channel}
+    CHAN --> STB[Stable]
+    CHAN --> BTA[Beta]
+    CHAN --> CAN[Canary]
+
+    STB & BTA & CAN --> PUSH[Push to subscribed users]
+    PUSH --> FEED[In-app updates feed shows entry]
+    PUSH --> UPD{App updater detects new version}
+    UPD -->|Web| BANNER["Banner: New version available · Reload"]
+    UPD -->|Extension| AUTO[Auto-update on next browser restart]
+
+    BANNER -->|User clicks Reload| FRESH[Fresh app loads]
+    FEED -->|User clicks entry| DETAIL[Read full release note]

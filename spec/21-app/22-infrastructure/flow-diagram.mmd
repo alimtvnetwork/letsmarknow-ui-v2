@@ -1,0 +1,16 @@
+flowchart TD
+    DEV[Developer pushes code] --> CI[CI/CD pipeline<br/>09-ci-cd.md]
+    CI --> LINT[Spec-drift linter checks]
+    LINT --> BUILD[Build]
+    BUILD --> ENV{Environment}
+    ENV --> STG[Staging]
+    ENV --> PRD[Production]
+
+    USER[End user] --> CDN[CDN edge<br/>06-cdn-storage.md]
+    CDN --> APP[Web app on hosting<br/>01-hosting.md]
+    APP --> DB[(Database)]
+    APP --> Q[Queues<br/>07-queues.md]
+    Q --> CRON[Cron jobs<br/>08-cron.md]
+    APP --> MAIL[Email provider<br/>11-email-provider.md]
+    APP --> OBS[Observability · logs · metrics · traces]
+    APP --> SEC[Secrets manager]

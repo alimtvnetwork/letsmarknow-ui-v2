@@ -1,0 +1,15 @@
+flowchart TD
+    REQ[Any request] --> AUTH["Auth check → auth.uid"]
+    AUTH --> RLS[Row Level Security policies]
+    RLS -->|allowed| DB[(Encrypted at rest)]
+    RLS -->|denied| F403[403 FORBIDDEN]
+
+    DB --> TRANS[TLS in transit]
+
+    SL[Share link] --> ENT[High-entropy slug]
+    ENT --> RATE[Rate-limit guess attempts]
+    ENT --> EXP[Optional expiry · password]
+
+    USER[User] --> DSR{GDPR / CCPA request}
+    DSR -->|Export| ARCH[Full archive within 30d]
+    DSR -->|Delete| HARD["Bypass 30d soft-delete → hard delete PII"]

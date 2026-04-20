@@ -1,0 +1,12 @@
+flowchart TD
+    P0[Phase 0<br/>MVP<br/>save tab · collections · share link · Chrome ext] --> P1
+    P1[Phase 1<br/>v1<br/>billing · import · history · search] --> P2
+    P2[Phase 2<br/>Collab<br/>members · roles · presence · comments] --> P3
+    P3[Phase 3<br/>Mindmap + AI<br/>visual views · smart suggestions] --> P4
+    P4[Phase 4<br/>Cross-browser<br/>Edge · Brave · Arc · Firefox · Safari]
+
+    P0 -. each phase exits via .-> DOD[Definition of Done<br/>06-definition-of-done.md]
+    P1 -. .-> DOD
+    P2 -. .-> DOD
+    P3 -. .-> DOD
+    P4 -. .-> DOD
