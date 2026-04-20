@@ -49,6 +49,20 @@ import HierCapabilitiesMatrix from "./chapters/09-hierarchy/03-CapabilitiesMatri
 import HierCardinalityLimits from "./chapters/09-hierarchy/04-CardinalityLimits";
 import HierMoveAndShareRules from "./chapters/09-hierarchy/05-MoveAndShareRules";
 import HierColumnView from "./chapters/09-hierarchy/06-ColumnView";
+import FaSaveTab from "./chapters/10-features-a/01-SaveTab";
+import FaSaveSession from "./chapters/10-features-a/02-SaveSession";
+import FaCollectionsCRUD from "./chapters/10-features-a/03-CollectionsCRUD";
+import FaGroups from "./chapters/10-features-a/04-Groups";
+import FaTags from "./chapters/10-features-a/05-Tags";
+import FaNotes from "./chapters/10-features-a/06-Notes";
+import FaBulkOps from "./chapters/10-features-a/07-BulkOps";
+import FbQuickFind from "./chapters/11-features-b/01-QuickFind";
+import FbSearchFilters from "./chapters/11-features-b/02-SearchFilters";
+import FbViewModesOverview from "./chapters/11-features-b/03-ViewModesOverview";
+import FbListGridCompact from "./chapters/11-features-b/04-ListGridCompact";
+import FbMindmapView from "./chapters/11-features-b/05-MindmapView";
+import FbHoverToJump from "./chapters/11-features-b/06-HoverToJump";
+import FbEmbedsPreviews from "./chapters/11-features-b/07-EmbedsPreviews";
 
 export interface SlideEntry {
   id: string;
@@ -74,6 +88,8 @@ const onboarding = C(6, "Onboarding");
 const extension = C(7, "Extension Surfaces");
 const webapp = C(8, "Web App Shell & Routes");
 const hierarchy = C(9, "Browsing Hierarchy");
+const featuresA = C(10, "Capture & Organize");
+const featuresB = C(11, "Find & Visualize");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
@@ -144,6 +160,24 @@ export const slides: SlideEntry[] = [
   hierarchy("hier-limits", "Cardinality limits", HierCardinalityLimits),
   hierarchy("hier-move-share", "Move, share, soft-delete", HierMoveAndShareRules),
   hierarchy("hier-column-view", "Column view (Tab Extend)", HierColumnView),
+
+  // Ch 10
+  featuresA("fa-save-tab", "Save tab · 4 triggers", FaSaveTab),
+  featuresA("fa-save-session", "Save session", FaSaveSession),
+  featuresA("fa-collections-crud", "Collections CRUD", FaCollectionsCRUD),
+  featuresA("fa-groups", "Groups (flat)", FaGroups),
+  featuresA("fa-tags", "Tags · merge & detach", FaTags),
+  featuresA("fa-notes", "Notes & descriptions", FaNotes),
+  featuresA("fa-bulk-ops", "Bulk operations", FaBulkOps),
+
+  // Ch 11
+  featuresB("fb-quick-find", "Quick find", FbQuickFind),
+  featuresB("fb-search-filters", "Search filters", FbSearchFilters),
+  featuresB("fb-view-modes", "View modes overview", FbViewModesOverview),
+  featuresB("fb-list-grid-compact", "List · Grid · Compact", FbListGridCompact),
+  featuresB("fb-mindmap", "Mind-map view", FbMindmapView),
+  featuresB("fb-hover-jump", "Hover to jump", FbHoverToJump),
+  featuresB("fb-embeds", "Embeds & previews", FbEmbedsPreviews),
 ];
 
 export const chapters = Array.from(
