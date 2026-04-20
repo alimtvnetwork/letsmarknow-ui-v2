@@ -269,45 +269,45 @@ const levels: Level[] = [
 export default function HierarchyLevelsUiAndApi() {
   return (
     <SlideLayout chapter="Chapter 9 · Browsing Hierarchy" pageLabel="09.07">
-      <div className="h-full flex flex-col pt-6">
-        <h1 className="text-5xl font-bold tracking-tight mb-1">
+      <div className="h-full flex flex-col pt-4">
+        <h1 className="text-4xl font-bold tracking-tight mb-1">
           Each level: <span className="text-[hsl(var(--slide-accent))]">UI + API</span>
         </h1>
-        <p className="text-lg text-[hsl(var(--slide-muted))] mb-5 max-w-5xl">
+        <p className="text-base text-[hsl(var(--slide-muted))] mb-4 max-w-5xl">
           What the user sees at every tier of the tree, and the exact endpoint that fires when they create or open it.
         </p>
 
-        <div className="grid grid-cols-3 gap-4 flex-1 min-h-0">
+        <div className="grid grid-cols-3 grid-rows-2 gap-3 flex-1 min-h-0">
           {levels.map((lv) => {
             const Icon = lv.icon;
             return (
               <div
                 key={lv.l}
-                className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4 flex flex-col gap-3 min-h-0"
+                className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-3 flex flex-col gap-2 min-h-0 overflow-hidden"
               >
                 {/* Header */}
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-[hsl(var(--slide-accent)_/_0.15)] flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-[hsl(var(--slide-accent))]" />
+                <div className="flex items-center gap-2.5 shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-[hsl(var(--slide-accent)_/_0.15)] flex items-center justify-center shrink-0">
+                    <Icon className="w-4 h-4 text-[hsl(var(--slide-accent))]" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-baseline gap-2">
-                      <span className="font-mono text-xs text-[hsl(var(--slide-accent))]">{lv.l}</span>
-                      <span className="text-lg font-bold truncate">{lv.name}</span>
+                      <span className="font-mono text-[10px] text-[hsl(var(--slide-accent))]">{lv.l}</span>
+                      <span className="text-base font-bold truncate">{lv.name}</span>
                     </div>
-                    <div className="text-[11px] text-[hsl(var(--slide-muted))] line-clamp-1">{lv.blurb}</div>
+                    <div className="text-[10px] text-[hsl(var(--slide-muted))] line-clamp-1">{lv.blurb}</div>
                   </div>
                 </div>
 
                 {/* UI mock */}
-                <div className="flex-1 min-h-0">{lv.ui}</div>
+                <div className="flex-1 min-h-0 overflow-hidden">{lv.ui}</div>
 
                 {/* API list */}
-                <div className="space-y-1">
+                <div className="space-y-0.5 shrink-0">
                   {lv.apis.map((a) => (
                     <div key={a.path + a.method} className="flex items-center gap-2">
-                      <ApiBadge method={a.method} path={a.path} className="text-[11px] py-0.5" />
-                      <span className="text-[11px] text-[hsl(var(--slide-muted))] truncate">{a.label}</span>
+                      <ApiBadge method={a.method} path={a.path} className="text-[10px] py-0.5" />
+                      <span className="text-[10px] text-[hsl(var(--slide-muted))] truncate">{a.label}</span>
                     </div>
                   ))}
                 </div>
