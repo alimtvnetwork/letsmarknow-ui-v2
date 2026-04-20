@@ -91,6 +91,9 @@ import IeImportSources from "./chapters/16-import-export/01-ImportSources";
 import IeDedupAlgorithm from "./chapters/16-import-export/02-DedupAlgorithm";
 import IeExportPipeline from "./chapters/16-import-export/03-ExportPipeline";
 import IeGdprExport from "./chapters/16-import-export/04-GdprExport";
+import PwaInstallPrompt from "./chapters/17-pwa-mobile/01-InstallPrompt";
+import PwaOfflineStrategy from "./chapters/17-pwa-mobile/02-OfflineStrategy";
+import PwaMobileGestures from "./chapters/17-pwa-mobile/03-MobileGestures";
 
 export interface SlideEntry {
   id: string;
@@ -123,6 +126,7 @@ const history = C(13, "History, Activity & Conflicts");
 const updates = C(14, "Updates & Release Channels");
 const settings = C(15, "Settings, Pricing & Plans");
 const importExport = C(16, "Import / Export");
+const pwa = C(17, "PWA & Mobile");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
