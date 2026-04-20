@@ -1,60 +1,45 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
-import { ArrowRight, Mail, ShieldCheck, Sparkles } from "lucide-react";
 
 const steps = [
-  { icon: Mail, t: "1. Submit form", s: "email + password + optional display name. IP+email throttle." },
-  { icon: ShieldCheck, t: "2. Server validates", s: "Email format · password rules · HIBP check · disposable domain block." },
-  { icon: Sparkles, t: "3. Account created", s: "Account row · Personal Org · Member(owner) — all in one txn." },
-  { icon: Mail, t: "4. Verify email sent", s: "Single-use token, 24h TTL. User signed in immediately." },
-  { icon: ShieldCheck, t: "5. Session issued", s: "Access JWT (15 min) + rolling refresh cookie (30 d)." },
+  { n: 1, t: "Email + password (or OAuth)", d: "Form posts to /v1/auth/signup" },
+  { n: 2, t: "Verify email", d: "6-digit code · 10 min · 5 attempts" },
+  { n: 3, t: "Create starter Org", d: "Auto: '<name>'s workspace' (Personal kind)" },
+  { n: 4, t: "Issue session", d: "JWT (15 min) + refresh cookie (30 d)" },
+  { n: 5, t: "Redirect to /onboarding", d: "or ?next=… if deep-linked" },
 ];
 
-export default function Signup() {
+const guards = [
+  "hCaptcha after 3 failures from same IP/15 min",
+  "Disposable-email block list (10minutemail, etc.)",
+  "Soft rate-limit: 5 signups / IP / hour",
+  "Honeypot field + minimum form-fill time",
+];
+
+export default function AuthSignup() {
   return (
-    <SlideLayout chapter="Chapter 5 · Signup" pageLabel="19">
-      <div className="h-full flex flex-col">
-        <div className="mb-6">
-          <h2 className="text-6xl font-bold leading-tight">Signup — five steps, no friction.</h2>
-          <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">Sign in immediately. Verification is a banner, not a wall.</p>
-        </div>
-        <div className="flex-1 grid grid-cols-5 gap-7">
-          <div className="col-span-3 flex flex-col gap-3">
-            {steps.map((step) => {
-              const Icon = step.icon;
-              return (
-                <div key={step.t} className="flex items-start gap-4 rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4">
-                  <div className="w-11 h-11 rounded-lg bg-[hsl(var(--slide-accent)/0.15)] flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-[hsl(var(--slide-accent))]" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="font-bold text-lg">{step.t}</div>
-                    <div className="text-sm text-[hsl(var(--slide-muted))] mt-0.5">{step.s}</div>
-                  </div>
-                  <ArrowRight className="w-5 h-5 text-[hsl(var(--slide-muted))] mt-3" />
+    <SlideLayout chapter="Chapter 5 · Auth & Account" pageLabel="05.02">
+      <div className="h-full flex flex-col pt-12">
+        <h1 className="text-6xl font-bold tracking-tight mb-3">
+          Signup · <span className="text-[hsl(var(--slide-accent))]">five steps to a session</span>
+        </h1>
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-10">From form post to /onboarding — typically under 30 seconds.</p>
+        <div className="grid grid-cols-3 gap-8 flex-1">
+          <div className="col-span-2 space-y-3">
+            {steps.map((s) => (
+              <div key={s.n} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex gap-5 items-center">
+                <div className="w-12 h-12 rounded-full bg-[hsl(var(--slide-accent))] text-[hsl(var(--slide-accent-fg))] flex items-center justify-center text-xl font-bold shrink-0">{s.n}</div>
+                <div>
+                  <div className="text-2xl font-semibold">{s.t}</div>
+                  <div className="text-base text-[hsl(var(--slide-muted))]">{s.d}</div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
-          <div className="col-span-2 flex flex-col gap-4">
-            <div className="rounded-2xl border border-[hsl(var(--slide-warning)/0.4)] bg-[hsl(var(--slide-warning)/0.08)] p-5">
-              <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-warning))] font-bold mb-2">Until verified</div>
-              <ul className="space-y-2 text-base">
-                <li>✗ Cannot create public shares</li>
-                <li>✗ Cannot invite others</li>
-                <li>✗ Cannot change email</li>
-                <li>✓ Everything else works</li>
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex-1">
-              <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] font-semibold mb-3">Anti-abuse</div>
-              <ul className="space-y-2 text-sm">
-                <li><span className="font-mono">10/h</span> signups per IP</li>
-                <li><span className="font-mono">3/24h</span> per email address</li>
-                <li>reCAPTCHA Enterprise when abuse score &gt; 0.7</li>
-                <li>5-fail lockout · 15 min per (email, IP)</li>
-                <li>Password never logged · never echoed</li>
-              </ul>
-            </div>
+          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6">
+            <div className="text-sm uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-4">Anti-abuse guards</div>
+            <ul className="space-y-3 text-base">
+              {guards.map((g) => <li key={g} className="flex gap-2"><span className="text-[hsl(var(--slide-accent))]">▸</span>{g}</li>)}
+            </ul>
           </div>
         </div>
       </div>

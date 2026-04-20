@@ -1,81 +1,54 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
-import { Cookie, Key, Smartphone, Monitor, Tablet, Shield, Zap, Chrome } from "lucide-react";
+import { Monitor, Smartphone, Tablet, X } from "lucide-react";
 
 const devices = [
-  { icon: Monitor, name: "MacBook Pro", kind: "Web · v1.4.2", loc: "Kuala Lumpur, MY · 2 min ago", current: true },
-  { icon: Chrome, name: "Chrome extension", kind: "Ext · v1.4.0", loc: "Kuala Lumpur, MY · just now", current: false },
-  { icon: Smartphone, name: "iPhone 15", kind: "PWA · v1.4.2", loc: "Kuala Lumpur, MY · 1 hour ago", current: false },
-  { icon: Tablet, name: "iPad Air", kind: "PWA · v1.3.9", loc: "Singapore, SG · 3 days ago", current: false },
+  { icon: Monitor, name: "MacBook Pro · Chrome 122", loc: "Kuala Lumpur · MY", last: "Active now", current: true },
+  { icon: Smartphone, name: "iPhone 15 · Safari", loc: "Kuala Lumpur · MY", last: "2 hours ago" },
+  { icon: Tablet, name: "iPad Air · Safari", loc: "Singapore · SG", last: "3 days ago" },
+  { icon: Monitor, name: "Windows · Edge 121", loc: "Penang · MY", last: "9 days ago" },
 ];
 
-export default function Sessions() {
+export default function AuthSessions() {
   return (
-    <SlideLayout chapter="Chapter 5 · Sessions" pageLabel="22">
-      <div className="h-full flex flex-col">
-        <div className="mb-6">
-          <h2 className="text-6xl font-bold leading-tight">Sessions: short JWT, rotating refresh.</h2>
-          <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">
-            15-min access token in memory · 30-day rolling refresh cookie · per-device list.
-          </p>
-        </div>
-        <div className="flex-1 grid grid-cols-5 gap-6">
-          <div className="col-span-2 flex flex-col gap-4">
-            <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-[hsl(var(--slide-accent)/0.15)] flex items-center justify-center">
-                  <Key className="w-5 h-5 text-[hsl(var(--slide-accent))]" />
+    <SlideLayout chapter="Chapter 5 · Auth & Account" pageLabel="05.05">
+      <div className="h-full flex flex-col pt-12">
+        <h1 className="text-6xl font-bold tracking-tight mb-3">
+          Sessions & <span className="text-[hsl(var(--slide-accent))]">devices</span>
+        </h1>
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-10">JWT (15 min) + refresh cookie (30 d, rotating). Revoke any device any time.</p>
+        <div className="grid grid-cols-2 gap-8 flex-1">
+          <div>
+            <div className="text-sm uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-3">Token model</div>
+            <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 space-y-4">
+              {[
+                ["Access JWT", "15 min · in memory · sent as Bearer"],
+                ["Refresh cookie", "30 d · httpOnly · Secure · SameSite=Lax · rotates on each refresh"],
+                ["Reuse detection", "Old refresh used → revoke entire family · force sign-in"],
+                ["Sign out everywhere", "Bumps token_version → all JWTs invalid"],
+              ].map(([k, v]) => (
+                <div key={k}>
+                  <div className="text-base font-semibold">{k}</div>
+                  <div className="text-sm text-[hsl(var(--slide-muted))]">{v}</div>
                 </div>
-                <div className="text-xl font-bold">Access JWT</div>
-              </div>
-              <ul className="space-y-1.5 text-sm text-[hsl(var(--slide-muted))]">
-                <li><span className="font-mono text-[hsl(var(--slide-fg))]">EdDSA</span> · 15-min TTL</li>
-                <li>Claims: <span className="font-mono">sub · org · roles · tv · ent_h · mfa</span></li>
-                <li>In memory (web) or <span className="font-mono">chrome.storage.local</span> (ext)</li>
-                <li className="text-[hsl(var(--slide-warning))]">Never localStorage on web.</li>
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-[hsl(var(--slide-success)/0.15)] flex items-center justify-center">
-                  <Cookie className="w-5 h-5 text-[hsl(var(--slide-success))]" />
-                </div>
-                <div className="text-xl font-bold">Refresh cookie</div>
-              </div>
-              <ul className="space-y-1.5 text-sm text-[hsl(var(--slide-muted))]">
-                <li><span className="font-mono text-[hsl(var(--slide-fg))]">__Host-lmn_refresh</span></li>
-                <li>HttpOnly · Secure · SameSite=Strict · Path=/</li>
-                <li>Opaque 32 bytes · sha256 at rest · 30-d rolling TTL</li>
-                <li className="text-[hsl(var(--slide-warning))]">Reused after rotation → theft alert + revoke.</li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-[hsl(var(--slide-warning)/0.4)] bg-[hsl(var(--slide-warning)/0.08)] px-4 py-3 flex items-center gap-3">
-              <Zap className="w-5 h-5 text-[hsl(var(--slide-warning))]" />
-              <span className="text-sm">
-                <span className="font-bold">"Sign out everywhere"</span> bumps <span className="font-mono">token_version</span> — every JWT dies in &lt; 5 s.
-              </span>
+              ))}
             </div>
           </div>
-          <div className="col-span-3 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex flex-col">
-            <div className="flex items-center justify-between mb-4">
-              <div className="text-xl font-bold">/me/security/devices</div>
-              <button className="px-3 py-1.5 rounded-lg border border-[hsl(var(--slide-border))] text-sm font-semibold flex items-center gap-2">
-                <Shield className="w-4 h-4" /> Revoke all others
-              </button>
-            </div>
-            <div className="space-y-3 flex-1">
+          <div>
+            <div className="text-sm uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-3">/me/security · devices</div>
+            <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] divide-y divide-[hsl(var(--slide-border))]">
               {devices.map((d) => {
                 const Icon = d.icon;
                 return (
-                  <div key={d.name} className={`flex items-center gap-4 rounded-xl px-4 py-3 ${d.current ? "border border-[hsl(var(--slide-accent)/0.5)] bg-[hsl(var(--slide-accent)/0.06)]" : "border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-bg))]"}`}>
-                    <div className="w-11 h-11 rounded-lg bg-[hsl(var(--slide-fg)/0.06)] flex items-center justify-center"><Icon className="w-5 h-5" /></div>
+                  <div key={d.name} className="px-5 py-4 flex items-center gap-4">
+                    <Icon className="w-6 h-6 text-[hsl(var(--slide-accent))] shrink-0" />
                     <div className="flex-1">
-                      <div className="font-bold flex items-center gap-2">
+                      <div className="text-base font-semibold flex items-center gap-2">
                         {d.name}
-                        {d.current && (<span className="px-2 py-0.5 rounded-full text-xs font-bold bg-[hsl(var(--slide-accent))] text-[hsl(var(--slide-bg))]">this device</span>)}
+                        {d.current && <span className="text-xs px-2 py-0.5 rounded-full bg-[hsl(var(--slide-accent)_/_0.2)] text-[hsl(var(--slide-accent))]">this device</span>}
                       </div>
-                      <div className="text-sm text-[hsl(var(--slide-muted))]">{d.kind} · {d.loc}</div>
+                      <div className="text-sm text-[hsl(var(--slide-muted))]">{d.loc} · {d.last}</div>
                     </div>
-                    {!d.current && (<button className="px-3 py-1.5 rounded-lg border border-[hsl(var(--slide-border))] text-sm font-semibold">Revoke</button>)}
+                    {!d.current && <button className="p-1.5 rounded-md hover:bg-[hsl(var(--slide-surface-2))]"><X className="w-4 h-4 text-[hsl(var(--slide-muted))]" /></button>}
                   </div>
                 );
               })}

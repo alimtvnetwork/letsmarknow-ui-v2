@@ -1,111 +1,48 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
-import { Chrome, Upload, Bookmark, FileJson, MoreHorizontal } from "lucide-react";
+import { Chrome, Bookmark, FileJson, Inbox, Layers, ArrowRight } from "lucide-react";
 
-const tiles = [
-  {
-    icon: Chrome,
-    title: "Chrome bookmarks",
-    sub: "One click via the extension. We read chrome.bookmarks.getTree() after a one-time grant.",
-    cta: "Import from Chrome",
-    color: "hsl(var(--slide-accent))",
-    highlight: true,
-  },
-  {
-    icon: FileJson,
-    title: "Toby JSON",
-    sub: "Drop your Toby export — collections become Collections, lists become Groups.",
-    cta: "Upload .json",
-    color: "hsl(var(--slide-success))",
-    highlight: false,
-  },
-  {
-    icon: MoreHorizontal,
-    title: "Pocket · Raindrop · Other",
-    sub: "HTML bookmarks, CSV, or any of the supported third-party exports — see Chapter 16.",
-    cta: "Choose a file",
-    color: "hsl(var(--slide-accent-2))",
-    highlight: false,
-  },
+const sources = [
+  { icon: Chrome, name: "Chrome bookmarks", desc: "Folder structure → Spaces & Collections" },
+  { icon: Layers, name: "Toby export (.json)", desc: "Native fidelity · Collection groups preserved" },
+  { icon: Bookmark, name: "Pocket archive", desc: "Tags become tags · favorites become starred" },
+  { icon: FileJson, name: "Raindrop / Pinboard", desc: "OPML · CSV · JSON" },
 ];
 
-export default function BringBookmarks() {
+export default function OnboardingBringBookmarks() {
   return (
-    <SlideLayout chapter="Chapter 6 · Branch 1 · Step 2" pageLabel="27">
-      <div className="h-full flex flex-col">
-        <div className="mb-6">
-          <h2 className="text-6xl font-bold leading-tight">
-            Step 2 — Bring your bookmarks.
-          </h2>
-          <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">
-            Skippable. We never block onboarding on a successful import.
-          </p>
-        </div>
-
-        <div className="flex-1 flex items-center justify-center">
-          <div className="w-full max-w-6xl">
-            {/* Progress */}
-            <div className="flex items-center gap-2 justify-center mb-10">
-              {[1, 2, 3, 4].map((n) => (
-                <div
-                  key={n}
-                  className={`h-2 rounded-full transition-all ${
-                    n < 2 ? "w-8 bg-[hsl(var(--slide-success))]"
-                    : n === 2 ? "w-12 bg-[hsl(var(--slide-accent))]"
-                    : "w-8 bg-[hsl(var(--slide-fg)/0.15)]"
-                  }`}
-                />
-              ))}
-              <div className="ml-4 text-sm font-semibold text-[hsl(var(--slide-muted))]">
-                Step 2 of 4
-              </div>
-            </div>
-
-            <div className="grid grid-cols-3 gap-6">
-              {tiles.map((t) => {
-                const Icon = t.icon;
-                return (
-                  <div
-                    key={t.title}
-                    className={`rounded-2xl p-7 flex flex-col border ${
-                      t.highlight
-                        ? "border-[hsl(var(--slide-accent)/0.5)] bg-[hsl(var(--slide-accent)/0.06)]"
-                        : "border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))]"
-                    }`}
-                  >
-                    <div
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
-                      style={{ background: `${t.color.replace(")", " / 0.15)")}` }}
-                    >
-                      <Icon className="w-8 h-8" style={{ color: t.color }} />
-                    </div>
-                    <div className="text-2xl font-bold mb-2">{t.title}</div>
-                    <div className="text-base text-[hsl(var(--slide-muted))] mb-6 flex-1">
-                      {t.sub}
-                    </div>
-                    <button
-                      className="w-full px-5 py-3 rounded-xl font-bold flex items-center justify-center gap-2"
-                      style={{
-                        background: t.highlight ? t.color : "transparent",
-                        color: t.highlight ? "hsl(var(--slide-bg))" : "hsl(var(--slide-fg))",
-                        border: t.highlight ? "none" : "1px solid hsl(var(--slide-border))",
-                      }}
-                    >
-                      <Upload className="w-4 h-4" /> {t.cta}
-                    </button>
+    <SlideLayout chapter="Chapter 6 · Onboarding" pageLabel="06.03">
+      <div className="h-full flex flex-col pt-12">
+        <h1 className="text-6xl font-bold tracking-tight mb-3">
+          Step 2 · <span className="text-[hsl(var(--slide-accent))]">bring your bookmarks</span>
+        </h1>
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-10">Optional. Skipping is one click. Imports run async; user can keep onboarding.</p>
+        <div className="grid grid-cols-2 gap-8 flex-1">
+          <div className="space-y-3">
+            {sources.map((s) => {
+              const Icon = s.icon;
+              return (
+                <div key={s.name} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex gap-4 items-center">
+                  <Icon className="w-9 h-9 text-[hsl(var(--slide-accent))] shrink-0" />
+                  <div>
+                    <div className="text-xl font-semibold">{s.name}</div>
+                    <div className="text-sm text-[hsl(var(--slide-muted))]">{s.desc}</div>
                   </div>
-                );
-              })}
+                </div>
+              );
+            })}
+          </div>
+          <div>
+            <div className="text-sm uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-3 flex items-center gap-2"><Inbox className="w-4 h-4" /> Import pipeline</div>
+            <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 space-y-3">
+              {["Upload file → presigned URL", "Parse + validate · stream rows", "Map → Spaces · Collections · Items", "Dedupe by canonical URL", "Land in 'Imported' Space · review + merge"].map((step, i) => (
+                <div key={step} className="flex items-center gap-3">
+                  <div className="w-7 h-7 rounded-full bg-[hsl(var(--slide-accent))] text-[hsl(var(--slide-accent-fg))] text-sm font-bold flex items-center justify-center">{i + 1}</div>
+                  <ArrowRight className="w-3 h-3 text-[hsl(var(--slide-muted))]" />
+                  <div className="text-base">{step}</div>
+                </div>
+              ))}
             </div>
-
-            <div className="mt-8 flex items-center justify-center gap-3">
-              <button className="text-base font-semibold text-[hsl(var(--slide-muted))] underline">
-                I'll add them later
-              </button>
-              <span className="text-sm text-[hsl(var(--slide-muted))]">·</span>
-              <span className="flex items-center gap-2 text-sm text-[hsl(var(--slide-muted))]">
-                <Bookmark className="w-4 h-4" /> Imports run async — onboarding never waits on them.
-              </span>
-            </div>
+            <div className="mt-4 text-sm text-[hsl(var(--slide-muted))]">Up to 50,000 items · email when ready · always preview before merge.</div>
           </div>
         </div>
       </div>

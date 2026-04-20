@@ -1,54 +1,54 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
-import { KeyRound, Mail, Lock, Clock, RefreshCw, ShieldCheck } from "lucide-react";
+import { Mail, KeyRound, ShieldCheck, ArrowRight } from "lucide-react";
 
-export default function PasswordReset() {
+const flow = [
+  { icon: Mail, t: "Enter email", d: "Always returns 200 (no enumeration)" },
+  { icon: ArrowRight, t: "Email arrives", d: "Reset link · 30 min · single-use" },
+  { icon: KeyRound, t: "Set new password", d: "zxcvbn ≥ 3 · breach check via k-anon" },
+  { icon: ShieldCheck, t: "Sign in", d: "All other sessions revoked automatically" },
+];
+
+const rules = [
+  ["Min length", "10 characters"],
+  ["No max length", "Up to 256 chars"],
+  ["Strength", "zxcvbn score ≥ 3"],
+  ["Breach check", "Pwned Passwords k-anonymity API"],
+  ["No rotation policy", "NIST 800-63B aligned"],
+  ["No composition rules", "No forced symbols/digits"],
+];
+
+export default function AuthPasswordReset() {
   return (
-    <SlideLayout chapter="Chapter 5 · Forgot password" pageLabel="23">
-      <div className="h-full flex flex-col">
-        <div className="mb-6">
-          <h2 className="text-6xl font-bold leading-tight">Forgot password — safe by default.</h2>
-          <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">
-            No enumeration. Single-use token. Every other session dies on success.
-          </p>
-        </div>
-        <div className="flex-1 grid grid-cols-5 gap-6">
-          <div className="col-span-3 flex flex-col gap-3">
-            {[
-              { n: "1", icon: Mail, t: "Request reset", s: "/signin/forgot · Always returns success — no 'email not found' leak." },
-              { n: "2", icon: Lock, t: "Email sent (if account exists)", s: "Single-use token · sha256 at rest · 1-hour TTL · 3 requests/24h cap." },
-              { n: "3", icon: KeyRound, t: "Set new password", s: "Min 10 chars · HIBP check · differs from last 5 hashes." },
-              { n: "4", icon: ShieldCheck, t: "Auto sign-in & revoke", s: "All other sessions revoked · token_version bumped · confirmation email sent." },
-            ].map((step) => {
-              const Icon = step.icon;
+    <SlideLayout chapter="Chapter 5 · Auth & Account" pageLabel="05.06">
+      <div className="h-full flex flex-col pt-12">
+        <h1 className="text-6xl font-bold tracking-tight mb-3">
+          Forgot password · <span className="text-[hsl(var(--slide-accent))]">NIST-aligned</span>
+        </h1>
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-10">No silly composition rules. Strength-based. No forced rotation.</p>
+        <div className="grid grid-cols-2 gap-8 flex-1">
+          <div className="space-y-3">
+            {flow.map((f, i) => {
+              const Icon = f.icon;
               return (
-                <div key={step.n} className="flex items-start gap-4 rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4">
-                  <div className="w-10 h-10 rounded-lg bg-[hsl(var(--slide-accent)/0.15)] text-[hsl(var(--slide-accent))] font-bold flex items-center justify-center shrink-0">{step.n}</div>
+                <div key={f.t} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4 flex gap-4 items-center">
+                  <div className="w-10 h-10 rounded-full bg-[hsl(var(--slide-accent)_/_0.12)] flex items-center justify-center"><Icon className="w-5 h-5 text-[hsl(var(--slide-accent))]" /></div>
                   <div className="flex-1">
-                    <div className="font-bold text-lg flex items-center gap-2"><Icon className="w-4 h-4 text-[hsl(var(--slide-accent))]" /> {step.t}</div>
-                    <div className="text-sm text-[hsl(var(--slide-muted))] mt-0.5">{step.s}</div>
+                    <div className="text-lg font-semibold">{i + 1}. {f.t}</div>
+                    <div className="text-sm text-[hsl(var(--slide-muted))]">{f.d}</div>
                   </div>
                 </div>
               );
             })}
           </div>
-          <div className="col-span-2 flex flex-col gap-4">
-            <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5">
-              <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] font-semibold mb-3">Password rules (NIST-aligned)</div>
-              <ul className="space-y-2 text-base">
-                <li>✓ Min 10 chars · max 128</li>
-                <li>✓ No composition rules</li>
-                <li>✓ HIBP "pwned passwords" check (k-anon)</li>
-                <li>✗ Reject if matches email or display name</li>
-                <li>✗ Reject common patterns (<span className="font-mono text-sm">password</span>, <span className="font-mono text-sm">letmein</span>, …)</li>
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex-1">
-              <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] font-semibold mb-3">Storage</div>
-              <ul className="space-y-2 text-sm text-[hsl(var(--slide-muted))]">
-                <li className="flex items-center gap-2"><Lock className="w-4 h-4 text-[hsl(var(--slide-accent))]" /><span>argon2id · m=64MB · t=3 · p=4 · per-row salt</span></li>
-                <li className="flex items-center gap-2"><RefreshCw className="w-4 h-4 text-[hsl(var(--slide-accent))]" /><span>Re-hash on sign-in if params out of date</span></li>
-                <li className="flex items-center gap-2"><Clock className="w-4 h-4 text-[hsl(var(--slide-accent))]" /><span>Reset token: 1h TTL, sha256-hashed</span></li>
-              </ul>
+          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6">
+            <div className="text-sm uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-4">Password rules</div>
+            <div className="space-y-3">
+              {rules.map(([k, v]) => (
+                <div key={k} className="flex justify-between border-b border-[hsl(var(--slide-border))]/50 pb-2 last:border-0">
+                  <span className="text-base font-medium">{k}</span>
+                  <span className="text-base text-[hsl(var(--slide-muted))]">{v}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -1,94 +1,36 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
-import { User, Users, Sparkles } from "lucide-react";
+import { Briefcase, FlaskConical, Heart, Code, GraduationCap, Sparkles } from "lucide-react";
 
-export default function PickStartingSpace() {
+const templates = [
+  { icon: Briefcase, name: "Work", count: "5 collections", c: ["📥 Inbox", "🔧 Tools", "📚 Learning", "👥 Meetings", "✅ Done"] },
+  { icon: FlaskConical, name: "Research", count: "4 collections", c: ["📑 Papers", "💡 Ideas", "🧪 Experiments", "📝 Notes"] },
+  { icon: Heart, name: "Personal", count: "5 collections", c: ["📺 Watch later", "🎵 Listen", "🍳 Recipes", "✈️ Travel", "🛍 Shopping"] },
+  { icon: Code, name: "Developer", count: "5 collections", c: ["🐙 Repos", "📚 Docs", "🛠 Tools", "🎓 Tutorials", "🐛 Issues"] },
+  { icon: GraduationCap, name: "Student", count: "4 collections", c: ["📖 Reading", "✍️ Assignments", "🧠 Study", "📅 Schedule"] },
+  { icon: Sparkles, name: "Empty", count: "Start fresh", c: ["I'll create my own"] },
+];
+
+export default function OnboardingPickStartingSpace() {
   return (
-    <SlideLayout chapter="Chapter 6 · Branch 1 · Step 1" pageLabel="26">
-      <div className="h-full flex flex-col">
-        <div className="mb-6">
-          <h2 className="text-6xl font-bold leading-tight">
-            Step 1 — Pick your starting Space.
-          </h2>
-          <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">
-            Two cards. Both seed "Read Later" and "Favorites" automatically.
-          </p>
-        </div>
-
-        <div className="flex-1 flex items-center justify-center">
-          <div className="w-full max-w-5xl">
-            {/* Progress */}
-            <div className="flex items-center gap-2 justify-center mb-10">
-              {[1, 2, 3, 4].map((n) => (
-                <div
-                  key={n}
-                  className={`h-2 rounded-full transition-all ${
-                    n === 1
-                      ? "w-12 bg-[hsl(var(--slide-accent))]"
-                      : "w-8 bg-[hsl(var(--slide-fg)/0.15)]"
-                  }`}
-                />
-              ))}
-              <div className="ml-4 text-sm font-semibold text-[hsl(var(--slide-muted))]">
-                Step 1 of 4
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-7">
-              {/* Personal */}
-              <div className="rounded-2xl border-2 border-[hsl(var(--slide-accent))] bg-[hsl(var(--slide-accent)/0.06)] p-8 flex flex-col">
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-14 h-14 rounded-2xl bg-[hsl(var(--slide-accent)/0.18)] flex items-center justify-center">
-                    <User className="w-7 h-7 text-[hsl(var(--slide-accent))]" />
-                  </div>
-                  <span className="text-xs uppercase tracking-widest font-bold text-[hsl(var(--slide-accent))]">
-                    Default
-                  </span>
-                </div>
-                <div className="text-3xl font-bold mb-2">Personal</div>
-                <div className="text-base text-[hsl(var(--slide-muted))] mb-5">
-                  For your own bookmarks, sessions, and projects. Fastest path to first save.
-                </div>
-                <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] font-semibold mb-2">
-                  We'll create
-                </div>
-                <ul className="text-sm space-y-1 mb-6">
-                  <li>📁 Space "My Collections"</li>
-                  <li>📚 Collection "Read Later"</li>
-                  <li>⭐ Collection "Favorites"</li>
+    <SlideLayout chapter="Chapter 6 · Onboarding" pageLabel="06.02">
+      <div className="h-full flex flex-col pt-12">
+        <h1 className="text-6xl font-bold tracking-tight mb-3">
+          Step 1 · <span className="text-[hsl(var(--slide-accent))]">pick your starting Space</span>
+        </h1>
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-10">Six templates. Each seeds Collections you can rename or delete.</p>
+        <div className="grid grid-cols-3 gap-5 flex-1">
+          {templates.map((t) => {
+            const Icon = t.icon;
+            return (
+              <div key={t.name} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex flex-col">
+                <div className="flex items-center gap-3 mb-2"><Icon className="w-7 h-7 text-[hsl(var(--slide-accent))]" /><div className="text-2xl font-bold">{t.name}</div></div>
+                <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-3">{t.count}</div>
+                <ul className="space-y-1.5 text-base">
+                  {t.c.map((c) => <li key={c} className="text-[hsl(var(--slide-fg))]/85">{c}</li>)}
                 </ul>
-                <button className="mt-auto w-full px-5 py-3 rounded-xl bg-[hsl(var(--slide-accent))] text-[hsl(var(--slide-bg))] font-bold">
-                  Continue with Personal
-                </button>
               </div>
-
-              {/* Team */}
-              <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-8 flex flex-col">
-                <div className="w-14 h-14 rounded-2xl bg-[hsl(var(--slide-success)/0.15)] flex items-center justify-center mb-5">
-                  <Users className="w-7 h-7 text-[hsl(var(--slide-success))]" />
-                </div>
-                <div className="text-3xl font-bold mb-2">Team</div>
-                <div className="text-base text-[hsl(var(--slide-muted))] mb-5">
-                  Invite teammates now. We jump straight to the invite UI.
-                </div>
-                <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] font-semibold mb-2">
-                  We'll create
-                </div>
-                <ul className="text-sm space-y-1 mb-6">
-                  <li>🏢 Team Org (free 14-day trial)</li>
-                  <li>📁 Personal Space (silently, in background)</li>
-                  <li>📨 Invite up to 25 teammates by email</li>
-                </ul>
-                <button className="mt-auto w-full px-5 py-3 rounded-xl border border-[hsl(var(--slide-border))] font-bold">
-                  Set up a Team
-                </button>
-              </div>
-            </div>
-
-            <div className="mt-8 flex items-center gap-2 justify-center text-sm text-[hsl(var(--slide-muted))]">
-              <Sparkles className="w-4 h-4 text-[hsl(var(--slide-accent))]" />
-              You can switch later — Personal and Team Orgs coexist on the same Account.
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </SlideLayout>

@@ -1,49 +1,48 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
-import { Wand2, Mail, MousePointer2, Clock, ShieldAlert, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Mail, Link2, CheckCircle2, ShieldCheck } from "lucide-react";
 
-export default function MagicLink() {
+const hops = [
+  { icon: Mail, t: "Request", d: "POST /v1/auth/magic { email }", time: "0s" },
+  { icon: Link2, t: "Email sent", d: "Single-use token in URL · 15 min TTL", time: "+2s" },
+  { icon: CheckCircle2, t: "Click", d: "GET /auth/magic?token=… consumed once", time: "user" },
+  { icon: ShieldCheck, t: "Session", d: "JWT issued · refresh cookie set · token revoked", time: "+0.3s" },
+];
+
+export default function AuthMagicLink() {
   return (
-    <SlideLayout chapter="Chapter 5 · Magic link" pageLabel="20">
-      <div className="h-full flex flex-col">
-        <div className="mb-6">
-          <h2 className="text-6xl font-bold leading-tight">Magic link — passwordless, in 4 hops.</h2>
-          <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">
-            32-byte CSPRNG token · sha256 at rest · 15-minute TTL · single-use.
-          </p>
-        </div>
-        <div className="flex-1 grid grid-cols-4 gap-5">
-          {[
-            { icon: Wand2, n: "01", t: "Request", s: "POST /v1/auth/magic-link/send → always 202, no enumeration.", color: "hsl(var(--slide-accent))" },
-            { icon: Mail, n: "02", t: "Email", s: "CTA button + requesting IP + UA + expiry. 'Didn't request? Ignore.'", color: "hsl(var(--slide-success))" },
-            { icon: MousePointer2, n: "03", t: "Click", s: "GET /v1/auth/magic/callback?t=… consumes token, sets consumed_at.", color: "hsl(var(--slide-accent-2))" },
-            { icon: CheckCircle2, n: "04", t: "Sign in", s: "JWT + refresh cookie issued. 302 → ?next= or /dashboard.", color: "hsl(var(--slide-warning))" },
-          ].map((step) => {
-            const Icon = step.icon;
+    <SlideLayout chapter="Chapter 5 · Auth & Account" pageLabel="05.03">
+      <div className="h-full flex flex-col pt-12">
+        <h1 className="text-6xl font-bold tracking-tight mb-3">
+          Magic link · <span className="text-[hsl(var(--slide-accent))]">passwordless in four hops</span>
+        </h1>
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-12">No password to leak. Token is short-lived, single-use, and bound to the email.</p>
+        <div className="flex items-center gap-4 flex-1">
+          {hops.map((h, i) => {
+            const Icon = h.icon;
             return (
-              <div key={step.n} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 flex flex-col">
-                <div className="text-xs font-bold tabular-nums text-[hsl(var(--slide-muted))] mb-3">{step.n}</div>
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style={{ background: `${step.color.replace(")", " / 0.15)")}` }}>
-                  <Icon className="w-7 h-7" style={{ color: step.color }} />
+              <div key={h.t} className="flex items-center gap-4 flex-1">
+                <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 flex-1 flex flex-col items-center text-center">
+                  <Icon className="w-10 h-10 text-[hsl(var(--slide-accent))] mb-3" />
+                  <div className="text-xl font-semibold mb-1">{h.t}</div>
+                  <div className="text-sm text-[hsl(var(--slide-muted))] mb-3">{h.d}</div>
+                  <div className="text-xs font-mono px-2 py-1 rounded bg-[hsl(var(--slide-surface-2))]">{h.time}</div>
                 </div>
-                <div className="text-2xl font-bold mb-2">{step.t}</div>
-                <div className="text-sm text-[hsl(var(--slide-muted))]">{step.s}</div>
+                {i < hops.length - 1 && <ArrowRight className="w-6 h-6 text-[hsl(var(--slide-muted))]" />}
               </div>
             );
           })}
         </div>
-        <div className="mt-6 grid grid-cols-3 gap-4">
-          <div className="rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] px-5 py-3 flex items-center gap-3">
-            <Clock className="w-5 h-5 text-[hsl(var(--slide-accent))]" />
-            <div className="text-sm"><span className="font-bold">15 min</span> token TTL · denylisted 24h after consume</div>
-          </div>
-          <div className="rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] px-5 py-3 flex items-center gap-3">
-            <ShieldAlert className="w-5 h-5 text-[hsl(var(--slide-warning))]" />
-            <div className="text-sm"><span className="font-mono">1/60s</span>, <span className="font-mono">5/24h</span> per email · <span className="font-mono">10/h</span> per IP</div>
-          </div>
-          <div className="rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] px-5 py-3 flex items-center gap-3">
-            <CheckCircle2 className="w-5 h-5 text-[hsl(var(--slide-success))]" />
-            <div className="text-sm">No-account flow auto-creates Account + Personal Org</div>
-          </div>
+        <div className="mt-8 grid grid-cols-3 gap-4">
+          {[
+            ["TTL", "15 minutes"],
+            ["Reuse", "Single-use · revoked on consume"],
+            ["Binding", "Email + IP class + UA hash"],
+          ].map(([k, v]) => (
+            <div key={k} className="rounded-xl border border-[hsl(var(--slide-border))] p-4">
+              <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))]">{k}</div>
+              <div className="text-lg font-semibold mt-1">{v}</div>
+            </div>
+          ))}
         </div>
       </div>
     </SlideLayout>
