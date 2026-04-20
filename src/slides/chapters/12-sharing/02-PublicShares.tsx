@@ -1,72 +1,68 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
-import { Globe, ExternalLink, Search } from "lucide-react";
+import { Globe, Eye, ExternalLink } from "lucide-react";
 
 export default function PublicShares() {
   return (
     <SlideLayout chapter="Chapter 12 · Sharing & Collaboration" pageLabel="12.02">
       <div className="h-full flex flex-col pt-12">
-        <h1 className="text-6xl font-bold tracking-tight mb-3">
-          Public shares · <span className="text-[hsl(var(--slide-accent))]">/t/&#123;slug&#125;</span>
+        <h1 className="text-7xl font-bold tracking-tight mb-3">
+          Public links · <span className="text-[hsl(var(--slide-accent))]">read-only by default</span>
         </h1>
-        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8">SEO-controllable read-only viewer. Anyone with the link sees the Collection.</p>
+        <p className="text-2xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">
+          Anyone with the URL can view. SEO-indexable optional. Comments off unless owner enables.
+        </p>
 
-        <div className="grid grid-cols-3 gap-6 flex-1">
-          <div className="col-span-2 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-bg))] overflow-hidden flex flex-col">
-            <div className="px-4 py-2 border-b border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface-2))] flex items-center gap-2 text-xs">
-              <div className="flex gap-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-[hsl(var(--slide-muted)_/_0.5)]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[hsl(var(--slide-muted)_/_0.5)]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[hsl(var(--slide-muted)_/_0.5)]" />
-              </div>
-              <code className="ml-3 font-mono text-[hsl(var(--slide-fg))]/70">letsmarknow.com/t/q2-reading</code>
-              <ExternalLink className="w-3 h-3 ml-auto text-[hsl(var(--slide-muted))]" />
+        <div className="grid grid-cols-2 gap-8 flex-1">
+          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <Globe className="w-7 h-7 text-[hsl(var(--slide-accent))]" />
+              <h3 className="text-2xl font-bold">Share dialog</h3>
             </div>
-            <div className="p-6 flex-1">
-              <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-2">Public collection · alim@evatix</div>
-              <div className="text-3xl font-bold mb-2">Q2 Reading queue</div>
-              <p className="text-sm text-[hsl(var(--slide-fg))]/75 mb-5 max-w-xl">RFCs, design teardowns, and threads I work through this quarter. Open in your browser, no login required.</p>
-              <div className="grid grid-cols-2 gap-2">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="rounded-lg border border-[hsl(var(--slide-border))] p-3 flex gap-3">
-                    <div className="w-12 h-12 rounded bg-gradient-to-br from-[hsl(var(--slide-accent)_/_0.3)] to-[hsl(var(--slide-surface-2))] shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs font-semibold truncate">Article {i + 1}</div>
-                      <div className="text-[10px] text-[hsl(var(--slide-muted))]">linear.app</div>
-                    </div>
-                  </div>
-                ))}
+            <div className="space-y-4">
+              <div className="rounded-lg bg-[hsl(var(--slide-surface-2))] p-4 font-mono text-sm flex items-center justify-between">
+                <span>letsmarknow.com/s/<span className="text-[hsl(var(--slide-accent))]">k7p2-design</span></span>
+                <ExternalLink className="w-4 h-4 text-[hsl(var(--slide-muted))]" />
               </div>
+              <label className="flex items-center justify-between text-lg">
+                <span>Allow comments</span>
+                <span className="w-12 h-6 rounded-full bg-[hsl(var(--slide-surface-2))] relative">
+                  <span className="absolute left-1 top-1 w-4 h-4 rounded-full bg-[hsl(var(--slide-muted))]" />
+                </span>
+              </label>
+              <label className="flex items-center justify-between text-lg">
+                <span>Index in search engines</span>
+                <span className="w-12 h-6 rounded-full bg-[hsl(var(--slide-accent)_/_0.4)] relative">
+                  <span className="absolute right-1 top-1 w-4 h-4 rounded-full bg-[hsl(var(--slide-accent))]" />
+                </span>
+              </label>
+              <label className="flex items-center justify-between text-lg">
+                <span>Show owner profile</span>
+                <span className="w-12 h-6 rounded-full bg-[hsl(var(--slide-accent)_/_0.4)] relative">
+                  <span className="absolute right-1 top-1 w-4 h-4 rounded-full bg-[hsl(var(--slide-accent))]" />
+                </span>
+              </label>
             </div>
           </div>
 
-          <div className="space-y-3">
-            <div className="rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Search className="w-4 h-4 text-[hsl(var(--slide-accent))]" />
-                <div className="text-sm font-semibold">SEO controls</div>
-              </div>
-              <ul className="text-xs text-[hsl(var(--slide-fg))]/80 space-y-1">
-                <li>• <code className="font-mono">noindex</code> by default</li>
-                <li>• Owner toggles: index, follow, sitemap inclusion</li>
-                <li>• Per-share OG image (auto or upload)</li>
-                <li>• JSON-LD <code className="font-mono">CollectionPage</code></li>
-              </ul>
+          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <Eye className="w-7 h-7 text-[hsl(var(--slide-accent))]" />
+              <h3 className="text-2xl font-bold">What viewers get</h3>
             </div>
-            <div className="rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Globe className="w-4 h-4 text-[hsl(var(--slide-accent))]" />
-                <div className="text-sm font-semibold">Viewer chrome</div>
-              </div>
-              <ul className="text-xs text-[hsl(var(--slide-fg))]/80 space-y-1">
-                <li>• Owner branding · favicon · footer attribution</li>
-                <li>• View-mode switcher (list / grid / column)</li>
-                <li>• "Save to my Lets Mark Now" CTA → signup</li>
-                <li>• <code className="font-mono">?embed=1</code> strips chrome for iframes</li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4 text-xs text-[hsl(var(--slide-muted))]">
-              Cached on CDN · 60 s edge TTL · revocation purges within 5 s.
-            </div>
+            <ul className="space-y-3 text-lg">
+              {[
+                "Branded share viewer (org accent + logo)",
+                "Same density toggle as the app",
+                "Save copy to my account (CTA)",
+                "OG card preview when pasted in Slack",
+                "No edit, no member list, no analytics",
+              ].map((x) => (
+                <li key={x} className="flex gap-3">
+                  <span className="text-[hsl(var(--slide-accent))]">→</span>
+                  <span className="text-[hsl(var(--slide-muted))]">{x}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

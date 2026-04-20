@@ -1,63 +1,48 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
-import { KeyRound, Shield, Mail } from "lucide-react";
+import { Lock, Mail, Calendar } from "lucide-react";
 
 export default function PasswordInvite() {
   return (
     <SlideLayout chapter="Chapter 12 · Sharing & Collaboration" pageLabel="12.03">
       <div className="h-full flex flex-col pt-12">
-        <h1 className="text-6xl font-bold tracking-tight mb-3">
-          Gated shares · <span className="text-[hsl(var(--slide-accent))]">password &amp; invite-only</span>
+        <h1 className="text-7xl font-bold tracking-tight mb-3">
+          Password & <span className="text-[hsl(var(--slide-accent))]">email invite</span>
         </h1>
-        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8">Two ways to keep a link semi-private. Both rate-limited at the edge.</p>
+        <p className="text-2xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">
+          Two ways to gate: a shared secret (password) or an account-bound list (invite).
+        </p>
 
-        <div className="grid grid-cols-2 gap-6 flex-1">
-          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 flex flex-col">
-            <div className="flex items-center gap-2 mb-4">
-              <KeyRound className="w-5 h-5 text-[hsl(var(--slide-accent))]" />
-              <div className="text-xl font-semibold">Password share</div>
-            </div>
-            <div className="rounded-lg border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-bg))] p-5 mb-4">
-              <div className="text-xs text-[hsl(var(--slide-muted))] mb-2">Protected collection</div>
-              <div className="text-lg font-bold mb-3">Enter password</div>
-              <input className="w-full px-3 py-2 rounded-lg bg-[hsl(var(--slide-surface-2))] border border-[hsl(var(--slide-border))] text-sm" placeholder="••••••••" readOnly />
-              <button className="mt-3 w-full px-3 py-2 rounded-lg bg-[hsl(var(--slide-accent))] text-[hsl(var(--slide-bg))] text-sm font-semibold">Unlock</button>
-            </div>
-            <ul className="text-sm text-[hsl(var(--slide-fg))]/85 space-y-1.5 mt-auto">
-              <li>• Owner sets password · stored as Argon2id hash</li>
-              <li>• 5 attempts / 15 min per IP · then captcha</li>
-              <li>• Successful unlock → 24 h JWT cookie</li>
-              <li>• Owner can rotate without breaking slug</li>
+        <div className="grid grid-cols-2 gap-8 flex-1">
+          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-8">
+            <Lock className="w-10 h-10 text-[hsl(45_90%_60%)] mb-5" />
+            <h3 className="text-3xl font-bold mb-4">Password share</h3>
+            <ul className="space-y-3 text-lg text-[hsl(var(--slide-muted))]">
+              <li>• Bcrypt-hashed, 8 char minimum</li>
+              <li>• Cookie-bound for 24h after entry</li>
+              <li>• 5 wrong attempts → 15 min lockout per IP</li>
+              <li>• Owner can rotate password without changing URL</li>
+              <li>• Audit log records every successful unlock</li>
             </ul>
+            <div className="mt-6 flex items-center gap-2 text-sm">
+              <Calendar className="w-4 h-4 text-[hsl(var(--slide-muted))]" />
+              <span className="text-[hsl(var(--slide-muted))]">Optional expiry: 1d / 7d / 30d / never</span>
+            </div>
           </div>
 
-          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 flex flex-col">
-            <div className="flex items-center gap-2 mb-4">
-              <Mail className="w-5 h-5 text-[hsl(var(--slide-accent))]" />
-              <div className="text-xl font-semibold">Invite-only share</div>
-            </div>
-            <div className="rounded-lg border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-bg))] p-5 mb-4">
-              <div className="text-xs text-[hsl(var(--slide-muted))] mb-2">Allowed emails</div>
-              <div className="space-y-1.5 text-sm font-mono">
-                {["sara@evatix.com", "ben@partner.io", "ops@atto.my"].map((e) => (
-                  <div key={e} className="flex items-center gap-2 px-3 py-1.5 rounded bg-[hsl(var(--slide-surface-2))]">
-                    <Mail className="w-3 h-3 text-[hsl(var(--slide-accent))]" />
-                    {e}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <ul className="text-sm text-[hsl(var(--slide-fg))]/85 space-y-1.5 mt-auto">
-              <li>• Visitor enters email → magic-link sent</li>
-              <li>• Magic-link TTL 30 min · single-use</li>
-              <li>• Email not on list → polite "no access" page (no leak)</li>
-              <li>• Each unlock creates an audit-log entry</li>
+          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-8">
+            <Mail className="w-10 h-10 text-[hsl(280_70%_65%)] mb-5" />
+            <h3 className="text-3xl font-bold mb-4">Email invite</h3>
+            <ul className="space-y-3 text-lg text-[hsl(var(--slide-muted))]">
+              <li>• Allowlist by email; recipient must sign in</li>
+              <li>• Per-recipient role: Viewer / Commenter / Editor</li>
+              <li>• Resend / revoke per email</li>
+              <li>• Pending invites visible to owner</li>
+              <li>• Auto-removes when recipient leaves the org</li>
             </ul>
+            <div className="mt-6 flex items-center gap-2 text-sm">
+              <span className="text-[hsl(var(--slide-muted))]">Cap: 50 invites per share (Pro: 500)</span>
+            </div>
           </div>
-        </div>
-
-        <div className="mt-6 rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4 text-sm flex items-center gap-3">
-          <Shield className="w-5 h-5 text-[hsl(var(--slide-accent))]" />
-          <span className="text-[hsl(var(--slide-fg))]/85">Both modes inherit the Public viewer chrome. Read-only. Notes hidden unless explicitly opted-in per share.</span>
         </div>
       </div>
     </SlideLayout>

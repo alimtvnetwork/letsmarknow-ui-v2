@@ -1,11 +1,11 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
-import { Lock, Globe, KeyRound, Mail } from "lucide-react";
+import { Globe, Lock, Mail, Users } from "lucide-react";
 
-const types = [
-  { icon: Lock, name: "Private", who: "Org members only", url: "in-app", brute: "n/a" },
-  { icon: Globe, name: "Public", who: "Anyone with the link", url: "/t/{slug}", brute: "rate-limited per IP" },
-  { icon: KeyRound, name: "Password", who: "Anyone with link + password", url: "/t/{slug}", brute: "5 tries / 15 min, then captcha" },
-  { icon: Mail, name: "Invite-only", who: "Allow-listed emails", url: "/t/{slug}?token=…", brute: "magic-link, 30-min TTL" },
+const modes = [
+  { icon: Globe, name: "Public link", sub: "Anyone with URL", color: "hsl(var(--slide-accent))" },
+  { icon: Lock, name: "Password", sub: "URL + secret", color: "hsl(45 90% 60%)" },
+  { icon: Mail, name: "Email invite", sub: "Account-bound", color: "hsl(280 70% 65%)" },
+  { icon: Users, name: "Workspace", sub: "Org members", color: "hsl(160 70% 55%)" },
 ];
 
 export default function ShareModel() {
@@ -13,34 +13,26 @@ export default function ShareModel() {
     <SlideLayout chapter="Chapter 12 · Sharing & Collaboration" pageLabel="12.01">
       <div className="h-full flex flex-col pt-12">
         <h1 className="text-7xl font-bold tracking-tight mb-3">
-          Share model · <span className="text-[hsl(var(--slide-accent))]">one entity, four link types</span>
+          Share model · <span className="text-[hsl(var(--slide-accent))]">four gates</span>
         </h1>
-        <p className="text-2xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">
-          A Collection has at most one Share. The Share has many ShareLinks — each with its own mode, expiry, and permissions.
+        <p className="text-2xl text-[hsl(var(--slide-muted))] mb-12 max-w-5xl">
+          Every shareable surface (Collection, Item, Group) picks one of four access modes. Layered, never combined.
         </p>
 
-        <div className="space-y-3 flex-1">
-          {types.map((t) => {
-            const Icon = t.icon;
-            return (
-              <div key={t.name} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] px-6 py-5 flex items-center gap-6">
-                <div className="w-14 h-14 rounded-xl bg-[hsl(var(--slide-accent)_/_0.12)] flex items-center justify-center shrink-0">
-                  <Icon className="w-7 h-7 text-[hsl(var(--slide-accent))]" />
-                </div>
-                <div className="w-32 shrink-0">
-                  <div className="text-2xl font-bold">{t.name}</div>
-                </div>
-                <div className="flex-1 text-base text-[hsl(var(--slide-fg))]/85">{t.who}</div>
-                <code className="text-sm font-mono px-3 py-1 rounded bg-[hsl(var(--slide-surface-2))] text-[hsl(var(--slide-accent))] w-48 text-center shrink-0">{t.url}</code>
-                <div className="w-56 text-right text-xs text-[hsl(var(--slide-muted))]">{t.brute}</div>
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-4 gap-6 flex-1">
+          {modes.map((m) => (
+            <div key={m.name} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-8 flex flex-col">
+              <m.icon className="w-12 h-12 mb-6" style={{ color: m.color }} />
+              <h3 className="text-3xl font-bold mb-2">{m.name}</h3>
+              <p className="text-lg text-[hsl(var(--slide-muted))]">{m.sub}</p>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-6 rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4 text-sm flex items-center gap-3">
-          <span className="text-[hsl(var(--slide-accent))] font-mono text-xs uppercase tracking-widest">Locked</span>
-          <span className="text-[hsl(var(--slide-fg))]/85">Public &amp; Password shares are <strong>read-only</strong> in v1. Write access requires Member role on the Org.</span>
+        <div className="mt-10 rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface-2))] p-6">
+          <p className="text-lg text-[hsl(var(--slide-muted))]">
+            <span className="text-[hsl(var(--slide-fg))] font-semibold">Locked:</span> A share has exactly one access mode at a time. Switching modes revokes the previous URL.
+          </p>
         </div>
       </div>
     </SlideLayout>
