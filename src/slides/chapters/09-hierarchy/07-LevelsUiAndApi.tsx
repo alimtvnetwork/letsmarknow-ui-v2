@@ -93,10 +93,10 @@ const SpaceUI = () => (
     ].map((s) => (
       <div
         key={s.n}
-        className="flex items-center gap-2.5 rounded-lg px-2.5 py-2 bg-[hsl(var(--slide-surface))]"
+        className="flex items-center gap-2 rounded-md px-2 py-1.5 bg-[hsl(var(--slide-surface))]"
       >
-        <FolderOpen className="w-4 h-4 text-[hsl(var(--slide-accent))] shrink-0" />
-        <div className="flex-1 min-w-0 text-sm font-medium truncate">{s.n}</div>
+        <FolderOpen className="w-3.5 h-3.5 text-[hsl(var(--slide-accent))] shrink-0" />
+        <div className="flex-1 min-w-0 text-[11px] font-medium truncate">{s.n}</div>
         {s.priv ? (
           <Lock className="w-3 h-3 text-[hsl(var(--slide-muted))]" />
         ) : (
@@ -111,18 +111,18 @@ const SpaceUI = () => (
 const CollectionUI = () => (
   <Card>
     <div className="flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <FolderTree className="w-4 h-4 text-[hsl(var(--slide-accent))]" />
-        <div className="text-sm font-semibold">Marketing</div>
+      <div className="flex items-center gap-2 min-w-0">
+        <FolderTree className="w-4 h-4 text-[hsl(var(--slide-accent))] shrink-0" />
+        <div className="text-sm font-semibold truncate">Marketing</div>
       </div>
-      <Star className="w-3.5 h-3.5 text-[hsl(var(--slide-warning))] fill-[hsl(var(--slide-warning))]" />
+      <Star className="w-3.5 h-3.5 text-[hsl(var(--slide-warning))] fill-[hsl(var(--slide-warning))] shrink-0" />
     </div>
     <div className="text-[10px] text-[hsl(var(--slide-muted))]">14 items · 2 groups · shared</div>
     <div className="grid grid-cols-2 gap-1.5">
-      {["7 Habits", "Book Reviews", "Campaign brief", "Analytics"].map((t) => (
+      {["7 Habits", "Book Reviews", "Campaign", "Analytics"].map((t) => (
         <div
           key={t}
-          className="rounded-md bg-[hsl(var(--slide-surface))] px-2 py-1.5 text-[11px] truncate border border-[hsl(var(--slide-border))]"
+          className="rounded-md bg-[hsl(var(--slide-surface))] px-2 py-1 text-[10px] truncate border border-[hsl(var(--slide-border))]"
         >
           {t}
         </div>
@@ -134,13 +134,12 @@ const CollectionUI = () => (
 const GroupUI = () => (
   <Card>
     <div className="flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <span className="text-base">🐤</span>
-        <div className="text-sm font-semibold">Quick Tools</div>
+      <div className="flex items-center gap-2 min-w-0">
+        <span className="text-sm">🐤</span>
+        <div className="text-sm font-semibold truncate">Quick Tools</div>
       </div>
-      <span className="text-[10px] text-[hsl(var(--slide-muted))]">in “React”</span>
+      <span className="text-[10px] text-[hsl(var(--slide-muted))] shrink-0">in "React"</span>
     </div>
-    <div className="text-[10px] text-[hsl(var(--slide-muted))]">Tab Extend style · compact view</div>
     <div className="space-y-1">
       {[
         { t: "ChatGPT", d: "chatgpt.com" },
@@ -149,9 +148,9 @@ const GroupUI = () => (
       ].map((i) => (
         <div
           key={i.t}
-          className="flex items-center gap-2 rounded-md bg-[hsl(var(--slide-surface))] px-2 py-1.5"
+          className="flex items-center gap-2 rounded-md bg-[hsl(var(--slide-surface))] px-2 py-1"
         >
-          <div className="w-4 h-4 rounded bg-[hsl(var(--slide-accent)_/_0.25)]" />
+          <div className="w-3.5 h-3.5 rounded bg-[hsl(var(--slide-accent)_/_0.25)] shrink-0" />
           <div className="text-[11px] font-medium truncate flex-1">{i.t}</div>
           <div className="text-[10px] text-[hsl(var(--slide-muted))] truncate">{i.d}</div>
         </div>
@@ -162,18 +161,18 @@ const GroupUI = () => (
 
 const ItemUI = () => (
   <Card>
-    <div className="flex items-start gap-2.5">
-      <div className="w-9 h-9 rounded-md bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-xs font-bold shrink-0">
+    <div className="flex items-start gap-2">
+      <div className="w-8 h-8 rounded-md bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-xs font-bold shrink-0">
         C
       </div>
       <div className="min-w-0 flex-1">
         <div className="text-sm font-semibold truncate">ChatGPT</div>
         <div className="text-[10px] text-[hsl(var(--slide-muted))] truncate">chatgpt.com</div>
       </div>
-      <MoreHorizontal className="w-4 h-4 text-[hsl(var(--slide-muted))]" />
+      <MoreHorizontal className="w-4 h-4 text-[hsl(var(--slide-muted))] shrink-0" />
     </div>
-    <div className="text-[11px] text-[hsl(var(--slide-fg)_/_0.8)] line-clamp-2">
-      Daily driver for drafting + research. Paste into Notes for shareable threads.
+    <div className="text-[10px] text-[hsl(var(--slide-fg)_/_0.8)] line-clamp-2">
+      Daily driver for drafting + research.
     </div>
     <div className="flex flex-wrap gap-1">
       {["#ai", "#daily", "#tools"].map((t) => (
@@ -185,7 +184,7 @@ const ItemUI = () => (
         </span>
       ))}
     </div>
-    <div className="flex items-center justify-between text-[10px] text-[hsl(var(--slide-muted))] pt-1 border-t border-[hsl(var(--slide-border))]">
+    <div className="flex items-center justify-between text-[10px] text-[hsl(var(--slide-muted))] pt-1 border-t border-[hsl(var(--slide-border))] mt-auto">
       <span>Opened 42×</span>
       <span>★ starred</span>
     </div>
