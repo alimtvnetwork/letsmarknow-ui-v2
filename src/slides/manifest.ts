@@ -219,6 +219,12 @@ export const slides: SlideEntry[] = [
   history("hist-conflict-ui", "Surfacing conflicts", HistConflictUI),
   history("hist-optimistic-offline", "Optimistic & offline", HistOptimisticOffline),
   history("hist-delete-recover", "Delete & recover", HistDeleteRecover),
+
+  // Ch 14
+  updates("up-flow", "Updater · stage then prompt", UpUpdaterFlow),
+  updates("up-channels", "Stable · Beta · Canary", UpReleaseChannels),
+  updates("up-changelog", "Changelog surface", UpChangelog),
+  updates("up-forced", "Forced updates", UpForcedUpdate),
 ];
 
 export const chapters = Array.from(
