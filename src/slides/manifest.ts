@@ -94,6 +94,11 @@ import IeGdprExport from "./chapters/16-import-export/04-GdprExport";
 import PwaInstallPrompt from "./chapters/17-pwa-mobile/01-InstallPrompt";
 import PwaOfflineStrategy from "./chapters/17-pwa-mobile/02-OfflineStrategy";
 import PwaMobileGestures from "./chapters/17-pwa-mobile/03-MobileGestures";
+import DsColorTokens from "./chapters/18-design-system/01-ColorTokens";
+import DsTypographySpacing from "./chapters/18-design-system/02-TypographySpacing";
+import DsComponentLibrary from "./chapters/18-design-system/03-ComponentLibrary";
+import DsMotionTokens from "./chapters/18-design-system/04-MotionTokens";
+import DsLockedRules from "./chapters/18-design-system/05-LockedRules";
 
 export interface SlideEntry {
   id: string;
@@ -127,6 +132,7 @@ const updates = C(14, "Updates & Release Channels");
 const settings = C(15, "Settings, Pricing & Plans");
 const importExport = C(16, "Import / Export");
 const pwa = C(17, "PWA & Mobile");
+const ds = C(18, "Design System Primer");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
@@ -258,6 +264,13 @@ export const slides: SlideEntry[] = [
   pwa("pwa-install", "Install prompt", PwaInstallPrompt),
   pwa("pwa-offline", "Offline strategy", PwaOfflineStrategy),
   pwa("pwa-mobile", "Mobile gestures", PwaMobileGestures),
+
+  // Ch 18
+  ds("ds-color", "Color tokens · HSL only", DsColorTokens),
+  ds("ds-type", "Type · spacing · radius", DsTypographySpacing),
+  ds("ds-components", "Component library", DsComponentLibrary),
+  ds("ds-motion", "Motion tokens", DsMotionTokens),
+  ds("ds-locked", "Locked rules", DsLockedRules),
 ];
 
 export const chapters = Array.from(
