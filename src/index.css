@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -39,20 +35,29 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Slide deck tokens — light */
+    --slide-bg: 0 0% 100%;
+    --slide-fg: 222 47% 11%;
+    --slide-muted: 215 16% 47%;
+    --slide-surface: 210 40% 98%;
+    --slide-surface-2: 214 32% 91%;
+    --slide-border: 214 32% 88%;
+    --slide-primary: 222 47% 11%;
+    --slide-accent: 199 89% 48%;        /* electric sky */
+    --slide-accent-2: 280 87% 65%;      /* violet */
+    --slide-success: 142 71% 45%;
+    --slide-warning: 38 92% 50%;
+    --slide-danger: 0 84% 60%;
+    --slide-chip-bg: 222 47% 11%;
+    --slide-chip-fg: 0 0% 100%;
   }
 
   .dark {
@@ -91,6 +96,22 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Slide deck tokens — dark (premium near-black) */
+    --slide-bg: 224 47% 6%;
+    --slide-fg: 210 40% 98%;
+    --slide-muted: 215 20% 65%;
+    --slide-surface: 222 40% 10%;
+    --slide-surface-2: 222 35% 15%;
+    --slide-border: 222 30% 20%;
+    --slide-primary: 210 40% 98%;
+    --slide-accent: 199 95% 60%;
+    --slide-accent-2: 280 90% 70%;
+    --slide-success: 142 71% 55%;
+    --slide-warning: 38 92% 60%;
+    --slide-danger: 0 84% 65%;
+    --slide-chip-bg: 199 95% 60%;
+    --slide-chip-fg: 224 47% 6%;
   }
 }
 
@@ -102,4 +123,41 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ===========================================
+   Slide deck — scoped font scaling (1.25x, 20px floor)
+   Only applies inside .slide-content
+   =========================================== */
+.slide-content .text-xs   { font-size: 20px !important; line-height: 1.4; }
+.slide-content .text-sm   { font-size: 20px !important; line-height: 1.5; }
+.slide-content .text-base { font-size: 22px !important; line-height: 1.55; }
+.slide-content .text-lg   { font-size: 26px !important; line-height: 1.5; }
+.slide-content .text-xl   { font-size: 32px !important; line-height: 1.4; }
+.slide-content .text-2xl  { font-size: 40px !important; line-height: 1.35; }
+.slide-content .text-3xl  { font-size: 50px !important; line-height: 1.3; }
+.slide-content .text-4xl  { font-size: 62px !important; line-height: 1.25; }
+.slide-content .text-5xl  { font-size: 78px !important; line-height: 1.2; }
+.slide-content .text-6xl  { font-size: 92px !important; line-height: 1.15; }
+.slide-content .text-7xl  { font-size: 112px !important; line-height: 1.1; }
+.slide-content .text-8xl  { font-size: 128px !important; line-height: 1.05; }
+.slide-content .text-9xl  { font-size: 144px !important; line-height: 1; }
+
+/* Slide canvas wrapper — fixed 1920x1080, scaled symmetrically */
+.slide-wrapper {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  left: 50%;
+  top: 50%;
+  margin-left: -960px;
+  margin-top: -540px;
+  transform: scale(var(--slide-scale, 1));
+  transform-origin: center center;
+}
+
+/* Hide cursor in fullscreen after inactivity */
+.slide-fullscreen.cursor-hidden,
+.slide-fullscreen.cursor-hidden * {
+  cursor: none !important;
 }
