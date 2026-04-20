@@ -1,5 +1,6 @@
 import { ComponentType } from "react";
 import CoverSlide from "./chapters/00-cover/CoverSlide";
+import TableOfContents from "./chapters/00-cover/TableOfContents";
 import VisionHero from "./chapters/01-vision/01-VisionHero";
 import Problem from "./chapters/01-vision/02-Problem";
 import Solution from "./chapters/01-vision/03-Solution";
@@ -140,6 +141,7 @@ const closing = C(19, "Closing");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
+  intro("toc", "Table of contents", TableOfContents),
 
   // Ch 1
   vision("vision-hero", "Vision", VisionHero, "One-line pitch. Replacement for Toby + Tab Extend."),
