@@ -122,6 +122,7 @@ const sharing = C(12, "Sharing & Collaboration");
 const history = C(13, "History, Activity & Conflicts");
 const updates = C(14, "Updates & Release Channels");
 const settings = C(15, "Settings, Pricing & Plans");
+const importExport = C(16, "Import / Export");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
