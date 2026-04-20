@@ -48,6 +48,7 @@ import HierCapabilitiesMatrix from "./chapters/09-hierarchy/03-CapabilitiesMatri
 import HierCardinalityLimits from "./chapters/09-hierarchy/04-CardinalityLimits";
 import HierMoveAndShareRules from "./chapters/09-hierarchy/05-MoveAndShareRules";
 import HierColumnView from "./chapters/09-hierarchy/06-ColumnView";
+import HierLevelsUiAndApi from "./chapters/09-hierarchy/07-LevelsUiAndApi";
 import FaSaveTab from "./chapters/10-features-a/01-SaveTab";
 import FaSaveSession from "./chapters/10-features-a/02-SaveSession";
 import FaCollectionsCRUD from "./chapters/10-features-a/03-CollectionsCRUD";
@@ -204,6 +205,7 @@ export const slides: SlideEntry[] = [
   hierarchy("hier-limits", "Cardinality limits", HierCardinalityLimits),
   hierarchy("hier-move-share", "Move, share, soft-delete", HierMoveAndShareRules),
   hierarchy("hier-column-view", "Column view (Tab Extend)", HierColumnView),
+  hierarchy("hier-levels-ui-api", "Each level · UI + API", HierLevelsUiAndApi),
 
   // Ch 10
   featuresA("fa-save-tab", "Save tab · 4 triggers", FaSaveTab),
