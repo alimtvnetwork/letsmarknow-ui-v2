@@ -7,11 +7,10 @@ export default function Welcome() {
       <div className="h-full flex flex-col">
         <div className="mb-6">
           <h2 className="text-6xl font-bold leading-tight">
-            The /welcome page.
+            Marketing /welcome page · the 30-second sell.
           </h2>
           <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">
-            The browser opens this tab automatically the moment the extension installs.
-            We have ~30 seconds to earn the next click.
+            The marketing landing tab Chrome auto-opens after install. Ch 6 covers the in-app onboarding flow that follows.
           </p>
         </div>
 

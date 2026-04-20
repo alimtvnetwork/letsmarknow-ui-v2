@@ -5,9 +5,9 @@ export default function ListGridCompact() {
     <SlideLayout chapter="Chapter 11 · Find & Visualize" pageLabel="11.04">
       <div className="h-full flex flex-col pt-10">
         <h1 className="text-6xl font-bold tracking-tight mb-2">
-          List · Grid · Compact · <span className="text-[hsl(var(--slide-accent))]">side-by-side</span>
+          Density preview · <span className="text-[hsl(var(--slide-accent))]">same data, three densities</span>
         </h1>
-        <p className="text-lg text-[hsl(var(--slide-muted))] mb-6">Same Collection · three densities · same data.</p>
+        <p className="text-lg text-[hsl(var(--slide-muted))] mb-6">Visual side-by-side of the three densities listed on the previous slide. No new options — just how they actually look.</p>
 
         <div className="grid grid-cols-3 gap-4 flex-1">
           {/* List */}

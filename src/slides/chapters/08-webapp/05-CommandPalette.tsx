@@ -38,6 +38,8 @@ export default function WebCommandPalette() {
     <SlideLayout chapter="Chapter 8 · Web App Shell" pageLabel="08.05">
       <div className="h-full flex flex-col pt-12">
         <h1 className="text-6xl font-bold tracking-tight mb-3">
+          Web app keymap · <span className="text-[hsl(var(--slide-accent))]">⌘K & vim-style</span>
+        </h1>
           Command palette · <span className="text-[hsl(var(--slide-accent))]">keyboard-first</span>
         </h1>
         <p className="text-xl text-[hsl(var(--slide-muted))] mb-8">
