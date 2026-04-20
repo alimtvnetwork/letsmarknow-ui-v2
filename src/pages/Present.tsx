@@ -10,6 +10,7 @@ const THEME_KEY = "lmn-deck-theme";
 export default function Present() {
   const [index, setIndex] = useState(0);
   const [isPresenting, setIsPresenting] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isDark, setIsDark] = useState(() => {
     if (typeof window === "undefined") return true;
     const saved = localStorage.getItem(THEME_KEY);
@@ -73,13 +74,17 @@ export default function Present() {
         onPresent={() => setIsPresenting(true)}
         isDark={isDark}
         onToggleTheme={() => setIsDark((d) => !d)}
+        sidebarOpen={sidebarOpen}
+        onToggleSidebar={() => setSidebarOpen((s) => !s)}
       />
       <main className="flex-1 min-h-0 flex">
-        <ThumbnailSidebar
-          slides={slides}
-          currentIndex={index}
-          onSelect={setIndex}
-        />
+        {sidebarOpen && (
+          <ThumbnailSidebar
+            slides={slides}
+            currentIndex={index}
+            onSelect={setIndex}
+          />
+        )}
         <SlideCanvas slide={slides[index]} />
       </main>
 
