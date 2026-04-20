@@ -73,6 +73,7 @@ const auth = C(5, "Auth & Account Lifecycle");
 const onboarding = C(6, "Onboarding");
 const extension = C(7, "Extension Surfaces");
 const webapp = C(8, "Web App Shell & Routes");
+const hierarchy = C(9, "Browsing Hierarchy");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
@@ -135,6 +136,14 @@ export const slides: SlideEntry[] = [
   webapp("web-dashboard-deltas", "Dashboard deltas vs ext", WebDashboardDeltas),
   webapp("web-command-palette", "Command palette + keymap", WebCommandPalette),
   webapp("web-url-pwa", "URL state & PWA", WebUrlStatePwa),
+
+  // Ch 9
+  hierarchy("hier-six-levels", "Six levels", HierSixLevels),
+  hierarchy("hier-ascii-tree", "A real user's tree", HierAsciiTree),
+  hierarchy("hier-capabilities", "Capabilities matrix", HierCapabilitiesMatrix),
+  hierarchy("hier-limits", "Cardinality limits", HierCardinalityLimits),
+  hierarchy("hier-move-share", "Move, share, soft-delete", HierMoveAndShareRules),
+  hierarchy("hier-column-view", "Column view (Tab Extend)", HierColumnView),
 ];
 
 export const chapters = Array.from(
