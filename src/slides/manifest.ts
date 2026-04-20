@@ -8,6 +8,9 @@ import AntiPersonas from "./chapters/01-vision/05-AntiPersonas";
 import Hierarchy from "./chapters/02-vocabulary/01-Hierarchy";
 import Glossary from "./chapters/02-vocabulary/02-Glossary";
 import Forbidden from "./chapters/02-vocabulary/03-Forbidden";
+import RolesOverview from "./chapters/03-roles/01-RolesOverview";
+import PermissionMatrix from "./chapters/03-roles/02-PermissionMatrix";
+import GuestSystem from "./chapters/03-roles/03-GuestSystem";
 
 export interface SlideEntry {
   id: string;
@@ -74,7 +77,6 @@ export const slides: SlideEntry[] = [
     chapter: "Vocabulary",
     chapterNumber: 2,
     component: Hierarchy,
-    notes: "Org → Space → Collection → Group? → Item. Locked nesting rule.",
   },
   {
     id: "vocab-glossary",
@@ -85,10 +87,32 @@ export const slides: SlideEntry[] = [
   },
   {
     id: "vocab-forbidden",
-    title: "Forbidden Synonyms",
+    title: "Forbidden synonyms",
     chapter: "Vocabulary",
     chapterNumber: 2,
     component: Forbidden,
+  },
+  // ── Chapter 3 — Roles & Permissions ────────────────────────────
+  {
+    id: "roles-overview",
+    title: "Seven roles",
+    chapter: "Roles & Permissions",
+    chapterNumber: 3,
+    component: RolesOverview,
+  },
+  {
+    id: "roles-matrix",
+    title: "Permission matrix",
+    chapter: "Roles & Permissions",
+    chapterNumber: 3,
+    component: PermissionMatrix,
+  },
+  {
+    id: "roles-edge",
+    title: "Guest & system",
+    chapter: "Roles & Permissions",
+    chapterNumber: 3,
+    component: GuestSystem,
   },
 ];
 
