@@ -99,6 +99,9 @@ import DsTypographySpacing from "./chapters/18-design-system/02-TypographySpacin
 import DsComponentLibrary from "./chapters/18-design-system/03-ComponentLibrary";
 import DsMotionTokens from "./chapters/18-design-system/04-MotionTokens";
 import DsLockedRules from "./chapters/18-design-system/05-LockedRules";
+import ClRecap from "./chapters/19-closing/01-Recap";
+import ClNextSteps from "./chapters/19-closing/02-NextSteps";
+import ClThankYou from "./chapters/19-closing/03-ThankYou";
 
 export interface SlideEntry {
   id: string;
@@ -133,6 +136,7 @@ const settings = C(15, "Settings, Pricing & Plans");
 const importExport = C(16, "Import / Export");
 const pwa = C(17, "PWA & Mobile");
 const ds = C(18, "Design System Primer");
+const closing = C(19, "Closing");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
@@ -271,6 +275,11 @@ export const slides: SlideEntry[] = [
   ds("ds-components", "Component library", DsComponentLibrary),
   ds("ds-motion", "Motion tokens", DsMotionTokens),
   ds("ds-locked", "Locked rules", DsLockedRules),
+
+  // Ch 19
+  closing("cl-recap", "Recap · 18 chapters", ClRecap),
+  closing("cl-next", "What's next", ClNextSteps),
+  closing("cl-thanks", "Thank you", ClThankYou),
 ];
 
 export const chapters = Array.from(
