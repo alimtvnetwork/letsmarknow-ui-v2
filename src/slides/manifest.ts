@@ -43,6 +43,12 @@ import WebAppShell from "./chapters/08-webapp/03-AppShell";
 import WebDashboardDeltas from "./chapters/08-webapp/04-DashboardDeltas";
 import WebCommandPalette from "./chapters/08-webapp/05-CommandPalette";
 import WebUrlStatePwa from "./chapters/08-webapp/06-UrlStatePwa";
+import HierSixLevels from "./chapters/09-hierarchy/01-SixLevels";
+import HierAsciiTree from "./chapters/09-hierarchy/02-AsciiTree";
+import HierCapabilitiesMatrix from "./chapters/09-hierarchy/03-CapabilitiesMatrix";
+import HierCardinalityLimits from "./chapters/09-hierarchy/04-CardinalityLimits";
+import HierMoveAndShareRules from "./chapters/09-hierarchy/05-MoveAndShareRules";
+import HierColumnView from "./chapters/09-hierarchy/06-ColumnView";
 
 export interface SlideEntry {
   id: string;
@@ -67,6 +73,7 @@ const auth = C(5, "Auth & Account Lifecycle");
 const onboarding = C(6, "Onboarding");
 const extension = C(7, "Extension Surfaces");
 const webapp = C(8, "Web App Shell & Routes");
+const hierarchy = C(9, "Browsing Hierarchy");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
@@ -129,6 +136,14 @@ export const slides: SlideEntry[] = [
   webapp("web-dashboard-deltas", "Dashboard deltas vs ext", WebDashboardDeltas),
   webapp("web-command-palette", "Command palette + keymap", WebCommandPalette),
   webapp("web-url-pwa", "URL state & PWA", WebUrlStatePwa),
+
+  // Ch 9
+  hierarchy("hier-six-levels", "Six levels", HierSixLevels),
+  hierarchy("hier-ascii-tree", "A real user's tree", HierAsciiTree),
+  hierarchy("hier-capabilities", "Capabilities matrix", HierCapabilitiesMatrix),
+  hierarchy("hier-limits", "Cardinality limits", HierCardinalityLimits),
+  hierarchy("hier-move-share", "Move, share, soft-delete", HierMoveAndShareRules),
+  hierarchy("hier-column-view", "Column view (Tab Extend)", HierColumnView),
 ];
 
 export const chapters = Array.from(
