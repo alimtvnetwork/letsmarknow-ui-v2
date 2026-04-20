@@ -81,30 +81,37 @@ export default function RolesOverview() {
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-5 flex-1">
-          {roles.map((r) => {
-            const Icon = r.icon;
-            return (
-              <div
-                key={r.role}
-                className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 flex flex-col"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[hsl(var(--slide-accent)/0.12)] flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-[hsl(var(--slide-accent))]" />
+        <div className="flex flex-col gap-5 flex-1">
+          {[roles.slice(0, 4), roles.slice(4, 7)].map((row, rowIdx) => (
+            <div
+              key={rowIdx}
+              className={`grid gap-5 flex-1 ${rowIdx === 0 ? "grid-cols-4" : "grid-cols-3 max-w-[75%] mx-auto w-full"}`}
+            >
+              {row.map((r) => {
+                const Icon = r.icon;
+                return (
+                  <div
+                    key={r.role}
+                    className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 flex flex-col"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-[hsl(var(--slide-accent)/0.12)] flex items-center justify-center">
+                        <Icon className="w-6 h-6 text-[hsl(var(--slide-accent))]" />
+                      </div>
+                      <RoleBadge role={r.role} />
+                    </div>
+                    <div className="text-2xl font-bold mb-2">{r.title}</div>
+                    <div className="text-sm text-[hsl(var(--slide-muted))] mb-3">
+                      {r.who}
+                    </div>
+                    <div className="text-base mt-auto pt-3 border-t border-[hsl(var(--slide-border))]">
+                      {r.power}
+                    </div>
                   </div>
-                  <RoleBadge role={r.role} />
-                </div>
-                <div className="text-2xl font-bold mb-2">{r.title}</div>
-                <div className="text-sm text-[hsl(var(--slide-muted))] mb-3">
-                  {r.who}
-                </div>
-                <div className="text-base mt-auto pt-3 border-t border-[hsl(var(--slide-border))]">
-                  {r.power}
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
+            </div>
+          ))}
         </div>
       </div>
     </SlideLayout>
