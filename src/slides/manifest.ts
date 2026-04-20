@@ -63,6 +63,21 @@ import FbListGridCompact from "./chapters/11-features-b/04-ListGridCompact";
 import FbMindmapView from "./chapters/11-features-b/05-MindmapView";
 import FbHoverToJump from "./chapters/11-features-b/06-HoverToJump";
 import FbEmbedsPreviews from "./chapters/11-features-b/07-EmbedsPreviews";
+import ShShareModel from "./chapters/12-sharing/01-ShareModel";
+import ShPublicShares from "./chapters/12-sharing/02-PublicShares";
+import ShPasswordInvite from "./chapters/12-sharing/03-PasswordInvite";
+import ShPermissionsMatrix from "./chapters/12-sharing/04-PermissionsMatrix";
+import ShRealtimePresence from "./chapters/12-sharing/05-RealtimePresence";
+import ShCommentsReactions from "./chapters/12-sharing/06-CommentsReactions";
+import ShNotifications from "./chapters/12-sharing/07-Notifications";
+import ShShareAnalyticsAudit from "./chapters/12-sharing/08-ShareAnalyticsAudit";
+import HistEventLog from "./chapters/13-history/01-EventLog";
+import HistActivityFeed from "./chapters/13-history/02-ActivityFeed";
+import HistUndoRedo from "./chapters/13-history/03-UndoRedo";
+import HistConflictRules from "./chapters/13-history/04-ConflictRules";
+import HistConflictUI from "./chapters/13-history/05-ConflictUI";
+import HistOptimisticOffline from "./chapters/13-history/06-OptimisticOffline";
+import HistDeleteRecover from "./chapters/13-history/07-DeleteRecover";
 
 export interface SlideEntry {
   id: string;
@@ -90,6 +105,8 @@ const webapp = C(8, "Web App Shell & Routes");
 const hierarchy = C(9, "Browsing Hierarchy");
 const featuresA = C(10, "Capture & Organize");
 const featuresB = C(11, "Find & Visualize");
+const sharing = C(12, "Sharing & Collaboration");
+const history = C(13, "History, Activity & Conflicts");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
@@ -178,6 +195,25 @@ export const slides: SlideEntry[] = [
   featuresB("fb-mindmap", "Mind-map view", FbMindmapView),
   featuresB("fb-hover-jump", "Hover to jump", FbHoverToJump),
   featuresB("fb-embeds", "Embeds & previews", FbEmbedsPreviews),
+
+  // Ch 12
+  sharing("sh-share-model", "Share model · 4 gates", ShShareModel),
+  sharing("sh-public", "Public links", ShPublicShares),
+  sharing("sh-password-invite", "Password & email invite", ShPasswordInvite),
+  sharing("sh-permissions", "Permissions matrix", ShPermissionsMatrix),
+  sharing("sh-presence", "Live presence", ShRealtimePresence),
+  sharing("sh-comments", "Comments & reactions", ShCommentsReactions),
+  sharing("sh-notifications", "Notifications", ShNotifications),
+  sharing("sh-analytics", "Share analytics & audit", ShShareAnalyticsAudit),
+
+  // Ch 13
+  history("hist-event-log", "Event log · the spine", HistEventLog),
+  history("hist-activity", "Activity feed", HistActivityFeed),
+  history("hist-undo-redo", "Undo & redo", HistUndoRedo),
+  history("hist-conflict-rules", "Conflict rules", HistConflictRules),
+  history("hist-conflict-ui", "Surfacing conflicts", HistConflictUI),
+  history("hist-optimistic-offline", "Optimistic & offline", HistOptimisticOffline),
+  history("hist-delete-recover", "Delete & recover", HistDeleteRecover),
 ];
 
 export const chapters = Array.from(
