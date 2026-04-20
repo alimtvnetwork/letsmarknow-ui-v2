@@ -1,5 +1,5 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
-import { Cookie, Key, Smartphone, Monitor, Tablet, Shield, Zap } from "lucide-react";
+import { Cookie, Key, Smartphone, Monitor, Tablet, Shield, Zap, Chrome } from "lucide-react";
 
 const devices = [
   { icon: Monitor, name: "MacBook Pro", kind: "Web · v1.4.2", loc: "Kuala Lumpur, MY · 2 min ago", current: true },
@@ -7,8 +7,6 @@ const devices = [
   { icon: Smartphone, name: "iPhone 15", kind: "PWA · v1.4.2", loc: "Kuala Lumpur, MY · 1 hour ago", current: false },
   { icon: Tablet, name: "iPad Air", kind: "PWA · v1.3.9", loc: "Singapore, SG · 3 days ago", current: false },
 ];
-
-import { Chrome } from "lucide-react";
 
 export default function Sessions() {
   return (

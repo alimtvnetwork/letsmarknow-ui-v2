@@ -16,6 +16,13 @@ import Pricing from "./chapters/04-marketing/02-Pricing";
 import Comparison from "./chapters/04-marketing/03-Comparison";
 import Welcome from "./chapters/04-marketing/04-Welcome";
 import Trust from "./chapters/04-marketing/05-Trust";
+import AuthMethods from "./chapters/05-auth/01-AuthMethods";
+import Signup from "./chapters/05-auth/02-Signup";
+import MagicLink from "./chapters/05-auth/03-MagicLink";
+import MFA from "./chapters/05-auth/04-MFA";
+import Sessions from "./chapters/05-auth/05-Sessions";
+import PasswordReset from "./chapters/05-auth/06-PasswordReset";
+import AccountDeletion from "./chapters/05-auth/07-AccountDeletion";
 
 export interface SlideEntry {
   id: string;
