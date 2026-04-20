@@ -1,96 +1,116 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
-import { Building2, Layers, FolderOpen, Boxes, FileText, ChevronRight } from "lucide-react";
+import { Building2, Layers, FolderOpen, FolderTree, Bookmark, ChevronRight } from "lucide-react";
 
 const levels = [
   {
     icon: Building2,
     name: "Organization",
-    sub: "Billing root · members · plan",
-    example: "Acme Inc.",
+    sub: "PE / AU / XL …",
+    detail: "Top-level container. Holds members, billing, Spaces.",
+    example: "Atto Property",
+    color: "hsl(var(--slide-accent-2))",
   },
   {
     icon: Layers,
     name: "Space",
-    sub: "Top-level container per team or topic",
-    example: "Marketing",
+    sub: "logical group",
+    detail: "A logical grouping inside an Org. Sharable as a unit.",
+    example: "Personal · Evatix · Gaming PC",
+    color: "hsl(var(--slide-accent))",
   },
   {
     icon: FolderOpen,
     name: "Collection",
-    sub: "A board of related items",
-    example: "Q4 Campaign",
+    sub: "primary container",
+    detail: "The main container of saved tabs. Color · icon · tags · notes.",
+    example: "Marketing Improvements · Quick Tools",
+    color: "hsl(var(--slide-success))",
   },
   {
-    icon: Boxes,
-    name: "Group?",
-    sub: "Optional. ONE level deep only.",
-    example: "Hero assets",
+    icon: FolderTree,
+    name: "Group",
+    sub: "optional · 1 level only",
+    detail: "Optional sub-container inside a Collection. No nesting.",
+    example: "Atto Property (inside Atto Quick)",
+    color: "hsl(var(--slide-warning))",
   },
   {
-    icon: FileText,
+    icon: Bookmark,
     name: "Item",
-    sub: "The thing — tab, link, note, file",
-    example: "figma.com/…",
+    sub: "single saved tab",
+    detail: "URL + title + favicon (+ description, tags, notes, position).",
+    example: "react.dev/learn",
+    color: "hsl(var(--slide-danger))",
   },
 ];
 
-export default function Hierarchy() {
+export default function HierarchySlide() {
   return (
-    <SlideLayout chapter="Chapter 2 · Hierarchy" pageLabel="07">
+    <SlideLayout chapter="Chapter 2 · Vocabulary" pageLabel="07">
       <div className="h-full flex flex-col">
         <div className="mb-8">
-          <h2 className="text-6xl font-bold leading-tight">
-            One nesting rule. Memorise it.
+          <h2 className="text-6xl font-bold leading-tight mb-3">
+            Five levels. <span className="text-[hsl(var(--slide-accent))]">One nesting rule.</span>
           </h2>
-          <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">
-            Organization → Space → Collection → <em>Group?</em> → Item.
-            Groups never nest inside Groups.
+          <p className="text-xl text-[hsl(var(--slide-muted))] max-w-[1300px]">
+            Every UI string, API field, and database column uses these exact terms.
+            Synonyms from Toby or Tab Extend are not allowed.
           </p>
         </div>
 
-        <div className="flex-1 flex items-center">
-          <div className="w-full grid grid-cols-9 items-stretch gap-3">
-            {levels.map((l, i) => {
-              const Icon = l.icon;
-              return (
-                <>
+        {/* Flow */}
+        <div className="flex items-stretch gap-3 mb-8">
+          {levels.map((lvl, i) => {
+            const Icon = lvl.icon;
+            return (
+              <div key={lvl.name} className="flex items-stretch gap-3 flex-1">
+                <div
+                  className="flex-1 rounded-2xl border p-5 flex flex-col"
+                  style={{
+                    borderColor: `${lvl.color.replace(")", " / 0.4)")}`,
+                    background: `${lvl.color.replace(")", " / 0.08)")}`,
+                  }}
+                >
                   <div
-                    key={l.name}
-                    className="col-span-1 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex flex-col"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-3"
+                    style={{ background: `${lvl.color.replace(")", " / 0.2)")}` }}
                   >
-                    <div className="w-12 h-12 rounded-xl bg-[hsl(var(--slide-accent)/0.15)] flex items-center justify-center mb-4">
-                      <Icon className="w-6 h-6 text-[hsl(var(--slide-accent))]" />
-                    </div>
-                    <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-1">
-                      Level {i + 1}
-                    </div>
-                    <div className="text-2xl font-bold mb-2">{l.name}</div>
-                    <div className="text-sm text-[hsl(var(--slide-muted))] mb-3 flex-1">
-                      {l.sub}
-                    </div>
-                    <div className="text-xs font-mono px-2 py-1 rounded bg-[hsl(var(--slide-fg)/0.06)] truncate">
-                      {l.example}
-                    </div>
+                    <Icon className="w-6 h-6" style={{ color: lvl.color }} />
                   </div>
-                  {i < levels.length - 1 && (
-                    <div className="col-span-1 flex items-center justify-center">
-                      <ChevronRight className="w-10 h-10 text-[hsl(var(--slide-muted))]" />
-                    </div>
-                  )}
-                </>
-              );
-            })}
-          </div>
+                  <div className="text-2xl font-bold leading-tight" style={{ color: lvl.color }}>
+                    {lvl.name}
+                  </div>
+                  <div className="text-xs uppercase tracking-wider text-[hsl(var(--slide-muted))] mb-2">
+                    {lvl.sub}
+                  </div>
+                  <div className="text-sm text-[hsl(var(--slide-fg))] leading-snug mb-3 flex-1">
+                    {lvl.detail}
+                  </div>
+                  <div className="text-xs text-[hsl(var(--slide-muted))] font-mono border-t border-[hsl(var(--slide-border))] pt-2">
+                    e.g. {lvl.example}
+                  </div>
+                </div>
+                {i < levels.length - 1 && (
+                  <ChevronRight className="self-center w-7 h-7 text-[hsl(var(--slide-muted))] shrink-0" />
+                )}
+              </div>
+            );
+          })}
         </div>
 
-        <div className="mt-8 flex gap-4">
-          <div className="flex-1 rounded-xl border border-[hsl(var(--slide-success)/0.4)] bg-[hsl(var(--slide-success)/0.08)] px-5 py-3 text-base">
-            <span className="font-bold text-[hsl(var(--slide-success))]">✓ Allowed</span>{" "}
-            Space → Collection → Group → Item
-          </div>
-          <div className="flex-1 rounded-xl border border-[hsl(var(--slide-warning)/0.4)] bg-[hsl(var(--slide-warning)/0.08)] px-5 py-3 text-base">
-            <span className="font-bold text-[hsl(var(--slide-warning))]">✗ Forbidden</span>{" "}
-            Group → Group, or Collection → Collection
+        {/* Nesting rule callout */}
+        <div className="rounded-2xl border-2 border-[hsl(var(--slide-accent)/0.4)] bg-[hsl(var(--slide-accent)/0.08)] p-6 flex items-center gap-6">
+          <div className="text-4xl">📌</div>
+          <div>
+            <div className="text-base uppercase tracking-widest text-[hsl(var(--slide-accent))] font-bold mb-1">
+              Nesting rule (v1)
+            </div>
+            <div className="text-2xl font-mono font-semibold">
+              Organization → Space → Collection → Group? → Item
+            </div>
+            <div className="text-base text-[hsl(var(--slide-muted))] mt-1">
+              Maximum 1 level of Group inside Collection. <strong>No Group-inside-Group.</strong>
+            </div>
           </div>
         </div>
       </div>

@@ -14,23 +14,15 @@ export default function Signup() {
     <SlideLayout chapter="Chapter 5 · Signup" pageLabel="19">
       <div className="h-full flex flex-col">
         <div className="mb-6">
-          <h2 className="text-6xl font-bold leading-tight">
-            Signup — five steps, no friction.
-          </h2>
-          <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">
-            Sign in immediately. Verification is a banner, not a wall.
-          </p>
+          <h2 className="text-6xl font-bold leading-tight">Signup — five steps, no friction.</h2>
+          <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">Sign in immediately. Verification is a banner, not a wall.</p>
         </div>
-
         <div className="flex-1 grid grid-cols-5 gap-7">
           <div className="col-span-3 flex flex-col gap-3">
             {steps.map((step) => {
               const Icon = step.icon;
               return (
-                <div
-                  key={step.t}
-                  className="flex items-start gap-4 rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4"
-                >
+                <div key={step.t} className="flex items-start gap-4 rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4">
                   <div className="w-11 h-11 rounded-lg bg-[hsl(var(--slide-accent)/0.15)] flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5 text-[hsl(var(--slide-accent))]" />
                   </div>
@@ -43,12 +35,9 @@ export default function Signup() {
               );
             })}
           </div>
-
           <div className="col-span-2 flex flex-col gap-4">
             <div className="rounded-2xl border border-[hsl(var(--slide-warning)/0.4)] bg-[hsl(var(--slide-warning)/0.08)] p-5">
-              <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-warning))] font-bold mb-2">
-                Until verified
-              </div>
+              <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-warning))] font-bold mb-2">Until verified</div>
               <ul className="space-y-2 text-base">
                 <li>✗ Cannot create public shares</li>
                 <li>✗ Cannot invite others</li>
@@ -56,11 +45,8 @@ export default function Signup() {
                 <li>✓ Everything else works</li>
               </ul>
             </div>
-
             <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex-1">
-              <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] font-semibold mb-3">
-                Anti-abuse
-              </div>
+              <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] font-semibold mb-3">Anti-abuse</div>
               <ul className="space-y-2 text-sm">
                 <li><span className="font-mono">10/h</span> signups per IP</li>
                 <li><span className="font-mono">3/24h</span> per email address</li>

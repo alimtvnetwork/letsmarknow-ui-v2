@@ -6,16 +6,12 @@ export default function MFA() {
     <SlideLayout chapter="Chapter 5 · MFA" pageLabel="21">
       <div className="h-full flex flex-col">
         <div className="mb-6">
-          <h2 className="text-6xl font-bold leading-tight">
-            MFA — TOTP today, WebAuthn next.
-          </h2>
+          <h2 className="text-6xl font-bold leading-tight">MFA — TOTP today, WebAuthn next.</h2>
           <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">
             Required for Team Owners. Optional but prompted for Pro. WebAuthn ships post-v1.
           </p>
         </div>
-
         <div className="flex-1 grid grid-cols-3 gap-6">
-          {/* Enrollment */}
           <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 flex flex-col">
             <div className="w-12 h-12 rounded-xl bg-[hsl(var(--slide-accent)/0.15)] flex items-center justify-center mb-4">
               <Smartphone className="w-6 h-6 text-[hsl(var(--slide-accent))]" />
@@ -29,8 +25,6 @@ export default function MFA() {
               <li>User must download or copy them</li>
             </ol>
           </div>
-
-          {/* Sign-in */}
           <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 flex flex-col">
             <div className="w-12 h-12 rounded-xl bg-[hsl(var(--slide-success)/0.15)] flex items-center justify-center mb-4">
               <KeyRound className="w-6 h-6 text-[hsl(var(--slide-success))]" />
@@ -44,8 +38,6 @@ export default function MFA() {
               <li>5 fails → 15-min lockout on the ephemeral session</li>
             </ol>
           </div>
-
-          {/* Recovery */}
           <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 flex flex-col">
             <div className="w-12 h-12 rounded-xl bg-[hsl(var(--slide-warning)/0.15)] flex items-center justify-center mb-4">
               <Shield className="w-6 h-6 text-[hsl(var(--slide-warning))]" />
@@ -62,12 +54,10 @@ export default function MFA() {
             </ul>
           </div>
         </div>
-
         <div className="mt-6 rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] px-5 py-3 flex items-center gap-3 text-base">
           <RefreshCw className="w-5 h-5 text-[hsl(var(--slide-accent))]" />
           <span>
-            <span className="font-bold">Org enforcement:</span> Admins can require MFA Org-wide; non-MFA Members get
-            a 14-day grace then are blocked from sensitive ops.
+            <span className="font-bold">Org enforcement:</span> Admins can require MFA Org-wide; non-MFA Members get a 14-day grace then are blocked from sensitive ops.
           </span>
         </div>
       </div>

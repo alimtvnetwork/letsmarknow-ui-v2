@@ -2,7 +2,6 @@ import { SlideLayout } from "@/slides/_layout/SlideLayout";
 import { Check, X, Minus } from "lucide-react";
 
 type V = "yes" | "no" | "partial";
-
 const cols = ["LMN", "Toby", "Tab Extend", "Raindrop", "Pocket"];
 
 const rows: { feature: string; values: V[] }[] = [
@@ -20,23 +19,9 @@ const rows: { feature: string; values: V[] }[] = [
 ];
 
 function Cell({ v }: { v: V }) {
-  if (v === "yes")
-    return (
-      <div className="inline-flex w-9 h-9 rounded-full items-center justify-center bg-[hsl(var(--slide-success)/0.18)]">
-        <Check className="w-5 h-5 text-[hsl(var(--slide-success))]" />
-      </div>
-    );
-  if (v === "partial")
-    return (
-      <div className="inline-flex w-9 h-9 rounded-full items-center justify-center bg-[hsl(var(--slide-warning)/0.18)]">
-        <Minus className="w-5 h-5 text-[hsl(var(--slide-warning))]" />
-      </div>
-    );
-  return (
-    <div className="inline-flex w-9 h-9 rounded-full items-center justify-center bg-[hsl(var(--slide-fg)/0.06)]">
-      <X className="w-5 h-5 text-[hsl(var(--slide-muted))]" />
-    </div>
-  );
+  if (v === "yes") return <div className="inline-flex w-9 h-9 rounded-full items-center justify-center bg-[hsl(var(--slide-success)/0.18)]"><Check className="w-5 h-5 text-[hsl(var(--slide-success))]" /></div>;
+  if (v === "partial") return <div className="inline-flex w-9 h-9 rounded-full items-center justify-center bg-[hsl(var(--slide-warning)/0.18)]"><Minus className="w-5 h-5 text-[hsl(var(--slide-warning))]" /></div>;
+  return <div className="inline-flex w-9 h-9 rounded-full items-center justify-center bg-[hsl(var(--slide-fg)/0.06)]"><X className="w-5 h-5 text-[hsl(var(--slide-muted))]" /></div>;
 }
 
 export default function Comparison() {
@@ -44,56 +29,27 @@ export default function Comparison() {
     <SlideLayout chapter="Chapter 4 · Comparison" pageLabel="15">
       <div className="h-full flex flex-col">
         <div className="mb-6">
-          <h2 className="text-6xl font-bold leading-tight">
-            Why switch.
-          </h2>
-          <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">
-            The features Toby and Tab Extend never shipped — and we did.
-          </p>
+          <h2 className="text-6xl font-bold leading-tight">Why switch.</h2>
+          <p className="text-xl text-[hsl(var(--slide-muted))] mt-3">The features Toby and Tab Extend never shipped — and we did.</p>
         </div>
-
         <div className="flex-1 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] overflow-hidden">
           <table className="w-full text-base">
             <thead>
               <tr className="border-b border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-fg)/0.04)]">
                 <th className="text-left px-6 py-4 font-semibold">Feature</th>
-                {cols.map((c) => (
-                  <th
-                    key={c}
-                    className={`px-3 py-4 font-bold text-center ${
-                      c === "LMN"
-                        ? "text-[hsl(var(--slide-accent))] text-lg"
-                        : "text-[hsl(var(--slide-muted))]"
-                    }`}
-                  >
-                    {c}
-                  </th>
-                ))}
+                {cols.map((c) => (<th key={c} className={`px-3 py-4 font-bold text-center ${c === "LMN" ? "text-[hsl(var(--slide-accent))] text-lg" : "text-[hsl(var(--slide-muted))]"}`}>{c}</th>))}
               </tr>
             </thead>
             <tbody>
               {rows.map((r, i) => (
-                <tr
-                  key={r.feature}
-                  className={i % 2 ? "bg-[hsl(var(--slide-fg)/0.02)]" : ""}
-                >
+                <tr key={r.feature} className={i % 2 ? "bg-[hsl(var(--slide-fg)/0.02)]" : ""}>
                   <td className="px-6 py-3 font-medium">{r.feature}</td>
-                  {r.values.map((v, j) => (
-                    <td
-                      key={j}
-                      className={`px-3 py-3 text-center ${
-                        j === 0 ? "bg-[hsl(var(--slide-accent)/0.06)]" : ""
-                      }`}
-                    >
-                      <Cell v={v} />
-                    </td>
-                  ))}
+                  {r.values.map((v, j) => (<td key={j} className={`px-3 py-3 text-center ${j === 0 ? "bg-[hsl(var(--slide-accent)/0.06)]" : ""}`}><Cell v={v} /></td>))}
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-
         <div className="mt-4 text-sm text-[hsl(var(--slide-muted))]">
           Imports from Toby, Tab Extend, Raindrop, Pocket, and HTML bookmarks ship in v1 — see Chapter 16.
         </div>
