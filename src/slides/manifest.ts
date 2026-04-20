@@ -16,6 +16,13 @@ import Pricing from "./chapters/04-marketing/02-Pricing";
 import Comparison from "./chapters/04-marketing/03-Comparison";
 import Welcome from "./chapters/04-marketing/04-Welcome";
 import Trust from "./chapters/04-marketing/05-Trust";
+import AuthMethods from "./chapters/05-auth/01-AuthMethods";
+import Signup from "./chapters/05-auth/02-Signup";
+import MagicLink from "./chapters/05-auth/03-MagicLink";
+import MFA from "./chapters/05-auth/04-MFA";
+import Sessions from "./chapters/05-auth/05-Sessions";
+import PasswordReset from "./chapters/05-auth/06-PasswordReset";
+import AccountDeletion from "./chapters/05-auth/07-AccountDeletion";
 
 export interface SlideEntry {
   id: string;
@@ -154,6 +161,56 @@ export const slides: SlideEntry[] = [
     chapter: "Marketing & First Touch",
     chapterNumber: 4,
     component: Trust,
+  },
+  // ── Chapter 5 — Auth & Account Lifecycle ───────────────────────
+  {
+    id: "auth-methods",
+    title: "Auth methods",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: AuthMethods,
+  },
+  {
+    id: "auth-signup",
+    title: "Signup flow",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: Signup,
+  },
+  {
+    id: "auth-magic-link",
+    title: "Magic link",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: MagicLink,
+  },
+  {
+    id: "auth-mfa",
+    title: "MFA",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: MFA,
+  },
+  {
+    id: "auth-sessions",
+    title: "Sessions & devices",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: Sessions,
+  },
+  {
+    id: "auth-password-reset",
+    title: "Forgot password",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: PasswordReset,
+  },
+  {
+    id: "auth-deletion",
+    title: "Deletion & GDPR",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: AccountDeletion,
   },
 ];
 
