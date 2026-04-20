@@ -11,6 +11,11 @@ import Forbidden from "./chapters/02-vocabulary/03-Forbidden";
 import RolesOverview from "./chapters/03-roles/01-RolesOverview";
 import PermissionMatrix from "./chapters/03-roles/02-PermissionMatrix";
 import GuestSystem from "./chapters/03-roles/03-GuestSystem";
+import MarketingHome from "./chapters/04-marketing/01-Home";
+import Pricing from "./chapters/04-marketing/02-Pricing";
+import Comparison from "./chapters/04-marketing/03-Comparison";
+import Welcome from "./chapters/04-marketing/04-Welcome";
+import Trust from "./chapters/04-marketing/05-Trust";
 
 export interface SlideEntry {
   id: string;
@@ -113,6 +118,42 @@ export const slides: SlideEntry[] = [
     chapter: "Roles & Permissions",
     chapterNumber: 3,
     component: GuestSystem,
+  },
+  // ── Chapter 4 — Marketing Site & First Touch ───────────────────
+  {
+    id: "marketing-home",
+    title: "Marketing home",
+    chapter: "Marketing & First Touch",
+    chapterNumber: 4,
+    component: MarketingHome,
+  },
+  {
+    id: "marketing-pricing",
+    title: "Pricing",
+    chapter: "Marketing & First Touch",
+    chapterNumber: 4,
+    component: Pricing,
+  },
+  {
+    id: "marketing-comparison",
+    title: "Comparison",
+    chapter: "Marketing & First Touch",
+    chapterNumber: 4,
+    component: Comparison,
+  },
+  {
+    id: "marketing-welcome",
+    title: "/welcome",
+    chapter: "Marketing & First Touch",
+    chapterNumber: 4,
+    component: Welcome,
+  },
+  {
+    id: "marketing-trust",
+    title: "Trust pages",
+    chapter: "Marketing & First Touch",
+    chapterNumber: 4,
+    component: Trust,
   },
 ];
 
