@@ -148,7 +148,7 @@ export const slides: SlideEntry[] = [
   vision("vision-problem", "The Problem", Problem),
   vision("vision-solution", "The Vision", Solution),
   vision("vision-personas", "Personas", Personas),
-  vision("vision-anti", "Anti-personas", AntiPersonas),
+  vision("vision-also", "Also building for", AntiPersonas),
 
   // Ch 2
   vocab("vocab-hierarchy", "Hierarchy", Hierarchy),
