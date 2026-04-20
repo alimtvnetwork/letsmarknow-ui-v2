@@ -119,6 +119,42 @@ export const slides: SlideEntry[] = [
     chapterNumber: 3,
     component: GuestSystem,
   },
+  // ── Chapter 4 — Marketing Site & First Touch ───────────────────
+  {
+    id: "marketing-home",
+    title: "Marketing home",
+    chapter: "Marketing & First Touch",
+    chapterNumber: 4,
+    component: MarketingHome,
+  },
+  {
+    id: "marketing-pricing",
+    title: "Pricing",
+    chapter: "Marketing & First Touch",
+    chapterNumber: 4,
+    component: Pricing,
+  },
+  {
+    id: "marketing-comparison",
+    title: "Comparison",
+    chapter: "Marketing & First Touch",
+    chapterNumber: 4,
+    component: Comparison,
+  },
+  {
+    id: "marketing-welcome",
+    title: "/welcome",
+    chapter: "Marketing & First Touch",
+    chapterNumber: 4,
+    component: Welcome,
+  },
+  {
+    id: "marketing-trust",
+    title: "Trust pages",
+    chapter: "Marketing & First Touch",
+    chapterNumber: 4,
+    component: Trust,
+  },
 ];
 
 export const chapters = Array.from(
