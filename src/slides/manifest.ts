@@ -175,9 +175,9 @@ export const slides: SlideEntry[] = [
   onboarding("onb-branches", "Three branches", OnboardingBranches),
   onboarding("onb-pick-space", "Pick starting Space", OnboardingPickStartingSpace),
   onboarding("onb-bookmarks", "Bring bookmarks", OnboardingBringBookmarks),
-  onboarding("onb-install", "Install extension", OnboardingInstallExtension),
+  onboarding("onb-install", "Chrome extension install", OnboardingInstallExtension),
   onboarding("onb-try", "Try it now", OnboardingTryIt),
-  onboarding("onb-shortcut", "Invite & install branches", OnboardingShortcutBranches),
+  onboarding("onb-shortcut", "Alternative entry paths", OnboardingShortcutBranches),
 
   // Ch 7
   extension("ext-surfaces", "Eight surfaces", ExtSurfaces),
@@ -250,7 +250,7 @@ export const slides: SlideEntry[] = [
 
   // Ch 15
   settings("st-ia", "Settings IA · 8 sections", StSettingsIA),
-  settings("st-plans", "Three plans", StPlanPicker),
+  settings("st-plans", "Plan management", StPlanPicker),
   settings("st-billing", "Billing portal", StBillingPortal),
   settings("st-seats", "Seat management", StSeatManagement),
   settings("st-downgrade", "Downgrade flow", StDowngradeFlow),
@@ -262,7 +262,7 @@ export const slides: SlideEntry[] = [
   importExport("ie-gdpr", "Account export & deletion", IeGdprExport),
 
   // Ch 17
-  pwa("pwa-install", "Install prompt", PwaInstallPrompt),
+  pwa("pwa-install", "Add to Home Screen", PwaInstallPrompt),
   pwa("pwa-offline", "Offline strategy", PwaOfflineStrategy),
   pwa("pwa-mobile", "Mobile gestures", PwaMobileGestures),
 
