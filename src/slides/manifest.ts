@@ -5,7 +5,7 @@ import VisionHero from "./chapters/01-vision/01-VisionHero";
 import Problem from "./chapters/01-vision/02-Problem";
 import Solution from "./chapters/01-vision/03-Solution";
 import Personas from "./chapters/01-vision/04-Personas";
-import AntiPersonas from "./chapters/01-vision/05-AntiPersonas";
+
 import Hierarchy from "./chapters/02-vocabulary/01-Hierarchy";
 import RolesOverview from "./chapters/03-roles/01-RolesOverview";
 import PermissionMatrix from "./chapters/03-roles/02-PermissionMatrix";
@@ -146,7 +146,6 @@ export const slides: SlideEntry[] = [
   vision("vision-problem", "The Problem", Problem),
   vision("vision-solution", "The Vision", Solution),
   vision("vision-personas", "Personas", Personas),
-  vision("vision-also", "Also building for", AntiPersonas),
 
   // Ch 2
   vocab("vocab-hierarchy", "Hierarchy", Hierarchy),
