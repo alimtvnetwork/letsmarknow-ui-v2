@@ -40,10 +40,8 @@ export default function WebCommandPalette() {
         <h1 className="text-6xl font-bold tracking-tight mb-3">
           Web app keymap · <span className="text-[hsl(var(--slide-accent))]">⌘K & vim-style</span>
         </h1>
-          Command palette · <span className="text-[hsl(var(--slide-accent))]">keyboard-first</span>
-        </h1>
         <p className="text-xl text-[hsl(var(--slide-muted))] mb-8">
-          One palette, four tabs. Same component as the extension. Single source of truth: <code className="font-mono">shared/keymap.ts</code>.
+          Command palette + 16 vim-style bindings inside the web app. Different scope from the 4 OS-level extension shortcuts (Ch 7).
         </p>
 
         <div className="grid grid-cols-2 gap-10 flex-1">
