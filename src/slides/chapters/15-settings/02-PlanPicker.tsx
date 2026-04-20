@@ -24,10 +24,10 @@ export default function PlanPicker() {
     <SlideLayout chapter="Chapter 15 · Settings, Pricing & Plans" pageLabel="15.02">
       <div className="h-full flex flex-col pt-10">
         <h1 className="text-6xl font-bold tracking-tight mb-2">
-          Three plans · <span className="text-[hsl(var(--slide-accent))]">free, pro, team</span>
+          Plan management · <span className="text-[hsl(var(--slide-accent))]">upgrade, downgrade, current state</span>
         </h1>
         <p className="text-xl text-[hsl(var(--slide-muted))] mb-8 max-w-5xl">
-          No usage caps to surprise you. The free tier is genuinely useful — Pro adds polish, Team adds governance.
+          This is the in-app settings view after signup — not the marketing pricing page. It shows the current plan, what unlocks next, and where upgrades happen.
         </p>
         <div className="grid grid-cols-3 gap-6 flex-1">
           {plans.map((p) => (

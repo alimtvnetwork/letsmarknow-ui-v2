@@ -13,10 +13,10 @@ export default function InstallPrompt() {
     <SlideLayout chapter="Chapter 17 · PWA & Mobile" pageLabel="17.01">
       <div className="h-full flex flex-col pt-12">
         <h1 className="text-7xl font-bold tracking-tight mb-3">
-          Install · <span className="text-[hsl(var(--slide-accent))]">earned, not nagged</span>
+          Add to Home Screen · <span className="text-[hsl(var(--slide-accent))]">earned, not nagged</span>
         </h1>
         <p className="text-2xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">
-          PWA install prompted only after meaningful usage. Standalone manifest, custom icon, splash screen.
+          This is the mobile/PWA prompt, separate from the Chrome extension install flow. It appears only after meaningful usage and saves the web app to the phone home screen.
         </p>
         <div className="grid grid-cols-3 gap-8 flex-1">
           <div className="col-span-2 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-8">
