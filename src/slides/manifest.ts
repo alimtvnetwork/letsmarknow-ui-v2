@@ -43,6 +43,12 @@ import WebAppShell from "./chapters/08-webapp/03-AppShell";
 import WebDashboardDeltas from "./chapters/08-webapp/04-DashboardDeltas";
 import WebCommandPalette from "./chapters/08-webapp/05-CommandPalette";
 import WebUrlStatePwa from "./chapters/08-webapp/06-UrlStatePwa";
+import HierSixLevels from "./chapters/09-hierarchy/01-SixLevels";
+import HierAsciiTree from "./chapters/09-hierarchy/02-AsciiTree";
+import HierCapabilitiesMatrix from "./chapters/09-hierarchy/03-CapabilitiesMatrix";
+import HierCardinalityLimits from "./chapters/09-hierarchy/04-CardinalityLimits";
+import HierMoveAndShareRules from "./chapters/09-hierarchy/05-MoveAndShareRules";
+import HierColumnView from "./chapters/09-hierarchy/06-ColumnView";
 
 export interface SlideEntry {
   id: string;
