@@ -3,11 +3,11 @@ import { SlideLayout } from "@/slides/_layout/SlideLayout";
 export default function ListGridCompact() {
   return (
     <SlideLayout chapter="Chapter 11 · Find & Visualize" pageLabel="11.04">
-      <div className="h-full flex flex-col pt-12">
-        <h1 className="text-6xl font-bold tracking-tight mb-3">
+      <div className="h-full flex flex-col pt-10">
+        <h1 className="text-6xl font-bold tracking-tight mb-2">
           List · Grid · Compact · <span className="text-[hsl(var(--slide-accent))]">side-by-side</span>
         </h1>
-        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8">Same Collection · three densities · same data.</p>
+        <p className="text-lg text-[hsl(var(--slide-muted))] mb-6">Same Collection · three densities · same data.</p>
 
         <div className="grid grid-cols-3 gap-4 flex-1">
           {/* List */}

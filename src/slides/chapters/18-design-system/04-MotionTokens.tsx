@@ -20,17 +20,17 @@ const easings = [
 export default function MotionTokens() {
   return (
     <SlideLayout chapter="Chapter 18 · Design System Primer" pageLabel="18.04">
-      <div className="h-full flex flex-col pt-12">
-        <h1 className="text-7xl font-bold tracking-tight mb-3">
+      <div className="h-full flex flex-col pt-8">
+        <h1 className="text-5xl font-bold tracking-tight mb-2">
           Motion · <span className="text-[hsl(var(--slide-accent))]">five durations, five curves</span>
         </h1>
-        <p className="text-2xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">
+        <p className="text-lg text-[hsl(var(--slide-muted))] mb-6 max-w-5xl">
           Animation tokens are first-class. Every motion picks one duration + one easing. Reduced-motion always respected.
         </p>
-        <div className="grid grid-cols-2 gap-8 flex-1">
-          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6">
-            <div className="flex items-center gap-2 mb-5"><Zap className="w-5 h-5 text-[hsl(var(--slide-accent))]" /><h3 className="text-xl font-bold">Durations</h3></div>
-            <div className="space-y-3">
+        <div className="grid grid-cols-2 gap-6 flex-1 min-h-0">
+          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 min-h-0 overflow-hidden">
+            <div className="flex items-center gap-2 mb-3"><Zap className="w-5 h-5 text-[hsl(var(--slide-accent))]" /><h3 className="text-lg font-bold">Durations</h3></div>
+            <div className="space-y-2">
               {durations.map((d) => (
                 <div key={d.name} className="rounded-lg bg-[hsl(var(--slide-surface-2))] p-3">
                   <div className="flex items-baseline gap-3 mb-1">
@@ -42,9 +42,9 @@ export default function MotionTokens() {
               ))}
             </div>
           </div>
-          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6">
-            <h3 className="text-xl font-bold mb-5">Easings</h3>
-            <div className="space-y-3">
+          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 min-h-0 overflow-hidden">
+            <h3 className="text-lg font-bold mb-3">Easings</h3>
+            <div className="space-y-2">
               {easings.map((e) => (
                 <div key={e.name} className="rounded-lg bg-[hsl(var(--slide-surface-2))] p-3">
                   <div className="flex items-baseline gap-3 mb-1">
@@ -57,7 +57,7 @@ export default function MotionTokens() {
             </div>
           </div>
         </div>
-        <div className="mt-6 rounded-xl border border-[hsl(var(--slide-accent)_/_0.4)] bg-[hsl(var(--slide-accent)_/_0.05)] p-4 text-sm text-[hsl(var(--slide-muted))]">
+        <div className="mt-4 rounded-xl border border-[hsl(var(--slide-accent)_/_0.4)] bg-[hsl(var(--slide-accent)_/_0.05)] p-3 text-xs text-[hsl(var(--slide-muted))]">
           <span className="text-[hsl(var(--slide-fg))] font-semibold">prefers-reduced-motion:</span> motion under 200ms passes through · longer becomes instant or fades · parallax & autoplay always disabled.
         </div>
       </div>

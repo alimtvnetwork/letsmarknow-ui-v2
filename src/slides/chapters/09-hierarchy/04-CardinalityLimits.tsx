@@ -19,37 +19,37 @@ const limits = [
 export default function HierarchyCardinalityLimits() {
   return (
     <SlideLayout chapter="Chapter 9 · Browsing Hierarchy" pageLabel="09.04">
-      <div className="h-full flex flex-col pt-12">
-        <h1 className="text-6xl font-bold tracking-tight mb-3">
+      <div className="h-full flex flex-col pt-6">
+        <h1 className="text-5xl font-bold tracking-tight mb-2">
           Hard limits · <span className="text-[hsl(var(--slide-accent))]">performance, not pricing</span>
         </h1>
-        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8 max-w-5xl">
+        <p className="text-lg text-[hsl(var(--slide-muted))] mb-5 max-w-5xl">
           These ceilings exist on every plan. Hit one → API returns <code className="font-mono">409 LIMIT_REACHED</code> with a friendly UI explainer.
         </p>
 
-        <div className="grid grid-cols-3 gap-3 flex-1">
+        <div className="grid grid-cols-4 gap-3 flex-1 min-h-0">
           {limits.map((l) => (
             <div
               key={l.k}
-              className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex flex-col"
+              className="rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4 flex flex-col"
             >
-              <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-1">{l.k}</div>
-              <div className="text-4xl font-bold text-[hsl(var(--slide-accent))] mb-1 font-mono">{l.v}</div>
-              <div className="text-xs text-[hsl(var(--slide-fg))]/70 mt-auto">{l.why}</div>
+              <div className="text-[11px] uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-1 leading-tight">{l.k}</div>
+              <div className="text-3xl font-bold text-[hsl(var(--slide-accent))] mb-1 font-mono">{l.v}</div>
+              <div className="text-[11px] text-[hsl(var(--slide-fg))]/70 mt-auto leading-tight">{l.why}</div>
             </div>
           ))}
         </div>
 
-        <div className="mt-5 grid grid-cols-3 gap-4">
+        <div className="mt-4 grid grid-cols-3 gap-3">
           {[
             { i: ShieldAlert, t: "Hard limit", d: "Same on Free, Pro, Team" },
             { i: Gauge, t: "Soft warning", d: "UI banner at 90% of any limit" },
             { i: Layers, t: "Plan limits", d: "Separate (see Pricing slide)" },
           ].map(({ i: Icon, t, d }) => (
-            <div key={t} className="rounded-xl border border-[hsl(var(--slide-border))] p-4 flex items-center gap-3">
-              <Icon className="w-6 h-6 text-[hsl(var(--slide-accent))]" />
+            <div key={t} className="rounded-xl border border-[hsl(var(--slide-border))] p-3 flex items-center gap-3">
+              <Icon className="w-5 h-5 text-[hsl(var(--slide-accent))]" />
               <div>
-                <div className="text-base font-semibold">{t}</div>
+                <div className="text-sm font-semibold">{t}</div>
                 <div className="text-xs text-[hsl(var(--slide-muted))]">{d}</div>
               </div>
             </div>

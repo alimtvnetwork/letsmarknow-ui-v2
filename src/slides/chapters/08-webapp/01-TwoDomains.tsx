@@ -4,17 +4,17 @@ import { Globe, Lock, Zap, Search } from "lucide-react";
 export default function WebTwoDomains() {
   return (
     <SlideLayout chapter="Chapter 8 · Web App Shell" pageLabel="08.01">
-      <div className="h-full flex flex-col pt-12">
-        <h1 className="text-7xl font-bold tracking-tight mb-3">
+      <div className="h-full flex flex-col pt-8">
+        <h1 className="text-6xl font-bold tracking-tight mb-2">
           Two domains, <span className="text-[hsl(var(--slide-accent))]">one product</span>
         </h1>
-        <p className="text-2xl text-[hsl(var(--slide-muted))] mb-12 max-w-5xl">
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-6 max-w-5xl">
           Marketing is server-rendered for SEO. The app is a client-side SPA built for speed.
         </p>
 
-        <div className="grid grid-cols-2 gap-8 flex-1">
+        <div className="grid grid-cols-2 gap-6 flex-1 min-h-0">
           {/* Marketing */}
-          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-8 flex flex-col">
+          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 flex flex-col min-h-0">
             <div className="flex items-center gap-3 mb-4">
               <Globe className="w-7 h-7 text-[hsl(var(--slide-accent))]" />
               <code className="font-mono text-2xl">letsmarknow.com</code>
@@ -52,7 +52,7 @@ export default function WebTwoDomains() {
           </div>
 
           {/* App */}
-          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-8 flex flex-col">
+          <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 flex flex-col min-h-0">
             <div className="flex items-center gap-3 mb-4">
               <Lock className="w-7 h-7 text-[hsl(var(--slide-accent))]" />
               <code className="font-mono text-2xl">app.letsmarknow.com</code>
@@ -90,7 +90,7 @@ export default function WebTwoDomains() {
           </div>
         </div>
 
-        <div className="mt-6 flex items-center justify-center gap-4 text-base text-[hsl(var(--slide-muted))]">
+        <div className="mt-4 flex items-center justify-center gap-4 text-sm text-[hsl(var(--slide-muted))]">
           <Search className="w-4 h-4" /> SEO lives on apex
           <span className="text-[hsl(var(--slide-border))]">·</span>
           <Zap className="w-4 h-4" /> Speed lives on app subdomain

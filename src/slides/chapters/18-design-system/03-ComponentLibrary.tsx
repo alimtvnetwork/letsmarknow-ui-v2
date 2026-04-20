@@ -30,18 +30,18 @@ const groups = [
 export default function ComponentLibrary() {
   return (
     <SlideLayout chapter="Chapter 18 · Design System Primer" pageLabel="18.03">
-      <div className="h-full flex flex-col pt-12">
-        <h1 className="text-7xl font-bold tracking-tight mb-3">
+      <div className="h-full flex flex-col pt-8">
+        <h1 className="text-5xl font-bold tracking-tight mb-2">
           Components · <span className="text-[hsl(var(--slide-accent))]">shadcn + Radix base</span>
         </h1>
-        <p className="text-2xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">
+        <p className="text-lg text-[hsl(var(--slide-muted))] mb-6 max-w-5xl">
           Forty primitives, six custom. Variants extend via `cva`. Never fork a primitive into the codebase.
         </p>
-        <div className="grid grid-cols-3 gap-5 flex-1">
+        <div className="grid grid-cols-3 gap-4 flex-1 min-h-0">
           {groups.map((g) => (
-            <div key={g.title} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6">
-              <h3 className="text-lg font-bold mb-4">{g.title}</h3>
-              <ul className="space-y-2 text-sm text-[hsl(var(--slide-muted))]">
+            <div key={g.title} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 min-h-0 overflow-hidden">
+              <h3 className="text-base font-bold mb-3">{g.title}</h3>
+              <ul className="space-y-1.5 text-sm text-[hsl(var(--slide-muted))]">
                 {g.items.map((it) => (
                   <li key={it} className="flex gap-2">
                     <span className="text-[hsl(var(--slide-accent))]">·</span>
@@ -52,7 +52,7 @@ export default function ComponentLibrary() {
             </div>
           ))}
         </div>
-        <p className="text-sm text-[hsl(var(--slide-muted))] mt-6">
+        <p className="text-xs text-[hsl(var(--slide-muted))] mt-4">
           All composable. All keyboard-navigable. All focus-trapped where needed. All themable from one token file.
         </p>
       </div>

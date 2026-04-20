@@ -11,11 +11,11 @@ const sources = [
 export default function ImportSources() {
   return (
     <SlideLayout chapter="Chapter 16 · Import / Export" pageLabel="16.01">
-      <div className="h-full flex flex-col pt-12">
-        <h1 className="text-7xl font-bold tracking-tight mb-3">
+      <div className="h-full flex flex-col pt-10">
+        <h1 className="text-6xl font-bold tracking-tight mb-2">
           Four importers · <span className="text-[hsl(var(--slide-accent))]">covers 90% of users</span>
         </h1>
-        <p className="text-2xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8 max-w-5xl">
           Every importer normalizes to the same canonical shape, then runs through the same dedup pipeline.
         </p>
         <div className="grid grid-cols-2 gap-6 flex-1">
