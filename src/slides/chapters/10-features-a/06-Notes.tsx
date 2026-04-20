@@ -68,6 +68,18 @@ for our Team plan.
             </div>
           </div>
         </div>
+
+        <div className="mt-4 rounded-xl border border-[hsl(var(--slide-accent)_/_0.4)] bg-[hsl(var(--slide-accent)_/_0.05)] p-3">
+          <div className="text-[10px] uppercase tracking-widest text-[hsl(var(--slide-accent))] font-semibold mb-1.5">Endpoints</div>
+          <div className="grid grid-cols-2 gap-x-6 gap-y-0.5 font-mono text-[11px] text-[hsl(var(--slide-fg))]/85">
+            <div><span className="text-[hsl(var(--slide-accent))]">PUT</span> /v1/items/:id/note  <span className="text-[hsl(var(--slide-muted))]">· upsert private note</span></div>
+            <div><span className="text-[hsl(var(--slide-accent))]">PUT</span> /v1/collections/:id/description  <span className="text-[hsl(var(--slide-muted))]">· upsert public desc</span></div>
+            <div><span className="text-[hsl(var(--slide-accent))]">GET</span> /v1/items/:id/note</div>
+            <div><span className="text-[hsl(var(--slide-accent))]">GET</span> /v1/collections/:id/description</div>
+            <div><span className="text-[hsl(var(--slide-accent))]">DELETE</span> /v1/items/:id/note</div>
+            <div><span className="text-[hsl(var(--slide-accent))]">DELETE</span> /v1/collections/:id/description</div>
+          </div>
+        </div>
       </div>
     </SlideLayout>
   );
