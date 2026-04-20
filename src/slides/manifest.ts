@@ -87,6 +87,10 @@ import StPlanPicker from "./chapters/15-settings/02-PlanPicker";
 import StBillingPortal from "./chapters/15-settings/03-BillingPortal";
 import StSeatManagement from "./chapters/15-settings/04-SeatManagement";
 import StDowngradeFlow from "./chapters/15-settings/05-DowngradeFlow";
+import IeImportSources from "./chapters/16-import-export/01-ImportSources";
+import IeDedupAlgorithm from "./chapters/16-import-export/02-DedupAlgorithm";
+import IeExportPipeline from "./chapters/16-import-export/03-ExportPipeline";
+import IeGdprExport from "./chapters/16-import-export/04-GdprExport";
 
 export interface SlideEntry {
   id: string;
@@ -118,6 +122,7 @@ const sharing = C(12, "Sharing & Collaboration");
 const history = C(13, "History, Activity & Conflicts");
 const updates = C(14, "Updates & Release Channels");
 const settings = C(15, "Settings, Pricing & Plans");
+const importExport = C(16, "Import / Export");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
@@ -238,6 +243,12 @@ export const slides: SlideEntry[] = [
   settings("st-billing", "Billing portal", StBillingPortal),
   settings("st-seats", "Seat management", StSeatManagement),
   settings("st-downgrade", "Downgrade flow", StDowngradeFlow),
+
+  // Ch 16
+  importExport("ie-sources", "Four importers", IeImportSources),
+  importExport("ie-dedup", "Dedup pipeline", IeDedupAlgorithm),
+  importExport("ie-export", "Export · 4 formats", IeExportPipeline),
+  importExport("ie-gdpr", "Account export & deletion", IeGdprExport),
 ];
 
 export const chapters = Array.from(
