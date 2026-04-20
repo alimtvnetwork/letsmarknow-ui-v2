@@ -5,9 +5,9 @@ type: feature
 ---
 # LMN Frontend Walkthrough Deck — Status
 
-Total: **103 slides across 19 chapters**. Deck COMPLETE.
+Total: **104 slides across 19 chapters** (incl. cover + TOC). Deck COMPLETE.
 
-- ✅ Ch 0  — Cover (1)
+- ✅ Ch 0  — Cover + TOC (2)
 - ✅ Ch 1  — Vision & Personas (5)
 - ✅ Ch 2  — Vocabulary (3)
 - ✅ Ch 3  — Roles & Permissions (3)
@@ -28,9 +28,9 @@ Total: **103 slides across 19 chapters**. Deck COMPLETE.
 - ✅ Ch 18 — Design System Primer (5)
 - ✅ Ch 19 — Closing (3)
 
-## Suggested next actions (deck complete)
-- TOC slide auto-generated from `chapters` array, inserted after cover.
-- Chapter-divider template (huge number + title) before each chapter.
-- Presenter-notes panel under canvas in Present mode (reads `notes` from manifest).
-- Export to PDF/PPTX pipeline.
-- Keyboard nav polish: number-key chapter jump, `g` for goto.
+## Remaining polish backlog (deck content done)
+- ⬜ Chapter-divider template (huge number + title + one-line summary) before each chapter.
+- ⬜ Presenter-notes panel under canvas in Present mode (reads `notes` from manifest).
+- ⬜ PDF/PPTX export pipeline (1920x1080 → deck.pdf).
+- ⬜ Keyboard nav polish: number-key chapter jump, `g` for goto-by-id.
+- ⬜ Per-slide deep-link URL state (`/?s=hier-six-levels`).
