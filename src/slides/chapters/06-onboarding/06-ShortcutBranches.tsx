@@ -6,9 +6,9 @@ export default function OnboardingShortcutBranches() {
     <SlideLayout chapter="Chapter 6 · Onboarding" pageLabel="06.06">
       <div className="h-full flex flex-col pt-12">
         <h1 className="text-6xl font-bold tracking-tight mb-3">
-          Shortcut branches · <span className="text-[hsl(var(--slide-accent))]">invite & install entries</span>
+          Alternative entry paths · <span className="text-[hsl(var(--slide-accent))]">invite-first and extension-first</span>
         </h1>
-        <p className="text-xl text-[hsl(var(--slide-muted))] mb-12">Two side-doors collapse the funnel. Both still land at 'first save'.</p>
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-12">This is not another install slide. It shows the two alternate ways a user can enter onboarding and still land at the same first-save destination.</p>
         <div className="grid grid-cols-2 gap-8 flex-1">
           {[
             { icon: Mail, title: "Invite branch", entry: "/invite/:token", flow: ["Click invite link in email", "Sign in or sign up (token preserved)", "Auto-join Org · skip 'pick Space'", "Tour shared Collections · install extension", "Done"] },
