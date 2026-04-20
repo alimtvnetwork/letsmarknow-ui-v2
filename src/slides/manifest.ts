@@ -29,6 +29,14 @@ import BringBookmarks from "./chapters/06-onboarding/03-BringBookmarks";
 import InstallExtension from "./chapters/06-onboarding/04-InstallExtension";
 import TryIt from "./chapters/06-onboarding/05-TryIt";
 import ShortcutBranches from "./chapters/06-onboarding/06-ShortcutBranches";
+import ExtSurfaces from "./chapters/07-extension/01-Surfaces";
+import ExtManifest from "./chapters/07-extension/02-Manifest";
+import ExtPopup from "./chapters/07-extension/03-Popup";
+import ExtNewTab from "./chapters/07-extension/04-NewTab";
+import ExtSidePanel from "./chapters/07-extension/05-SidePanel";
+import ExtOmnibox from "./chapters/07-extension/06-Omnibox";
+import ExtContextMenu from "./chapters/07-extension/07-ContextMenu";
+import ExtKeyboardShortcuts from "./chapters/07-extension/08-KeyboardShortcuts";
 
 export interface SlideEntry {
   id: string;
@@ -86,6 +94,16 @@ export const slides: SlideEntry[] = [
   { id: "onboarding-step-3", title: "Install extension", chapter: "Onboarding", chapterNumber: 6, component: InstallExtension },
   { id: "onboarding-step-4", title: "Try it", chapter: "Onboarding", chapterNumber: 6, component: TryIt },
   { id: "onboarding-shortcuts", title: "Invite & install branches", chapter: "Onboarding", chapterNumber: 6, component: ShortcutBranches },
+
+  // ── Chapter 7 — Extension Surfaces ─────────────────────────────
+  { id: "ext-surfaces", title: "Eight surfaces", chapter: "Extension Surfaces", chapterNumber: 7, component: ExtSurfaces, notes: "Popup, new-tab, side panel, omnibox, context menu, shortcuts, notifications, options." },
+  { id: "ext-manifest", title: "Manifest v3", chapter: "Extension Surfaces", chapterNumber: 7, component: ExtManifest },
+  { id: "ext-popup", title: "Toolbar popup", chapter: "Extension Surfaces", chapterNumber: 7, component: ExtPopup },
+  { id: "ext-newtab", title: "New tab dashboard", chapter: "Extension Surfaces", chapterNumber: 7, component: ExtNewTab },
+  { id: "ext-sidepanel", title: "Side panel", chapter: "Extension Surfaces", chapterNumber: 7, component: ExtSidePanel },
+  { id: "ext-omnibox", title: "Omnibox", chapter: "Extension Surfaces", chapterNumber: 7, component: ExtOmnibox },
+  { id: "ext-contextmenu", title: "Context menu", chapter: "Extension Surfaces", chapterNumber: 7, component: ExtContextMenu },
+  { id: "ext-shortcuts", title: "Keyboard shortcuts", chapter: "Extension Surfaces", chapterNumber: 7, component: ExtKeyboardShortcuts },
 ];
 
 export const chapters = Array.from(
