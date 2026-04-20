@@ -264,6 +264,13 @@ export const slides: SlideEntry[] = [
   pwa("pwa-install", "Install prompt", PwaInstallPrompt),
   pwa("pwa-offline", "Offline strategy", PwaOfflineStrategy),
   pwa("pwa-mobile", "Mobile gestures", PwaMobileGestures),
+
+  // Ch 18
+  ds("ds-color", "Color tokens · HSL only", DsColorTokens),
+  ds("ds-type", "Type · spacing · radius", DsTypographySpacing),
+  ds("ds-components", "Component library", DsComponentLibrary),
+  ds("ds-motion", "Motion tokens", DsMotionTokens),
+  ds("ds-locked", "Locked rules", DsLockedRules),
 ];
 
 export const chapters = Array.from(
