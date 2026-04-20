@@ -87,6 +87,10 @@ import StPlanPicker from "./chapters/15-settings/02-PlanPicker";
 import StBillingPortal from "./chapters/15-settings/03-BillingPortal";
 import StSeatManagement from "./chapters/15-settings/04-SeatManagement";
 import StDowngradeFlow from "./chapters/15-settings/05-DowngradeFlow";
+import IeImportSources from "./chapters/16-import-export/01-ImportSources";
+import IeDedupAlgorithm from "./chapters/16-import-export/02-DedupAlgorithm";
+import IeExportPipeline from "./chapters/16-import-export/03-ExportPipeline";
+import IeGdprExport from "./chapters/16-import-export/04-GdprExport";
 
 export interface SlideEntry {
   id: string;
