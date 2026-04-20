@@ -1,7 +1,7 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
 import { Hash, Combine, Trash2 } from "lucide-react";
 
-const sampleTags = ["react", "design-system", "spec", "auth", "billing", "marketing", "perf", "a11y"];
+const sampleTags = ["react", "design-system", "spec"];
 
 export default function Tags() {
   return (
@@ -10,9 +10,7 @@ export default function Tags() {
         <h1 className="text-6xl font-bold tracking-tight mb-3">
           Tags · <span className="text-[hsl(var(--slide-accent))]">flat, fast, mergeable</span>
         </h1>
-        <p className="text-xl text-[hsl(var(--slide-muted))] mb-10">
-          One namespace per Org. No hierarchy. Rename merges. Delete detaches.
-        </p>
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-10">One namespace per Org. No hierarchy. Rename merges. Delete detaches.</p>
 
         <div className="grid grid-cols-2 gap-6 flex-1">
           <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6 flex flex-col">
@@ -23,17 +21,10 @@ export default function Tags() {
             <div className="rounded-lg border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-bg))] p-3 mb-4">
               <div className="text-xs text-[hsl(var(--slide-muted))] mb-2">Tags</div>
               <div className="flex flex-wrap gap-1.5 mb-2">
-                {sampleTags.slice(0, 3).map((t) => (
-                  <span
-                    key={t}
-                    className="px-2 py-0.5 rounded text-xs font-mono bg-[hsl(var(--slide-accent)_/_0.15)] text-[hsl(var(--slide-accent))] border border-[hsl(var(--slide-accent)_/_0.3)]"
-                  >
-                    #{t}
-                  </span>
+                {sampleTags.map((t) => (
+                  <span key={t} className="px-2 py-0.5 rounded text-xs font-mono bg-[hsl(var(--slide-accent)_/_0.15)] text-[hsl(var(--slide-accent))] border border-[hsl(var(--slide-accent)_/_0.3)]">#{t}</span>
                 ))}
-                <span className="px-2 py-0.5 text-xs font-mono text-[hsl(var(--slide-muted))]">
-                  des|
-                </span>
+                <span className="px-2 py-0.5 text-xs font-mono text-[hsl(var(--slide-muted))]">des|</span>
               </div>
               <div className="border-t border-[hsl(var(--slide-border))] pt-2 space-y-1 text-sm">
                 <div className="px-2 py-1 rounded bg-[hsl(var(--slide-surface-2))] flex items-center justify-between">
@@ -62,9 +53,7 @@ export default function Tags() {
                 <span className="font-semibold text-lg">Rename = merge</span>
               </div>
               <div className="text-sm text-[hsl(var(--slide-fg))]/85 space-y-2">
-                <div>
-                  Renaming <code className="font-mono">react</code> → <code className="font-mono">reactjs</code>:
-                </div>
+                <div>Renaming <code className="font-mono">react</code> → <code className="font-mono">reactjs</code>:</div>
                 <ul className="ml-4 space-y-1 text-[hsl(var(--slide-fg))]/75">
                   <li>• If <code className="font-mono">reactjs</code> exists → all items merge into it</li>
                   <li>• If not → simple rename, same UUID</li>
@@ -79,14 +68,10 @@ export default function Tags() {
                 <Trash2 className="w-5 h-5 text-[hsl(var(--slide-accent))]" />
                 <span className="font-semibold text-lg">Delete = detach</span>
               </div>
-              <div className="text-sm text-[hsl(var(--slide-fg))]/85">
-                Tag is removed from every item in one transaction. Items themselves stay. Undo restores all attachments.
-              </div>
+              <div className="text-sm text-[hsl(var(--slide-fg))]/85">Tag is removed from every item in one transaction. Items themselves stay. Undo restores all attachments.</div>
             </div>
 
-            <div className="rounded-xl border border-[hsl(var(--slide-border))] p-4 text-xs text-[hsl(var(--slide-muted))]">
-              Org-wide singleton. Two members tagging the same word produce one tag, not two.
-            </div>
+            <div className="rounded-xl border border-[hsl(var(--slide-border))] p-4 text-xs text-[hsl(var(--slide-muted))]">Org-wide singleton. Two members tagging the same word produce one tag, not two.</div>
           </div>
         </div>
       </div>

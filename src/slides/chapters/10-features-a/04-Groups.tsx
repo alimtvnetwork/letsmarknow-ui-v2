@@ -7,15 +7,11 @@ export default function Groups() {
         <h1 className="text-6xl font-bold tracking-tight mb-3">
           Groups · <span className="text-[hsl(var(--slide-accent))]">optional one level of structure</span>
         </h1>
-        <p className="text-xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">
-          A Group is a labelled bucket inside a Collection. v1 forbids Group-in-Group — keeps the column view sane.
-        </p>
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-10 max-w-5xl">A Group is a labelled bucket inside a Collection. v1 forbids Group-in-Group — keeps the column view sane.</p>
 
         <div className="grid grid-cols-2 gap-6 flex-1">
           <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6">
-            <div className="text-sm uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-4">
-              Allowed
-            </div>
+            <div className="text-sm uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-4">Allowed</div>
             <pre className="text-sm font-mono leading-relaxed text-[hsl(var(--slide-fg))]/90">{`Collection "React"
 ├── Group "Hooks"
 │   ├── Item useEffect docs
@@ -32,30 +28,22 @@ export default function Groups() {
           </div>
 
           <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-6">
-            <div className="text-sm uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-4">
-              Forbidden in v1
-            </div>
+            <div className="text-sm uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-4">Forbidden in v1</div>
             <pre className="text-sm font-mono leading-relaxed text-[hsl(var(--slide-muted))]/80 line-through">{`Collection "X"
 └── Group "Outer"
     └── Group "Inner"   ← rejected
         └── Item …`}</pre>
             <div className="mt-5 space-y-3 text-sm text-[hsl(var(--slide-fg))]/85">
               <div className="rounded-lg border border-[hsl(var(--slide-border))] p-3">
-                <div className="text-[hsl(var(--slide-accent))] text-xs uppercase tracking-widest mb-1">
-                  Why
-                </div>
+                <div className="text-[hsl(var(--slide-accent))] text-xs uppercase tracking-widest mb-1">Why</div>
                 Column view assumes flat groups. Nested groups would force a tree-in-tree control we are not building in v1.
               </div>
               <div className="rounded-lg border border-[hsl(var(--slide-border))] p-3">
-                <div className="text-[hsl(var(--slide-accent))] text-xs uppercase tracking-widest mb-1">
-                  Workaround
-                </div>
+                <div className="text-[hsl(var(--slide-accent))] text-xs uppercase tracking-widest mb-1">Workaround</div>
                 Use a sub-Collection. Move is one drag.
               </div>
               <div className="rounded-lg border border-[hsl(var(--slide-border))] p-3">
-                <div className="text-[hsl(var(--slide-accent))] text-xs uppercase tracking-widest mb-1">
-                  Re-evaluate
-                </div>
+                <div className="text-[hsl(var(--slide-accent))] text-xs uppercase tracking-widest mb-1">Re-evaluate</div>
                 Phase 3 if &gt; 5% of users request it (instrumented event <code className="font-mono">attempt_nested_group</code>).
               </div>
             </div>

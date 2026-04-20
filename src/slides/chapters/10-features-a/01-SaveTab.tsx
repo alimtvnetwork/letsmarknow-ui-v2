@@ -23,19 +23,14 @@ export default function SaveTab() {
           {triggers.map((t) => {
             const Icon = t.icon;
             return (
-              <div
-                key={t.name}
-                className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-7 flex gap-5"
-              >
+              <div key={t.name} className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-7 flex gap-5">
                 <div className="w-16 h-16 rounded-xl bg-[hsl(var(--slide-accent)_/_0.12)] flex items-center justify-center shrink-0">
                   <Icon className="w-8 h-8 text-[hsl(var(--slide-accent))]" />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="text-2xl font-bold">{t.name}</div>
-                    <code className="text-sm font-mono px-2 py-0.5 rounded bg-[hsl(var(--slide-surface-2))] text-[hsl(var(--slide-accent))]">
-                      {t.chord}
-                    </code>
+                    <code className="text-sm font-mono px-2 py-0.5 rounded bg-[hsl(var(--slide-surface-2))] text-[hsl(var(--slide-accent))]">{t.chord}</code>
                   </div>
                   <div className="text-base text-[hsl(var(--slide-fg))]/80">{t.detail}</div>
                 </div>

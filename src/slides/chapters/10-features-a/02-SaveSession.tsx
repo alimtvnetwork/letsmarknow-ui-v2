@@ -19,9 +19,7 @@ export default function SaveSession() {
         <h1 className="text-6xl font-bold tracking-tight mb-3">
           Save session · <span className="text-[hsl(var(--slide-accent))]">whole window, one Collection</span>
         </h1>
-        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8">
-          Window scan → smart filter → preview → confirm. One undo erases the entire batch.
-        </p>
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8">Window scan → smart filter → preview → confirm. One undo erases the entire batch.</p>
 
         <div className="grid grid-cols-5 gap-6 flex-1">
           <div className="col-span-3 rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex flex-col">
@@ -32,20 +30,8 @@ export default function SaveSession() {
             </div>
             <div className="space-y-1.5 flex-1 overflow-auto">
               {tabs.map((t) => (
-                <div
-                  key={t.title}
-                  className={`flex items-center gap-3 px-3 py-2 rounded-lg border ${
-                    t.keep
-                      ? "border-[hsl(var(--slide-accent)_/_0.4)] bg-[hsl(var(--slide-accent)_/_0.06)]"
-                      : "border-[hsl(var(--slide-border))] opacity-50"
-                  }`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={t.keep}
-                    readOnly
-                    className="accent-[hsl(var(--slide-accent))]"
-                  />
+                <div key={t.title} className={`flex items-center gap-3 px-3 py-2 rounded-lg border ${t.keep ? "border-[hsl(var(--slide-accent)_/_0.4)] bg-[hsl(var(--slide-accent)_/_0.06)]" : "border-[hsl(var(--slide-border))] opacity-50"}`}>
+                  <input type="checkbox" checked={t.keep} readOnly className="accent-[hsl(var(--slide-accent))]" />
                   <div className="w-3 h-3 rounded-sm bg-[hsl(var(--slide-muted)_/_0.5)]" />
                   <div className="flex-1 min-w-0">
                     <div className="text-sm font-medium truncate">{t.title}</div>
@@ -73,12 +59,8 @@ export default function SaveSession() {
 
             <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5">
               <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] mb-2">Destination</div>
-              <div className="px-3 py-2 rounded-lg border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface-2))] text-sm">
-                Personal · <strong>Reading queue</strong>
-              </div>
-              <button className="mt-4 w-full px-4 py-3 rounded-lg bg-[hsl(var(--slide-accent))] text-[hsl(var(--slide-bg))] font-semibold">
-                Save 5 tabs to Collection
-              </button>
+              <div className="px-3 py-2 rounded-lg border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface-2))] text-sm">Personal · <strong>Reading queue</strong></div>
+              <button className="mt-4 w-full px-4 py-3 rounded-lg bg-[hsl(var(--slide-accent))] text-[hsl(var(--slide-bg))] font-semibold">Save 5 tabs to Collection</button>
             </div>
 
             <div className="rounded-xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface)_/_0.5)] p-3 flex items-center gap-3 text-xs text-[hsl(var(--slide-fg))]/85">

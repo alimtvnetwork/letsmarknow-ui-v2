@@ -56,6 +56,13 @@ import FaGroups from "./chapters/10-features-a/04-Groups";
 import FaTags from "./chapters/10-features-a/05-Tags";
 import FaNotes from "./chapters/10-features-a/06-Notes";
 import FaBulkOps from "./chapters/10-features-a/07-BulkOps";
+import FbQuickFind from "./chapters/11-features-b/01-QuickFind";
+import FbSearchFilters from "./chapters/11-features-b/02-SearchFilters";
+import FbViewModesOverview from "./chapters/11-features-b/03-ViewModesOverview";
+import FbListGridCompact from "./chapters/11-features-b/04-ListGridCompact";
+import FbMindmapView from "./chapters/11-features-b/05-MindmapView";
+import FbHoverToJump from "./chapters/11-features-b/06-HoverToJump";
+import FbEmbedsPreviews from "./chapters/11-features-b/07-EmbedsPreviews";
 
 export interface SlideEntry {
   id: string;
@@ -82,6 +89,7 @@ const extension = C(7, "Extension Surfaces");
 const webapp = C(8, "Web App Shell & Routes");
 const hierarchy = C(9, "Browsing Hierarchy");
 const featuresA = C(10, "Capture & Organize");
+const featuresB = C(11, "Find & Visualize");
 
 export const slides: SlideEntry[] = [
   intro("cover", "Cover", CoverSlide),
@@ -161,6 +169,15 @@ export const slides: SlideEntry[] = [
   featuresA("fa-tags", "Tags · merge & detach", FaTags),
   featuresA("fa-notes", "Notes & descriptions", FaNotes),
   featuresA("fa-bulk-ops", "Bulk operations", FaBulkOps),
+
+  // Ch 11
+  featuresB("fb-quick-find", "Quick find", FbQuickFind),
+  featuresB("fb-search-filters", "Search filters", FbSearchFilters),
+  featuresB("fb-view-modes", "View modes overview", FbViewModesOverview),
+  featuresB("fb-list-grid-compact", "List · Grid · Compact", FbListGridCompact),
+  featuresB("fb-mindmap", "Mind-map view", FbMindmapView),
+  featuresB("fb-hover-jump", "Hover to jump", FbHoverToJump),
+  featuresB("fb-embeds", "Embeds & previews", FbEmbedsPreviews),
 ];
 
 export const chapters = Array.from(

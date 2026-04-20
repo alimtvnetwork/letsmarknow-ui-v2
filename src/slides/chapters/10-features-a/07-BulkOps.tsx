@@ -15,9 +15,7 @@ export default function BulkOps() {
         <h1 className="text-6xl font-bold tracking-tight mb-3">
           Bulk operations · <span className="text-[hsl(var(--slide-accent))]">select once, act once</span>
         </h1>
-        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8">
-          Click → Shift-click → Cmd-click. Action bar slides in. One <code className="font-mono">correlation_id</code> for clean undo.
-        </p>
+        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8">Click → Shift-click → Cmd-click. Action bar slides in. One <code className="font-mono">correlation_id</code> for clean undo.</p>
 
         <div className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] overflow-hidden flex-1 flex flex-col">
           <div className="px-5 py-3 border-b border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface-2))] flex items-center gap-3">
@@ -28,10 +26,7 @@ export default function BulkOps() {
               {actions.map((a) => {
                 const Icon = a.icon;
                 return (
-                  <button
-                    key={a.label}
-                    className="px-3 py-1.5 rounded-lg border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-bg))] flex items-center gap-2 text-sm hover:border-[hsl(var(--slide-accent))]"
-                  >
+                  <button key={a.label} className="px-3 py-1.5 rounded-lg border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-bg))] flex items-center gap-2 text-sm hover:border-[hsl(var(--slide-accent))]">
                     <Icon className="w-4 h-4 text-[hsl(var(--slide-accent))]" />
                     {a.label}
                     <code className="text-xs font-mono text-[hsl(var(--slide-muted))]">{a.chord}</code>
@@ -45,20 +40,8 @@ export default function BulkOps() {
             {Array.from({ length: 18 }).map((_, i) => {
               const selected = i < 12;
               return (
-                <div
-                  key={i}
-                  className={`rounded-lg border px-3 py-2.5 flex items-center gap-3 ${
-                    selected
-                      ? "border-[hsl(var(--slide-accent)_/_0.5)] bg-[hsl(var(--slide-accent)_/_0.07)]"
-                      : "border-[hsl(var(--slide-border))]"
-                  }`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={selected}
-                    readOnly
-                    className="accent-[hsl(var(--slide-accent))]"
-                  />
+                <div key={i} className={`rounded-lg border px-3 py-2.5 flex items-center gap-3 ${selected ? "border-[hsl(var(--slide-accent)_/_0.5)] bg-[hsl(var(--slide-accent)_/_0.07)]" : "border-[hsl(var(--slide-border))]"}`}>
+                  <input type="checkbox" checked={selected} readOnly className="accent-[hsl(var(--slide-accent))]" />
                   <div className="w-3 h-3 rounded-sm bg-[hsl(var(--slide-muted)_/_0.5)] shrink-0" />
                   <div className="flex-1 min-w-0">
                     <div className="text-sm font-medium truncate">Article #{i + 1} — saved last week</div>
