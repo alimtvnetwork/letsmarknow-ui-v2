@@ -16,6 +16,33 @@ import Pricing from "./chapters/04-marketing/02-Pricing";
 import Comparison from "./chapters/04-marketing/03-Comparison";
 import Welcome from "./chapters/04-marketing/04-Welcome";
 import Trust from "./chapters/04-marketing/05-Trust";
+import AuthMethods from "./chapters/05-auth/01-AuthMethods";
+import AuthSignup from "./chapters/05-auth/02-Signup";
+import AuthMagicLink from "./chapters/05-auth/03-MagicLink";
+import AuthMFA from "./chapters/05-auth/04-MFA";
+import AuthSessions from "./chapters/05-auth/05-Sessions";
+import AuthPasswordReset from "./chapters/05-auth/06-PasswordReset";
+import AuthAccountDeletion from "./chapters/05-auth/07-AccountDeletion";
+import OnboardingBranches from "./chapters/06-onboarding/01-Branches";
+import OnboardingPickStartingSpace from "./chapters/06-onboarding/02-PickStartingSpace";
+import OnboardingBringBookmarks from "./chapters/06-onboarding/03-BringBookmarks";
+import OnboardingInstallExtension from "./chapters/06-onboarding/04-InstallExtension";
+import OnboardingTryIt from "./chapters/06-onboarding/05-TryIt";
+import OnboardingShortcutBranches from "./chapters/06-onboarding/06-ShortcutBranches";
+import ExtSurfaces from "./chapters/07-extension/01-Surfaces";
+import ExtManifest from "./chapters/07-extension/02-Manifest";
+import ExtPopup from "./chapters/07-extension/03-Popup";
+import ExtNewTab from "./chapters/07-extension/04-NewTab";
+import ExtSidePanel from "./chapters/07-extension/05-SidePanel";
+import ExtOmnibox from "./chapters/07-extension/06-Omnibox";
+import ExtContextMenu from "./chapters/07-extension/07-ContextMenu";
+import ExtKeyboardShortcuts from "./chapters/07-extension/08-KeyboardShortcuts";
+import WebTwoDomains from "./chapters/08-webapp/01-TwoDomains";
+import WebRoutesMap from "./chapters/08-webapp/02-RoutesMap";
+import WebAppShell from "./chapters/08-webapp/03-AppShell";
+import WebDashboardDeltas from "./chapters/08-webapp/04-DashboardDeltas";
+import WebCommandPalette from "./chapters/08-webapp/05-CommandPalette";
+import WebUrlStatePwa from "./chapters/08-webapp/06-UrlStatePwa";
 
 export interface SlideEntry {
   id: string;
@@ -26,139 +53,84 @@ export interface SlideEntry {
   notes?: string;
 }
 
-/**
- * Ordered manifest of all slides in the deck.
- * Add new slides here in chapter order.
- */
+const C = (chapterNumber: number, chapter: string) =>
+  (id: string, title: string, component: ComponentType, notes?: string): SlideEntry => ({
+    id, title, chapter, chapterNumber, component, notes,
+  });
+
+const intro = C(0, "Intro");
+const vision = C(1, "Vision & Personas");
+const vocab = C(2, "Vocabulary");
+const roles = C(3, "Roles & Permissions");
+const marketing = C(4, "Marketing & First Touch");
+const auth = C(5, "Auth & Account Lifecycle");
+const onboarding = C(6, "Onboarding");
+const extension = C(7, "Extension Surfaces");
+const webapp = C(8, "Web App Shell & Routes");
+
 export const slides: SlideEntry[] = [
-  {
-    id: "cover",
-    title: "Cover",
-    chapter: "Intro",
-    chapterNumber: 0,
-    component: CoverSlide,
-  },
-  // ── Chapter 1 — Vision & Personas ─────────────────────────────
-  {
-    id: "vision-hero",
-    title: "Vision",
-    chapter: "Vision & Personas",
-    chapterNumber: 1,
-    component: VisionHero,
-    notes: "One-line pitch. Replacement for Toby + Tab Extend.",
-  },
-  {
-    id: "vision-problem",
-    title: "The Problem",
-    chapter: "Vision & Personas",
-    chapterNumber: 1,
-    component: Problem,
-  },
-  {
-    id: "vision-solution",
-    title: "The Vision",
-    chapter: "Vision & Personas",
-    chapterNumber: 1,
-    component: Solution,
-  },
-  {
-    id: "vision-personas",
-    title: "Personas",
-    chapter: "Vision & Personas",
-    chapterNumber: 1,
-    component: Personas,
-  },
-  {
-    id: "vision-anti",
-    title: "Anti-personas",
-    chapter: "Vision & Personas",
-    chapterNumber: 1,
-    component: AntiPersonas,
-  },
-  // ── Chapter 2 — Vocabulary ─────────────────────────────────────
-  {
-    id: "vocab-hierarchy",
-    title: "Hierarchy",
-    chapter: "Vocabulary",
-    chapterNumber: 2,
-    component: Hierarchy,
-  },
-  {
-    id: "vocab-glossary",
-    title: "Glossary",
-    chapter: "Vocabulary",
-    chapterNumber: 2,
-    component: Glossary,
-  },
-  {
-    id: "vocab-forbidden",
-    title: "Forbidden synonyms",
-    chapter: "Vocabulary",
-    chapterNumber: 2,
-    component: Forbidden,
-  },
-  // ── Chapter 3 — Roles & Permissions ────────────────────────────
-  {
-    id: "roles-overview",
-    title: "Seven roles",
-    chapter: "Roles & Permissions",
-    chapterNumber: 3,
-    component: RolesOverview,
-  },
-  {
-    id: "roles-matrix",
-    title: "Permission matrix",
-    chapter: "Roles & Permissions",
-    chapterNumber: 3,
-    component: PermissionMatrix,
-  },
-  {
-    id: "roles-edge",
-    title: "Guest & system",
-    chapter: "Roles & Permissions",
-    chapterNumber: 3,
-    component: GuestSystem,
-  },
-  // ── Chapter 4 — Marketing Site & First Touch ───────────────────
-  {
-    id: "marketing-home",
-    title: "Marketing home",
-    chapter: "Marketing & First Touch",
-    chapterNumber: 4,
-    component: MarketingHome,
-  },
-  {
-    id: "marketing-pricing",
-    title: "Pricing",
-    chapter: "Marketing & First Touch",
-    chapterNumber: 4,
-    component: Pricing,
-  },
-  {
-    id: "marketing-comparison",
-    title: "Comparison",
-    chapter: "Marketing & First Touch",
-    chapterNumber: 4,
-    component: Comparison,
-  },
-  {
-    id: "marketing-welcome",
-    title: "/welcome",
-    chapter: "Marketing & First Touch",
-    chapterNumber: 4,
-    component: Welcome,
-  },
-  {
-    id: "marketing-trust",
-    title: "Trust pages",
-    chapter: "Marketing & First Touch",
-    chapterNumber: 4,
-    component: Trust,
-  },
+  intro("cover", "Cover", CoverSlide),
+
+  // Ch 1
+  vision("vision-hero", "Vision", VisionHero, "One-line pitch. Replacement for Toby + Tab Extend."),
+  vision("vision-problem", "The Problem", Problem),
+  vision("vision-solution", "The Vision", Solution),
+  vision("vision-personas", "Personas", Personas),
+  vision("vision-anti", "Anti-personas", AntiPersonas),
+
+  // Ch 2
+  vocab("vocab-hierarchy", "Hierarchy", Hierarchy),
+  vocab("vocab-glossary", "Glossary", Glossary),
+  vocab("vocab-forbidden", "Forbidden synonyms", Forbidden),
+
+  // Ch 3
+  roles("roles-overview", "Seven roles", RolesOverview),
+  roles("roles-matrix", "Permission matrix", PermissionMatrix),
+  roles("roles-edge", "Guest & system", GuestSystem),
+
+  // Ch 4
+  marketing("marketing-home", "Marketing home", MarketingHome),
+  marketing("marketing-pricing", "Pricing", Pricing),
+  marketing("marketing-comparison", "Comparison", Comparison),
+  marketing("marketing-welcome", "/welcome", Welcome),
+  marketing("marketing-trust", "Trust pages", Trust),
+
+  // Ch 5
+  auth("auth-methods", "Auth methods", AuthMethods),
+  auth("auth-signup", "Signup flow", AuthSignup),
+  auth("auth-magic", "Magic link", AuthMagicLink),
+  auth("auth-mfa", "MFA", AuthMFA),
+  auth("auth-sessions", "Sessions & devices", AuthSessions),
+  auth("auth-reset", "Password reset", AuthPasswordReset),
+  auth("auth-deletion", "Deletion & GDPR", AuthAccountDeletion),
+
+  // Ch 6
+  onboarding("onb-branches", "Three branches", OnboardingBranches),
+  onboarding("onb-pick-space", "Pick starting Space", OnboardingPickStartingSpace),
+  onboarding("onb-bookmarks", "Bring bookmarks", OnboardingBringBookmarks),
+  onboarding("onb-install", "Install extension", OnboardingInstallExtension),
+  onboarding("onb-try", "Try it now", OnboardingTryIt),
+  onboarding("onb-shortcut", "Invite & install branches", OnboardingShortcutBranches),
+
+  // Ch 7
+  extension("ext-surfaces", "Eight surfaces", ExtSurfaces),
+  extension("ext-manifest", "Manifest v3", ExtManifest),
+  extension("ext-popup", "Toolbar popup", ExtPopup),
+  extension("ext-newtab", "New tab dashboard", ExtNewTab),
+  extension("ext-sidepanel", "Side panel", ExtSidePanel),
+  extension("ext-omnibox", "Omnibox", ExtOmnibox),
+  extension("ext-contextmenu", "Context menu", ExtContextMenu),
+  extension("ext-shortcuts", "Keyboard shortcuts", ExtKeyboardShortcuts),
+
+  // Ch 8
+  webapp("web-two-domains", "Two domains", WebTwoDomains, "letsmarknow.com SSR · app.* CSR SPA"),
+  webapp("web-routes", "Routes map", WebRoutesMap),
+  webapp("web-shell", "App shell", WebAppShell),
+  webapp("web-dashboard-deltas", "Dashboard deltas vs ext", WebDashboardDeltas),
+  webapp("web-command-palette", "Command palette + keymap", WebCommandPalette),
+  webapp("web-url-pwa", "URL state & PWA", WebUrlStatePwa),
 ];
 
 export const chapters = Array.from(
-  new Map(
-    slides.map((s) => [s.chapterNumber, { number: s.chapterNumber, title: s.chapter }])
-  ).values()
+  new Map(slides.map((s) => [s.chapterNumber, { number: s.chapterNumber, title: s.chapter }])).values()
 ).sort((a, b) => a.number - b.number);
