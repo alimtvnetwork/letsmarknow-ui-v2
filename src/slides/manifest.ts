@@ -11,6 +11,11 @@ import Forbidden from "./chapters/02-vocabulary/03-Forbidden";
 import RolesOverview from "./chapters/03-roles/01-RolesOverview";
 import PermissionMatrix from "./chapters/03-roles/02-PermissionMatrix";
 import GuestSystem from "./chapters/03-roles/03-GuestSystem";
+import MarketingHome from "./chapters/04-marketing/01-Home";
+import Pricing from "./chapters/04-marketing/02-Pricing";
+import Comparison from "./chapters/04-marketing/03-Comparison";
+import Welcome from "./chapters/04-marketing/04-Welcome";
+import Trust from "./chapters/04-marketing/05-Trust";
 
 export interface SlideEntry {
   id: string;
