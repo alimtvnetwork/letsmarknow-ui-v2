@@ -71,7 +71,19 @@ export default function Tags() {
               <div className="text-sm text-[hsl(var(--slide-fg))]/85">Tag is removed from every item in one transaction. Items themselves stay. Undo restores all attachments.</div>
             </div>
 
-            <div className="rounded-xl border border-[hsl(var(--slide-border))] p-4 text-xs text-[hsl(var(--slide-muted))]">Org-wide singleton. Two members tagging the same word produce one tag, not two.</div>
+            <div className="rounded-xl border border-[hsl(var(--slide-accent)_/_0.4)] bg-[hsl(var(--slide-accent)_/_0.05)] p-3">
+              <div className="text-[10px] uppercase tracking-widest text-[hsl(var(--slide-accent))] font-semibold mb-1.5">Endpoints</div>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-0.5 font-mono text-[11px] text-[hsl(var(--slide-fg))]/85">
+                <div><span className="text-[hsl(var(--slide-accent))]">POST</span> /v1/items/:id/tags</div>
+                <div><span className="text-[hsl(var(--slide-accent))]">DELETE</span> /v1/items/:id/tags/:tag</div>
+                <div><span className="text-[hsl(var(--slide-accent))]">PATCH</span> /v1/orgs/:id/tags/:tag</div>
+                <div><span className="text-[hsl(var(--slide-accent))]">DELETE</span> /v1/orgs/:id/tags/:tag</div>
+                <div><span className="text-[hsl(var(--slide-accent))]">GET</span> /v1/orgs/:id/tags?q=</div>
+                <div className="text-[hsl(var(--slide-muted))]">(autocomplete)</div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-[hsl(var(--slide-border))] p-3 text-xs text-[hsl(var(--slide-muted))]">Org-wide singleton. Two members tagging the same word produce one tag, not two.</div>
           </div>
         </div>
       </div>
