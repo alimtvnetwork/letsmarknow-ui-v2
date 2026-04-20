@@ -69,28 +69,28 @@ const groups = [
 export default function WebRoutesMap() {
   return (
     <SlideLayout chapter="Chapter 8 · Web App Shell" pageLabel="08.02">
-      <div className="h-full flex flex-col pt-12">
-        <h1 className="text-6xl font-bold tracking-tight mb-3">
+      <div className="h-full flex flex-col pt-8">
+        <h1 className="text-5xl font-bold tracking-tight mb-2">
           Routes map · <span className="text-[hsl(var(--slide-accent))]">type-safe with TanStack Router</span>
         </h1>
-        <p className="text-xl text-[hsl(var(--slide-muted))] mb-8 max-w-5xl">
+        <p className="text-lg text-[hsl(var(--slide-muted))] mb-6 max-w-5xl">
           Active Org is <strong>not</strong> in URLs by default — server picks last-used. Pin with <code className="font-mono">?org=slug</code>.
         </p>
 
-        <div className="grid grid-cols-3 gap-5 flex-1">
+        <div className="grid grid-cols-3 grid-rows-2 gap-4 flex-1 min-h-0">
           {groups.map((g) => (
             <div
               key={g.title}
-              className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-5 flex flex-col"
+              className="rounded-2xl border border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] p-4 flex flex-col min-h-0 overflow-hidden"
             >
-              <div className={`text-sm uppercase tracking-widest text-[hsl(var(--slide-accent))] font-semibold mb-3`}>
+              <div className="text-xs uppercase tracking-widest text-[hsl(var(--slide-accent))] font-semibold mb-2">
                 {g.title}
               </div>
-              <div className="space-y-1.5">
+              <div className="space-y-1 flex-1">
                 {g.routes.map(([p, d]) => (
                   <div key={p}>
                     <code className="font-mono text-sm text-[hsl(var(--slide-fg))]">{p}</code>
-                    <div className="text-xs text-[hsl(var(--slide-muted))] pl-2">{d}</div>
+                    <div className="text-xs text-[hsl(var(--slide-muted))] pl-2 leading-tight">{d}</div>
                   </div>
                 ))}
               </div>
