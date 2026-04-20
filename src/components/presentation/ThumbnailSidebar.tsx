@@ -11,9 +11,6 @@ interface Props {
 export function ThumbnailSidebar({ slides, currentIndex, onSelect }: Props) {
   return (
     <aside className="w-[240px] shrink-0 h-full border-r border-[hsl(var(--slide-border))] bg-[hsl(var(--slide-surface))] overflow-y-auto">
-      <div className="px-4 py-3 text-xs uppercase tracking-widest text-[hsl(var(--slide-muted))] font-semibold sticky top-0 bg-[hsl(var(--slide-surface))] border-b border-[hsl(var(--slide-border))] z-10">
-        Slides · {slides.length}
-      </div>
       <ul className="p-3 space-y-2">
         {slides.map((s, i) => {
           const Comp = s.component;
