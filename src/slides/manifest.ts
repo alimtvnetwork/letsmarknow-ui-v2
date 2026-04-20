@@ -162,6 +162,56 @@ export const slides: SlideEntry[] = [
     chapterNumber: 4,
     component: Trust,
   },
+  // ── Chapter 5 — Auth & Account Lifecycle ───────────────────────
+  {
+    id: "auth-methods",
+    title: "Auth methods",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: AuthMethods,
+  },
+  {
+    id: "auth-signup",
+    title: "Signup flow",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: Signup,
+  },
+  {
+    id: "auth-magic-link",
+    title: "Magic link",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: MagicLink,
+  },
+  {
+    id: "auth-mfa",
+    title: "MFA",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: MFA,
+  },
+  {
+    id: "auth-sessions",
+    title: "Sessions & devices",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: Sessions,
+  },
+  {
+    id: "auth-password-reset",
+    title: "Forgot password",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: PasswordReset,
+  },
+  {
+    id: "auth-deletion",
+    title: "Deletion & GDPR",
+    chapter: "Auth & Account Lifecycle",
+    chapterNumber: 5,
+    component: AccountDeletion,
+  },
 ];
 
 export const chapters = Array.from(
