@@ -40,11 +40,11 @@ const STEPS = [
   { key: "notify", label: "6. Notify + realtime", icon: Bell,              tone: "danger" as const },
 ];
 
-const toneColor: Record<string, string> = {
-  accent:  "hsl(var(--slide-accent))",
-  success: "hsl(var(--slide-success))",
-  warning: "hsl(var(--slide-warning))",
-  danger:  "hsl(var(--slide-danger))",
+const toneVar: Record<string, string> = {
+  accent:  "--slide-accent",
+  success: "--slide-success",
+  warning: "--slide-warning",
+  danger:  "--slide-danger",
 };
 
 /**
