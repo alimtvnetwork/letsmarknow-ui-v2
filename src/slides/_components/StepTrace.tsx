@@ -94,7 +94,7 @@ export function StepTrace({
     <div className={cn("grid grid-cols-3 gap-3", className)}>
       {STEPS.map((s) => {
         const Icon = s.icon;
-        const color = toneColor[s.tone];
+        const v = toneVar[s.tone];
         return (
           <div
             key={s.key}
@@ -103,11 +103,11 @@ export function StepTrace({
             <div className="flex items-center gap-2">
               <div
                 className="w-7 h-7 rounded-md flex items-center justify-center shrink-0"
-                style={{ backgroundColor: `${color.replace(")", " / 0.15)")}` }}
+                style={{ backgroundColor: `hsl(var(${v}) / 0.15)` }}
               >
-                <Icon className="w-3.5 h-3.5" style={{ color }} />
+                <Icon className="w-3.5 h-3.5" style={{ color: `hsl(var(${v}))` }} />
               </div>
-              <div className="text-xs uppercase tracking-widest font-semibold" style={{ color }}>
+              <div className="text-xs uppercase tracking-widest font-semibold" style={{ color: `hsl(var(${v}))` }}>
                 {s.label}
               </div>
             </div>
