@@ -56,6 +56,9 @@ import FaGroups from "./chapters/10-features-a/04-Groups";
 import FaTags from "./chapters/10-features-a/05-Tags";
 import FaNotes from "./chapters/10-features-a/06-Notes";
 import FaBulkOps from "./chapters/10-features-a/07-BulkOps";
+import FaShareTrace from "./chapters/10-features-a/08-ShareButtonTrace";
+import FaCreateAccountTrace from "./chapters/10-features-a/09-CreateAccountTrace";
+import FaWorkspaceTrace from "./chapters/10-features-a/10-WorkspaceButtonTrace";
 import FbQuickFind from "./chapters/11-features-b/01-QuickFind";
 import FbSearchFilters from "./chapters/11-features-b/02-SearchFilters";
 import FbViewModesOverview from "./chapters/11-features-b/03-ViewModesOverview";
@@ -215,6 +218,9 @@ export const slides: SlideEntry[] = [
   featuresA("fa-tags", "Tags · merge & detach", FaTags),
   featuresA("fa-notes", "Notes & descriptions", FaNotes),
   featuresA("fa-bulk-ops", "Bulk operations", FaBulkOps),
+  featuresA("fa-share-trace", "Click Share · trace", FaShareTrace),
+  featuresA("fa-account-trace", "Click Create account · trace", FaCreateAccountTrace),
+  featuresA("fa-workspace-trace", "Click Workspace · trace", FaWorkspaceTrace),
 
   // Ch 11
   featuresB("fb-quick-find", "Quick find", FbQuickFind),
