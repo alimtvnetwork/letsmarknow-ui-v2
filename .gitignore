@@ -7,10 +7,27 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+
+# Build & compiled outputs
 dist
 dist-ssr
 *.local
+*.tsbuildinfo
+*.exe
+*.dll
+*.bin
+*.so
+*.dylib
+
+# Test reports & coverage
+coverage/
+*.lcov
+test-results/
+playwright-report/
+blob-report/
+.nyc_output/
 
 # Editor directories and files
 .vscode/*
