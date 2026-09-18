@@ -1,7 +1,7 @@
 import { SlideLayout } from "@/slides/_layout/SlideLayout";
 import { Hash, Combine, Trash2 } from "lucide-react";
 
-const sampleTags = ["react", "design-system", "spec"];
+const sampleTags = ["react", "design-system", "02-spec"];
 
 export default function Tags() {
   return (
